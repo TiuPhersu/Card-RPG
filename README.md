@@ -8,7 +8,7 @@ A hardcore single player RPG using a deck of cards with inctricately designed le
 The player can move in a 3d dimension and can jump in the overworld.
 
 ### CARD BATTLER
-![alt text] (https://github.com/TiuPhersu/Card-RPG/blob/main/Design/Card%20RPG%20Prototype.jpg?raw=true)
+![alt text](https://github.com/TiuPhersu/Card-RPG/blob/main/Design/Card%20RPG%20Prototype.jpg?raw=true)
 #### DECK
 - The player character will start with 10 card set.
 - The pet/companion will have a 5 card set.
