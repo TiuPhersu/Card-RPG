@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://ba2f2ghbuf1mx"]
+
+[ext_resource type="PackedScene" uid="uid://b50dw2h4k4y83" path="res://Scene/Character.tscn" id="1_vlxg3"]
+[ext_resource type="Texture2D" uid="uid://dfaduem1ou8el" path="res://Sprites/Epic_BlueSunset_EquiRect_flat.png" id="2_nbtpi"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eh1p1"]
+panorama = ExtResource("2_nbtpi")
+
+[sub_resource type="Sky" id="Sky_1omo7"]
+sky_material = SubResource("PanoramaSkyMaterial_eh1p1")
+
+[sub_resource type="Environment" id="Environment_c8rxx"]
+background_mode = 2
+sky = SubResource("Sky_1omo7")
+
+[node name="World" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="Tower" type="CSGCylinder3D" parent="CSGBox3D"]
+radius = 2.856
+height = 30.919
+
+[node name="Tower2" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4962, 4.75082, 6.21219)
+radius = 2.856
+height = 30.919
+
+[node name="Tower3" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0722225, 0, 0, 0, 1, 0, 0.251936, 17.8161)
+radius = 2.856
+height = 30.919
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_vlxg3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52255, 0.753434, 10.2011)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c8rxx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 0.817869, 0.575405, 0, -0.575405, 0.817869, -1.69655, 35.3053, 39.9091)
+shadow_enabled = true
