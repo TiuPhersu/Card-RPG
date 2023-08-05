@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://b50dw2h4k4y83"]
 
-[ext_resource type="Script" path="res://Character.gd" id="1_btqg7"]
+[ext_resource type="Script" path="res://Script/Character.gd" id="1_npv64"]
 [ext_resource type="Texture2D" uid="uid://di0d54sfo447r" path="res://Sprites/Small-8-Direction-Characters_by_AxulArt.png" id="2_lupou"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hicak"]
@@ -205,7 +205,7 @@ _data = {
 }
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-script = ExtResource("1_btqg7")
+script = ExtResource("1_npv64")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 2
@@ -215,7 +215,7 @@ texture_filter = 0
 texture = ExtResource("2_lupou")
 hframes = 8
 vframes = 12
-frame = 26
+frame = 31
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.00137458, 0)
