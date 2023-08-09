@@ -5,21 +5,32 @@ A hardcore single player RPG using a deck of cards with inctricately designed le
 
 ## Gameplay
 ### MOVEMENT
-The player can move in a 3d dimension and can jump in the overworld.
+The player is a 2d sprite and can move in a 3d dimension and can jump in the overworld and intereact with the world to solve puzzles. The world is in rooms and the character can move between rooms through a door or entryway. 
 
 ### CARD BATTLER
+The player will enter combat when the player sprite touches the enemy, enemy can be avoided by having them not see you or outrunning the enemy until you go into the next room. During combat there will be a deck of cards and you will draw them into your hand. You will play cards and the total will be calculates which will result in damage, block, and/or status effects. The enemy will show their intent whether they are going to block or attack.
+
+### OBJECTIVE
+Player will try to reach the end of the zone and will fight the area boss. Afterwards then the player can participate in the next zone.
+
+### ZONE
+There will be 5 zones/biomes in the game. The 5th zone is the final zone. The Player can play any of the zones in any particular order. Especially if the player wants to enter the final zone
+
+## Mechanic
 ![alt text](https://github.com/TiuPhersu/Card-RPG/blob/main/Design/Card%20RPG%20Prototype.jpg?raw=true)
+
 #### DECK
 - The player character will start with 10 card set.
 - The pet/companion will have a 5 card set.
+- Deck will have 25 cards total
 
 #### ENERGY
-- The player starts with 5 energy.
+- The player starts with 3 energy.
 - The pet/companion increases the energy count by 1.
 
 #### HAND
-- Draw 7 cards.
-- Max hand size of 20.
+- Draw 5 cards.
+- Max hand size of 10.
 
 #### ACTION
 - Player will place cards in the pool.
@@ -47,10 +58,20 @@ The player can move in a 3d dimension and can jump in the overworld.
 - Special condtions tied to the unit must be met to obtain the card
 - Player character innate card is PROTECT, there is no condition and will be added to the hand every turn. The effect is that the player will take all damage their pet/companion will take
 
+##### STATUS
+- Negative cards usually useless and even detrimental
+- 
+
 #### HEALTH
-- Player and pet/companion will have their own  seperate health pool
+- Player and pet/companion will have their own seperate health pool
 - Pet/companion will permanently die when they lose all their health
 - Player will not die however will be knocked out which will give a demerit of removing the players cards, lower the energy count, and lower the card draw
+
+#### PET/COMPANION
+- You will have a party of 3 companions
+- Companion has a set of cards and when you add them to the party you will get 1 energy and the entire set of 5 cards
+- Has their own health pool
+- Can swap between companions
 
 ## SOUND
 Use FMOD for dynamic music implementation, when on the card selection phase the music will be lofi thinking music then when commiting an action the music will change to a more exhilarating music.
