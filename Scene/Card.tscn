@@ -1,16 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dj6cypeke2uk8"]
+[gd_scene load_steps=8 format=3 uid="uid://dj6cypeke2uk8"]
 
 [ext_resource type="Script" path="res://Script/CardNode.gd" id="1_hantc"]
-[ext_resource type="Texture2D" uid="uid://7pnqnjla1m58" path="res://addons/kenney_prototype_textures/green/texture_01.png" id="1_oy1lk"]
 [ext_resource type="ArrayMesh" uid="uid://byr1d802t06f7" path="res://Models/card.obj" id="2_5basv"]
-[ext_resource type="Texture2D" uid="uid://cc0586msfutqu" path="res://addons/kenney_prototype_textures/dark/texture_04.png" id="3_53y54"]
-[ext_resource type="Texture2D" uid="uid://qhbgstfsfx5g" path="res://Sprites/Hand-Pointer-Icon-Sheet.png" id="4_87ago"]
+[ext_resource type="Texture2D" uid="uid://qhbgstfsfx5g" path="res://Sprites/Icon/Hand-Pointer-Icon-Sheet.png" id="3_2l3gv"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lgq80"]
-albedo_texture = ExtResource("1_oy1lk")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7iqi1"]
+albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smej3"]
-albedo_texture = ExtResource("3_53y54")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iqnfb"]
+albedo_color = Color(0, 0, 1, 1)
 
 [sub_resource type="Animation" id="Animation_01fsj"]
 resource_name = "Pointer"
@@ -39,12 +37,25 @@ script = ExtResource("1_hantc")
 
 [node name="Card" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_lgq80")
+material_override = SubResource("StandardMaterial3D_7iqi1")
 mesh = ExtResource("2_5basv")
 
+[node name="Title" type="Label3D" parent="Card"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 3.1, 0.05, 0)
+text = "Placeholder"
+font_size = 100
+width = 450.0
+
+[node name="Effect" type="Label3D" parent="Card"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -1.81587, 0.04, 0.0312041)
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "
+font_size = 68
+autowrap_mode = 2
+width = 800.0
+
 [node name="CSGBox3D" type="CSGBox3D" parent="Card"]
-transform = Transform3D(2.92098, 0, 0, 0, 0.107124, 0, 0, 0, 3.801, 1.32233, 0.020647, 0.046176)
-material_override = SubResource("StandardMaterial3D_smej3")
+transform = Transform3D(2.92098, 0, 0, 0, 0.107124, 0, 0, 0, 3.801, 1.32233, -0.02214, 0.046176)
+material_override = SubResource("StandardMaterial3D_iqnfb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -54,6 +65,5 @@ libraries = {
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, -2.18557e-07, 5, 0, -5, -2.18557e-07, 0, 0, -4.5)
 visible = false
-texture = ExtResource("4_87ago")
+texture = ExtResource("3_2l3gv")
 hframes = 3
-frame = 2

@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://y6vc76xmsoms"]
+
+[ext_resource type="Script" path="res://Script/Controller.gd" id="1_7qi6c"]
+[ext_resource type="Script" path="res://Script/Hand.gd" id="2_bbn31"]
+[ext_resource type="Script" path="res://Script/Deck.gd" id="3_2ymfg"]
+[ext_resource type="Script" path="res://Script/Discard.gd" id="4_krgvc"]
+
+[sub_resource type="Curve" id="Curve_e735s"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 0, Vector2(1, 1), 2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_c4t6g"]
+min_value = -1.0
+max_value = 0.0
+_data = [Vector2(0, 0), 0.0, -3.00493, 0, 0, Vector2(0.501149, -1), 0.0, 0.0, 0, 0, Vector2(1, 0), 2.86184, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_3x73i"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, -2.0, 0, 1, Vector2(1, -1), -2.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y37rh"]
+albedo_color = Color(1, 0, 1, 1)
+
+[node name="CombatArea" type="Node3D"]
+script = ExtResource("1_7qi6c")
+Card_Count = 5
+
+[node name="HandArea" type="Node3D" parent="."]
+
+[node name="Hand" type="Node3D" parent="HandArea"]
+transform = Transform3D(0.999523, 0.0263711, -0.0160981, -0.0255018, 0.998321, 0.0520065, 0.0174426, -0.0515711, 0.998517, 0, -1.13089, 0)
+script = ExtResource("2_bbn31")
+Max_Hand = 10
+Hand_Width = 8
+Spread_Curve = SubResource("Curve_e735s")
+Height_Curve = SubResource("Curve_c4t6g")
+Rotation_Curve = SubResource("Curve_3x73i")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="HandArea"]
+transform = Transform3D(31.024, 0, 0, 0, 0.111, 0, 0, 0, 8, 0, -1.47407, -1.27888)
+visible = false
+material_override = SubResource("StandardMaterial3D_y37rh")
+size = Vector3(0.942288, 1, 1)
+
+[node name="Deck" type="Node3D" parent="."]
+script = ExtResource("3_2ymfg")
+
+[node name="Discard" type="Node3D" parent="."]
+script = ExtResource("4_krgvc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15.453, -9.99998)
+
+[node name="DrawButton" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 13.0
+offset_right = 54.0
+offset_bottom = 44.0
+text = "Draw MONSTA CARDO"
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 54.0
+offset_right = 186.0
+offset_bottom = 85.0
+text = "Play MONSTA CARDO"
+
+[node name="RightButton" type="Button" parent="."]
+offset_left = 654.0
+offset_top = 360.0
+offset_right = 677.0
+offset_bottom = 391.0
+text = "->"
+
+[node name="LeftButton" type="Button" parent="."]
+offset_left = 475.0
+offset_top = 360.0
+offset_right = 498.0
+offset_bottom = 391.0
+text = "<-"
+
+[node name="CommitButton" type="Button" parent="."]
+offset_left = 543.0
+offset_top = 360.0
+offset_right = 613.0
+offset_bottom = 391.0
+text = "Commit"

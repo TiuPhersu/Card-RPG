@@ -11,10 +11,19 @@ config_version=5
 [application]
 
 config/name="Monster Card"
-run/main_scene="res://Scene/Hand.tscn"
+run/main_scene="res://Scene/2dCard.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/resizable=false
 
 [dotnet]
 
 project/assembly_name="Monster Card"
+
+[rendering]
+
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

@@ -1,11 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://y6vc76xmsoms"]
+[gd_scene load_steps=8 format=3 uid="uid://y6vc76xmsoms"]
 
-[ext_resource type="Script" path="res://Script/HandNode.gd" id="1_3c2us"]
-[ext_resource type="Script" path="res://Script/Hand.gd" id="1_w7had"]
+[ext_resource type="Script" path="res://Script/Controller.gd" id="1_7qi6c"]
+[ext_resource type="Script" path="res://Script/Hand.gd" id="2_bbn31"]
+[ext_resource type="Script" path="res://Script/Deck.gd" id="3_2ymfg"]
+[ext_resource type="Script" path="res://Script/Discard.gd" id="4_krgvc"]
 
 [sub_resource type="Curve" id="Curve_e735s"]
 min_value = -1.0
-_data = [Vector2(0, -1), 0.0, 2.0, 0, 1, Vector2(1, 1), 2.0, 0.0, 1, 0]
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 0, Vector2(1, 1), 2.0, 0.0, 1, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_c4t6g"]
@@ -19,17 +21,23 @@ min_value = -1.0
 _data = [Vector2(0, 1), 0.0, -2.0, 0, 1, Vector2(1, -1), -2.0, 0.0, 1, 0]
 point_count = 2
 
-[node name="HandNode" type="Node3D"]
-script = ExtResource("1_3c2us")
+[node name="CombatArea" type="Node3D"]
+script = ExtResource("1_7qi6c")
 Card_Count = 5
 
 [node name="Hand" type="Node3D" parent="."]
-script = ExtResource("1_w7had")
+script = ExtResource("2_bbn31")
 Max_Hand = 10
-Hand_Width = 9
+Hand_Width = 6
 Spread_Curve = SubResource("Curve_e735s")
 Height_Curve = SubResource("Curve_c4t6g")
 Rotation_Curve = SubResource("Curve_3x73i")
+
+[node name="Deck" type="Node3D" parent="."]
+script = ExtResource("3_2ymfg")
+
+[node name="Discard" type="Node3D" parent="."]
+script = ExtResource("4_krgvc")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15.453, -9.99998)
@@ -64,3 +72,10 @@ offset_top = 360.0
 offset_right = 498.0
 offset_bottom = 391.0
 text = "<-"
+
+[node name="CommitButton" type="Button" parent="."]
+offset_left = 543.0
+offset_top = 360.0
+offset_right = 613.0
+offset_bottom = 391.0
+text = "Commit"

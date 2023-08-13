@@ -4,7 +4,7 @@ extends Node3D
 @onready var Play_Button = get_node("PlayButton");
 @onready var Right_Button = get_node("RightButton");
 @onready var Left_Button = get_node("LeftButton");
-@onready var Hand = get_node("Hand");
+@onready var Hand = get_node("HandArea/Hand");
 
 @export var Card_Count: int
 var Selected_Card_Index: int
@@ -18,7 +18,7 @@ func _ready():
 	Left_Button.connect("pressed", self.move_left)
 
 func draw_card():
-	Hand.draw_card(1)
+	Hand.draw_card()
 	Hand.spread_cards()
 
 func play_card():
