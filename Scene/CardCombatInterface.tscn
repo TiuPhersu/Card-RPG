@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgbs847m4cvhv"]
+[gd_scene load_steps=4 format=3 uid="uid://cgbs847m4cvhv"]
+
+[ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="1_05jmu"]
+[ext_resource type="PackedScene" uid="uid://oe5cyfiodir" path="res://Scene/2dCard.tscn" id="2_x0p0w"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_jy818"]
 
@@ -12,3 +15,9 @@ grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("ImageTexture_jy818")
+
+[node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("1_05jmu")
+FLOPPY_DISK_ENUM = 4
+BATTERY_ENUM = 6
+CARD = ExtResource("2_x0p0w")

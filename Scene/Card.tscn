@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dj6cypeke2uk8"]
 
-[ext_resource type="Script" path="res://Script/CardNode.gd" id="1_hantc"]
+[ext_resource type="Script" path="res://Script/3DCard/CardNode.gd" id="1_bf7ai"]
 [ext_resource type="ArrayMesh" uid="uid://byr1d802t06f7" path="res://Models/card.obj" id="2_5basv"]
 [ext_resource type="Texture2D" uid="uid://qhbgstfsfx5g" path="res://Sprites/Icon/Hand-Pointer-Icon-Sheet.png" id="3_2l3gv"]
 
@@ -33,7 +33,7 @@ _data = {
 }
 
 [node name="CardNode" type="Node3D"]
-script = ExtResource("1_hantc")
+script = ExtResource("1_bf7ai")
 
 [node name="Card" type="MeshInstance3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

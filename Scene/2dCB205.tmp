@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://bubk2nw11oxeb"]
+
+[ext_resource type="Script" path="res://Script/2DCard/2dCardCreator.gd" id="1_rkxxl"]
+[ext_resource type="PackedScene" uid="uid://oe5cyfiodir" path="res://Scene/2dCard.tscn" id="2_krnkc"]
+
+[node name="2dCardCreator" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 103.0
+offset_top = 78.0
+offset_right = 103.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rkxxl")
+CARD = ExtResource("2_krnkc")
+
+[node name="CostOptionButton" type="OptionButton" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 235.0
+offset_bottom = 30.0
+
+[node name="TypeOptionButton" type="OptionButton" parent="."]
+offset_left = 10.0
+offset_top = 55.0
+offset_right = 235.0
+offset_bottom = 75.0
+
+[node name="TitleTextEdit" type="TextEdit" parent="."]
+offset_left = 10.0
+offset_top = 97.0
+offset_right = 235.0
+offset_bottom = 133.0
+placeholder_text = "Card Title"
+
+[node name="BlockOptionButton" type="OptionButton" parent="."]
+offset_left = 10.0
+offset_top = 145.0
+offset_right = 235.0
+offset_bottom = 165.0
+
+[node name="AttackOptionButton" type="OptionButton" parent="."]
+offset_left = 10.0
+offset_top = 190.0
+offset_right = 235.0
+offset_bottom = 210.0
+
+[node name="DescriptionTextEdit" type="TextEdit" parent="."]
+offset_left = 10.0
+offset_top = 230.0
+offset_right = 235.0
+offset_bottom = 266.0
+placeholder_text = "Card Description"
+
+[node name="DisplayCardNode" type="Node2D" parent="."]
+position = Vector2(719, 230)
+
+[node name="SaveButton" type="Button" parent="."]
+offset_left = 10.0
+offset_top = 281.0
+offset_right = 235.0
+offset_bottom = 322.0
+text = "Save Card"
+
+[node name="LoadButton" type="Button" parent="."]
+offset_left = 10.0
+offset_top = 383.0
+offset_right = 234.0
+offset_bottom = 425.0
+text = "Load Card
+"
+
+[node name="LoadOptionButton" type="OptionButton" parent="."]
+offset_left = 10.0
+offset_top = 337.0
+offset_right = 235.0
+offset_bottom = 357.0

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://y6vc76xmsoms"]
 
-[ext_resource type="Script" path="res://Script/Controller.gd" id="1_7qi6c"]
-[ext_resource type="Script" path="res://Script/Hand.gd" id="2_bbn31"]
-[ext_resource type="Script" path="res://Script/Deck.gd" id="3_2ymfg"]
-[ext_resource type="Script" path="res://Script/Discard.gd" id="4_krgvc"]
+[ext_resource type="Script" path="res://Script/3DCard/Controller.gd" id="1_mjtmp"]
+[ext_resource type="Script" path="res://Script/3DCard/Hand.gd" id="2_mvlfo"]
+[ext_resource type="Script" path="res://Script/3DCard/Deck.gd" id="3_vhf1j"]
+[ext_resource type="Script" path="res://Script/3DCard/Discard.gd" id="4_y2cmf"]
 
 [sub_resource type="Curve" id="Curve_e735s"]
 min_value = -1.0
@@ -25,14 +25,14 @@ point_count = 2
 albedo_color = Color(1, 0, 1, 1)
 
 [node name="CombatArea" type="Node3D"]
-script = ExtResource("1_7qi6c")
+script = ExtResource("1_mjtmp")
 Card_Count = 5
 
 [node name="HandArea" type="Node3D" parent="."]
 
 [node name="Hand" type="Node3D" parent="HandArea"]
 transform = Transform3D(0.999523, 0.0263711, -0.0160981, -0.0255018, 0.998321, 0.0520065, 0.0174426, -0.0515711, 0.998517, 0, -1.13089, 0)
-script = ExtResource("2_bbn31")
+script = ExtResource("2_mvlfo")
 Max_Hand = 10
 Hand_Width = 8
 Spread_Curve = SubResource("Curve_e735s")
@@ -46,10 +46,10 @@ material_override = SubResource("StandardMaterial3D_y37rh")
 size = Vector3(0.942288, 1, 1)
 
 [node name="Deck" type="Node3D" parent="."]
-script = ExtResource("3_2ymfg")
+script = ExtResource("3_vhf1j")
 
 [node name="Discard" type="Node3D" parent="."]
-script = ExtResource("4_krgvc")
+script = ExtResource("4_y2cmf")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 15.453, -9.99998)
