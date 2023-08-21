@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfaduem1ou8el"
-path.s3tc="res://.godot/imported/Epic_BlueSunset_EquiRect_flat.png-4c9e015a030d87249fc0ec19586d22dc.s3tc.ctex"
+path.s3tc="res://.godot/imported/Epic_BlueSunset_EquiRect_flat.png-8408d00ab4dc8a33d2a0a87caadecb78.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Epic_BlueSunset_EquiRect_flat.png"
-dest_files=["res://.godot/imported/Epic_BlueSunset_EquiRect_flat.png-4c9e015a030d87249fc0ec19586d22dc.s3tc.ctex"]
+source_file="res://Sprites/Sky/Epic_BlueSunset_EquiRect_flat.png"
+dest_files=["res://.godot/imported/Epic_BlueSunset_EquiRect_flat.png-8408d00ab4dc8a33d2a0a87caadecb78.s3tc.ctex"]
 
 [params]
 

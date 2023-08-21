@@ -12,9 +12,14 @@ extends Control
 @onready var Load_Button = get_node("LoadButton")
 @onready var Reset_Button = get_node("ResetButton")
 @onready var Delete_Button = get_node("DeleteButton")
+@onready var Image_Button = get_node("ImageUploadButton")
 
 @onready var DISPLAY = $DisplayCardNode
 @onready var FILE_HELPER = file_helper.new()
+
+@onready var IMAGE_FILE_DIALOG = $ImageFileDialog
+
+var CARD_IMAGE = ""
 
 @export var CARD: PackedScene
 @export var CARD_DATA: card_data
@@ -66,7 +71,9 @@ func create_card():
 	card.get_child(0, false).BATTERY_ENUM = COST_DROPDOWN.get_selected_id()
 
 	card.get_child(0, false).FLOPPY_DISK_ENUM = TYPE_DROPDOWN.get_selected_id()
-
+	
+	card.get_child(0, false).IMAGE_PATH = CARD_IMAGE
+	
 	DISPLAY.add_child(card)
 
 func save_card():
@@ -78,6 +85,7 @@ func save_card():
 	CARD_DATA.BLOCK = BLOCK_DROPDOWN.selected
 	CARD_DATA.TITLE = TITLE_TEXT.text
 	CARD_DATA.DESCRIPTION = DESCRIPTION_TEXT.text
+	CARD_DATA.IMAGE_PATH = CARD_IMAGE
 	
 	var newCardLocation = "res://Data/Cards/" + CARD_DATA.TITLE + ".tres"
 	
@@ -99,6 +107,8 @@ func load_card():
 	BLOCK_DROPDOWN.select(card.BLOCK)
 	TITLE_TEXT.text = card.TITLE
 	DESCRIPTION_TEXT.text = card.DESCRIPTION
+	CARD_IMAGE = card.IMAGE_PATH
+	
 	create_card()
 
 func reset_card():
@@ -108,6 +118,7 @@ func reset_card():
 	BLOCK_DROPDOWN.select(0)
 	TITLE_TEXT.text = ""
 	DESCRIPTION_TEXT.text = ""
+	CARD_IMAGE = ""
 	OLD_FILE_LOCATION = null
 
 func delete_card():
@@ -116,7 +127,6 @@ func delete_card():
 		reset_card()
 		load_dropdown()
 		print("Card Deleted")
-		
 
 func load_dropdown():
 	add_items_attack()
@@ -125,6 +135,13 @@ func load_dropdown():
 	add_items_type()
 	add_items_card()
 
+func setup_file_dialog():
+	var allowed = ["*webp", "*png", "*bmp", "*jpeg", "*jpg", "*tiff", "*psd"]
+	IMAGE_FILE_DIALOG.set_filters(allowed)
+
+func open_filedialog_image():
+	IMAGE_FILE_DIALOG.popup()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_dropdown()
@@ -132,7 +149,13 @@ func _ready():
 	Load_Button.connect("pressed", self.load_card)
 	Reset_Button.connect("pressed", self.reset_card)
 	Delete_Button.connect("pressed", self.delete_card)
+	Image_Button.connect("pressed", self.open_filedialog_image)
+	setup_file_dialog()
 	create_card()
 
 func _input(event):
 	create_card()
+
+
+func _on_image_file_dialog_file_selected(path):
+	CARD_IMAGE = path

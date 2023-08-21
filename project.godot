@@ -23,6 +23,12 @@ window/size/resizable=false
 
 project/assembly_name="Monster Card"
 
+[importer_defaults]
+
+texture={
+"process/size_limit": 180
+}
+
 [input]
 
 leftclick={
