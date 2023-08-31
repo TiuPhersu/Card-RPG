@@ -27,10 +27,6 @@ func set_image_card():
 		return
 	var image = load(IMAGE_PATH)
 	
-	
-	
-	var test = $CardBase.get_rect()
-	
 	CARD_IMAGE.texture = image
 
 # Called when the node enters the scene tree for the first time.

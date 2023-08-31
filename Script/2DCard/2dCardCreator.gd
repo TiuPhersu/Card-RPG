@@ -60,20 +60,14 @@ func add_items_card():
 
 func create_card():
 	if self.get_node("DisplayCardNode").get_child_count() > 0 :
-		DISPLAY.remove_child(self.get_node("DisplayCardNode").get_child(0))
+		self.get_node("DisplayCardNode").get_child(0).queue_free()
 	
 	var card = CARD.instantiate()
-	
-	card.get_child(0, false).TITLE = TITLE_TEXT.text
-
-	card.get_child(0, false).DESCRIPTION = DESCRIPTION_TEXT.text
-	
-	card.get_child(0, false).BATTERY_ENUM = COST_DROPDOWN.get_selected_id()
-
-	card.get_child(0, false).FLOPPY_DISK_ENUM = TYPE_DROPDOWN.get_selected_id()
-	
-	card.get_child(0, false).IMAGE_PATH = CARD_IMAGE
-	
+	card.TITLE = TITLE_TEXT.text
+	card.DESCRIPTION = DESCRIPTION_TEXT.text
+	card.BATTERY_ENUM = COST_DROPDOWN.get_selected_id()
+	card.FLOPPY_DISK_ENUM = TYPE_DROPDOWN.get_selected_id()
+	card.IMAGE_PATH = CARD_IMAGE
 	DISPLAY.add_child(card)
 
 func save_card():
@@ -88,11 +82,8 @@ func save_card():
 	CARD_DATA.IMAGE_PATH = CARD_IMAGE
 	
 	var newCardLocation = "res://Data/Cards/" + CARD_DATA.TITLE + ".tres"
-	
 	FILE_HELPER.save_single_card_resource(CARD_DATA, newCardLocation, OLD_FILE_LOCATION)
-	
 	OLD_FILE_LOCATION = newCardLocation
-	
 	add_items_card()
 
 func load_card():
@@ -155,7 +146,6 @@ func _ready():
 
 func _input(event):
 	create_card()
-
 
 func _on_image_file_dialog_file_selected(path):
 	CARD_IMAGE = path

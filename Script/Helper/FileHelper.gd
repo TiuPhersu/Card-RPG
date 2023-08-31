@@ -15,7 +15,7 @@ func list_files_in_directory(path):
 			files.append(file)
 
 	dir.list_dir_end()
-	# TODO : CHECK IF THERE IS ANY FILES
+
 	if files.is_empty():
 		files.append("No Cards Found")
 	return files

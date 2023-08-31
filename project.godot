@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="Monster Card"
-run/main_scene="res://Scene/2dCardCreator.tscn"
+run/main_scene="res://Scene/2d/CardCombatInterface.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/resizable=false
+window/size/viewport_width=1536
+window/size/viewport_height=864
+window/stretch/mode="viewport"
 
 [dotnet]
 
