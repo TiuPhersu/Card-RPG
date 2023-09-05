@@ -1,7 +1,7 @@
-extends Control
+extends Node2D
 
-@onready var HAND = get_node("CardInterface/HandNode");
-@onready var DECK = get_node("CardInterface/DeckNode");
+@onready var HAND = get_node("HandNode");
+@onready var DECK = get_node("DeckNode");
 
 func _input(event):
 	if Input.is_action_just_released("leftclick"):

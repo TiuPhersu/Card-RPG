@@ -25,8 +25,13 @@ outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 
-[node name="2dCard" type="Node2D"]
+[node name="2dCard" type="Node2D" node_paths=PackedStringArray("TITLE_LABEL", "DESCRIPTION_LABEL", "CARD_IMAGE", "FLOPPY_DISK_ICON", "BATTERY_ICON")]
 script = ExtResource("1_f66af")
+TITLE_LABEL = NodePath("Title")
+DESCRIPTION_LABEL = NodePath("Description")
+CARD_IMAGE = NodePath("CardImage")
+FLOPPY_DISK_ICON = NodePath("Floppy-Disk-Icon")
+BATTERY_ICON = NodePath("Battery-Icon")
 
 [node name="CardImage" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_n7q47")

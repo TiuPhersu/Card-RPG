@@ -1,33 +1,31 @@
-[gd_scene load_steps=23 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=32 format=3 uid="uid://ciwtniq6pkoia"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="1_05jmu"]
-[ext_resource type="Script" path="res://Script/2DCard/CardCombatInterface.gd" id="1_vuca1"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="3_7l5rt"]
 [ext_resource type="Texture2D" uid="uid://c42f6c3dwq4fv" path="res://Sprites/Background/Taskbar/Taskbar32by32.png" id="3_ga3lb"]
 [ext_resource type="Texture2D" uid="uid://d08h1qbpocr76" path="res://Sprites/Background/Taskbar/Start/Start-Button.png" id="3_vj3hu"]
 [ext_resource type="PackedScene" uid="uid://smj5r4t8uqex" path="res://Scene/2d/2dCard.tscn" id="3_x7ie0"]
 [ext_resource type="Texture2D" uid="uid://cclufxt270xw7" path="res://Sprites/Background/Taskbar/Start/Start-Button-Pressed.png" id="4_7e6dp"]
+[ext_resource type="Script" path="res://Script/2DCard/StartButton.gd" id="5_0os4i"]
 [ext_resource type="Texture2D" uid="uid://cgkahjrkobvdd" path="res://Sprites/Card/Card-ComputeSkinV3.3-Back-2.png" id="5_0vyyx"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeckButton.gd" id="5_8dny5"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDiscard.gd" id="5_ku8x1"]
 [ext_resource type="Texture2D" uid="uid://4e5oyt0t2r12" path="res://Sprites/Card/Card-ComputeSkinV3.3-Back.png" id="5_upngw"]
 [ext_resource type="Texture2D" uid="uid://blrhp8atcmbhy" path="res://Sprites/Background/Taskbar/File/File-Button.png" id="5_v1sga"]
 [ext_resource type="Texture2D" uid="uid://c0i30mpfl8asi" path="res://Sprites/Background/Taskbar/File/File-Button-Pressed.png" id="6_1ky5c"]
+[ext_resource type="Script" path="res://Script/2DCard/FileButton.gd" id="7_7wvd7"]
+[ext_resource type="Script" path="res://Script/2DCard/CardInterface.gd" id="8_a2cqq"]
 [ext_resource type="Texture2D" uid="uid://b34qixu87bnmw" path="res://Sprites/Icon/Folder/Folder-Open.png" id="9_a44y3"]
 [ext_resource type="Texture2D" uid="uid://4qgvra14vt1l" path="res://Sprites/Background/Windows Explorer 2.png" id="10_biwad"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="10_rmoou"]
 [ext_resource type="Texture2D" uid="uid://dfv4iow0itlg2" path="res://Sprites/Icon/Recycle/Recycle-Bin-Empty.png" id="10_yt83s"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5dix"]
-texture = ExtResource("3_ga3lb")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_2ln5b"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_p5dix")
+[ext_resource type="Texture2D" uid="uid://dxjx1gwrp2fvr" path="res://Sprites/Background/Taskbar/Start/Start-Top.png" id="19_yon3h"]
+[ext_resource type="Texture2D" uid="uid://dw22ns2orixr4" path="res://Sprites/Background/Taskbar/Start/Shutdown-Button.png" id="20_7hl5l"]
+[ext_resource type="Texture2D" uid="uid://c1nuviyr15cpj" path="res://Sprites/Background/Taskbar/Start/Shutdown-Button-HL.png" id="21_qwylt"]
+[ext_resource type="Texture2D" uid="uid://ckv0bxjlffkay" path="res://Sprites/Background/Taskbar/Start/Help-Button.png" id="22_k2q7r"]
+[ext_resource type="Texture2D" uid="uid://dc44fbklm3mq" path="res://Sprites/Background/Taskbar/Start/Help-Button-HL.png" id="23_3o0af"]
+[ext_resource type="Texture2D" uid="uid://dhkgjkuwvk85w" path="res://Sprites/Background/Taskbar/Start/Setting-Button.png" id="24_j84ld"]
+[ext_resource type="Texture2D" uid="uid://d3fqxwpviup8t" path="res://Sprites/Background/Taskbar/Start/Setting-Button-HL.png" id="25_3j3rk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k7ei7"]
 font = ExtResource("10_rmoou")
@@ -51,6 +49,17 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_quuwp")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5dix"]
+texture = ExtResource("3_ga3lb")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_2ln5b"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_p5dix")
+
 [node name="CardCombatInterface" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -58,48 +67,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_vuca1")
-
-[node name="Menu" type="Node2D" parent="."]
-z_index = -5
-
-[node name="Taskbar" type="TileMap" parent="Menu"]
-texture_filter = 1
-scale = Vector2(3, 3)
-tile_set = SubResource("TileSet_2ln5b")
-format = 2
-layer_0/tile_data = PackedInt32Array(524288, 0, 0, 524289, 65536, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 65536, 0, 524293, 65536, 0, 524294, 65536, 0, 524295, 65536, 0, 524296, 65536, 0, 524297, 65536, 0, 524298, 65536, 0, 524299, 65536, 0, 524300, 65536, 0, 524301, 65536, 0, 524302, 65536, 0, 524303, 131072, 0)
-
-[node name="StartButton" type="TextureButton" parent="Menu"]
-texture_filter = 1
-offset_left = 7.0
-offset_top = 820.0
-offset_right = 37.0
-offset_bottom = 833.0
-scale = Vector2(3, 3)
-toggle_mode = true
-texture_normal = ExtResource("3_vj3hu")
-texture_pressed = ExtResource("4_7e6dp")
-texture_hover = ExtResource("3_vj3hu")
-texture_disabled = ExtResource("3_vj3hu")
-
-[node name="FileButton" type="TextureButton" parent="Menu"]
-texture_filter = 1
-offset_left = 106.0
-offset_top = 820.0
-offset_right = 170.0
-offset_bottom = 833.0
-scale = Vector2(3, 3)
-toggle_mode = true
-texture_normal = ExtResource("5_v1sga")
-texture_pressed = ExtResource("6_1ky5c")
-texture_hover = ExtResource("5_v1sga")
-texture_disabled = ExtResource("5_v1sga")
 
 [node name="CardInterface" type="Node2D" parent="."]
+z_index = -1
+script = ExtResource("8_a2cqq")
 
 [node name="DiscardNode" type="Node2D" parent="CardInterface"]
-z_index = -3
+z_index = -2
 position = Vector2(150, 700)
 scale = Vector2(3, 3)
 script = ExtResource("5_ku8x1")
@@ -129,7 +103,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DeckNode" type="Node2D" parent="CardInterface"]
-z_index = -4
+z_index = -2
 position = Vector2(1250, 600)
 scale = Vector2(3, 3)
 script = ExtResource("3_7l5rt")
@@ -143,7 +117,6 @@ texture_normal = ExtResource("5_0vyyx")
 texture_pressed = ExtResource("5_upngw")
 texture_hover = ExtResource("5_upngw")
 texture_disabled = ExtResource("5_upngw")
-texture_focused = ExtResource("5_upngw")
 script = ExtResource("5_8dny5")
 
 [node name="Folder" type="Sprite2D" parent="CardInterface/DeckNode"]
@@ -163,7 +136,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Explorer" type="TileMap" parent="CardInterface"]
-z_index = -5
+z_index = -3
 texture_filter = 1
 position = Vector2(0, 43)
 scale = Vector2(3, 3)
@@ -172,7 +145,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(327681, 1, 0, 327692, 65537, 0, 393217, 1, 1, 393218, 65537, 1, 393219, 65537, 1, 393220, 65537, 1, 393221, 65537, 1, 393222, 65537, 1, 393223, 65537, 1, 393224, 65537, 1, 393225, 65537, 1, 393226, 65537, 1, 393227, 65537, 1, 393228, 65537, 1, 327682, 65537, 0, 327683, 65537, 0, 327684, 65537, 0, 327685, 65537, 0, 327686, 65537, 0, 327687, 65537, 0, 327688, 65537, 0, 327689, 65537, 0, 327690, 65537, 0, 327691, 65537, 0, 458753, 1, 2, 327693, 65537, 0, 327694, 131073, 0, 458754, 65537, 2, 458755, 65537, 2, 458758, 65537, 2, 458759, 65537, 2, 458757, 65537, 2, 458756, 65537, 2, 458760, 65537, 2, 458761, 65537, 2, 458764, 65537, 2, 458763, 65537, 2, 458762, 65537, 2, 458765, 65537, 2, 393229, 65537, 1, 393230, 131073, 1, 458766, 131073, 2)
 
 [node name="HandNode" type="Node2D" parent="CardInterface"]
-z_index = -2
+z_index = -1
 script = ExtResource("1_05jmu")
 CARD_SIZE = 1.0
 TITLE = "Title"
@@ -181,3 +154,93 @@ FLOPPY_DISK_ENUM = 1
 BATTERY_ENUM = 1
 IMAGE = "res://Sprites/CardImage/cat.jpg"
 CARD = ExtResource("3_x7ie0")
+
+[node name="MenuBar" type="Node2D" parent="."]
+
+[node name="Taskbar" type="TileMap" parent="MenuBar"]
+z_index = -1
+texture_filter = 1
+scale = Vector2(3, 3)
+tile_set = SubResource("TileSet_2ln5b")
+format = 2
+layer_0/tile_data = PackedInt32Array(524288, 0, 0, 524289, 65536, 0, 524290, 65536, 0, 524291, 65536, 0, 524292, 65536, 0, 524293, 65536, 0, 524294, 65536, 0, 524295, 65536, 0, 524296, 65536, 0, 524297, 65536, 0, 524298, 65536, 0, 524299, 65536, 0, 524300, 65536, 0, 524301, 65536, 0, 524302, 65536, 0, 524303, 131072, 0)
+
+[node name="StartButton" type="TextureButton" parent="MenuBar" node_paths=PackedStringArray("MainUi")]
+texture_filter = 1
+offset_left = 7.0
+offset_top = 820.0
+offset_right = 37.0
+offset_bottom = 833.0
+scale = Vector2(3, 3)
+toggle_mode = true
+texture_normal = ExtResource("3_vj3hu")
+texture_pressed = ExtResource("4_7e6dp")
+texture_hover = ExtResource("3_vj3hu")
+texture_disabled = ExtResource("3_vj3hu")
+script = ExtResource("5_0os4i")
+MainUi = NodePath("../../StartMenu")
+
+[node name="FileButton" type="TextureButton" parent="MenuBar" node_paths=PackedStringArray("MainUi")]
+texture_filter = 1
+offset_left = 106.0
+offset_top = 820.0
+offset_right = 170.0
+offset_bottom = 833.0
+scale = Vector2(3, 3)
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("5_v1sga")
+texture_pressed = ExtResource("6_1ky5c")
+texture_hover = ExtResource("5_v1sga")
+texture_disabled = ExtResource("5_v1sga")
+script = ExtResource("7_7wvd7")
+MainUi = NodePath("../../CardInterface")
+
+[node name="StartMenu" type="Node2D" parent="."]
+process_mode = 4
+visible = false
+position = Vector2(0, 717)
+
+[node name="StartTop" type="Sprite2D" parent="StartMenu"]
+texture_filter = 1
+position = Vector2(192, -197)
+scale = Vector2(3, 3)
+texture = ExtResource("19_yon3h")
+
+[node name="ShutdownButton" type="TextureButton" parent="StartMenu"]
+texture_filter = 1
+offset_right = 128.0
+offset_bottom = 32.0
+scale = Vector2(3, 3)
+action_mode = 0
+texture_normal = ExtResource("20_7hl5l")
+texture_pressed = ExtResource("21_qwylt")
+texture_hover = ExtResource("21_qwylt")
+texture_disabled = ExtResource("21_qwylt")
+
+[node name="HelpButton" type="TextureButton" parent="StartMenu"]
+texture_filter = 1
+offset_top = -96.0
+offset_right = 128.0
+offset_bottom = -64.0
+scale = Vector2(3, 3)
+action_mode = 0
+texture_normal = ExtResource("22_k2q7r")
+texture_pressed = ExtResource("23_3o0af")
+texture_hover = ExtResource("23_3o0af")
+texture_disabled = ExtResource("23_3o0af")
+
+[node name="SettingButton" type="TextureButton" parent="StartMenu"]
+texture_filter = 1
+offset_top = -192.0
+offset_right = 128.0
+offset_bottom = -160.0
+scale = Vector2(3, 3)
+action_mode = 0
+texture_normal = ExtResource("24_j84ld")
+texture_pressed = ExtResource("25_3j3rk")
+texture_hover = ExtResource("25_3j3rk")
+texture_disabled = ExtResource("25_3j3rk")
+
+[connection signal="toggled" from="MenuBar/StartButton" to="MenuBar/StartButton" method="_on_toggled"]
+[connection signal="toggled" from="MenuBar/FileButton" to="MenuBar/FileButton" method="_on_toggled"]

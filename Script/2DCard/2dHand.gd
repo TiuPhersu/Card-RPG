@@ -12,6 +12,15 @@ extends Node2D
 
 @onready var FILE_HELPER = file_helper.new()
 
+var CardOffset = Vector2()
+@onready var ViewportSize = Vector2(get_viewport().size)
+@onready var CenterCard = ViewportSize * Vector2(0.5, 1.25)
+@onready var Hor_rad = ViewportSize.x * 0.45
+@onready var Ver_rad = ViewportSize.y * 0.4
+
+var angle = 0
+var OvalAngleVector = Vector2()
+
 func create_card():
 	var card = CARD.instantiate()
 	card.TITLE = TITLE
@@ -35,7 +44,12 @@ func create_card_from_database(selectedCard):
 	card.BATTERY_ENUM = cardData.COST
 	card.FLOPPY_DISK_ENUM = cardData.TYPE
 	card.IMAGE_PATH = cardData.IMAGE_PATH
-	card.set_position(get_global_mouse_position())
+	
+	#card.set_position(get_global_mouse_position())
+	OvalAngleVector = Vector2(Hor_rad * cos(angle), - Ver_rad * sin(angle))
+	var test = (card.get_node("CardBase").texture.get_size() * 3)
+	print(test)
+	card.set_position(CenterCard - test)
 	card.scale.x *= CARD_SIZE / card.scale.x
 	card.scale.y *= CARD_SIZE / card.scale.y
 	add_child(card)

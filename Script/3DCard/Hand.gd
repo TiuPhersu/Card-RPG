@@ -1,6 +1,6 @@
 extends Node3D
 
-const CARD = preload("res://Scene/Card.tscn")
+const CARD = preload("res://Scene/3d/Card.tscn")
 
 @export_category("Hand Setting")
 @export var Max_Hand: int
