@@ -35,39 +35,18 @@ BATTERY_ICON = NodePath("Battery-Icon")
 
 [node name="CardImage" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_n7q47")
-position = Vector2(0, -46)
+position = Vector2(75, 50)
 scale = Vector2(0.5, 0.5)
 
 [node name="CardBase" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(72, 96)
 scale = Vector2(3, 3)
 texture = ExtResource("2_wpo8u")
 
-[node name="Description" type="Label" parent="."]
-offset_left = -30.0
-offset_top = 12.0
-offset_right = 66.0
-offset_bottom = 87.0
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor."
-label_settings = SubResource("LabelSettings_i1l3u")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 3
-
-[node name="Title" type="Label" parent="."]
-offset_left = -66.0
-offset_top = -12.0
-offset_right = 66.0
-offset_bottom = 11.0
-text = "Placeholder"
-label_settings = SubResource("LabelSettings_yfelw")
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-
 [node name="Floppy-Disk-Icon" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-50, 34)
+position = Vector2(21, 126)
 scale = Vector2(3, 3)
 texture = ExtResource("5_usujc")
 region_enabled = true
@@ -76,9 +55,31 @@ script = ExtResource("6_oikto")
 
 [node name="Battery-Icon" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-47, 75)
+position = Vector2(23, 159)
 scale = Vector2(3, 3)
 texture = ExtResource("3_jhd51")
 region_enabled = true
 region_rect = Rect2(4, 4, 11, 6)
 script = ExtResource("8_u6xs3")
+
+[node name="Description" type="Label" parent="."]
+offset_left = 41.0
+offset_top = 107.0
+offset_right = 137.0
+offset_bottom = 182.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor."
+label_settings = SubResource("LabelSettings_i1l3u")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Title" type="Label" parent="."]
+offset_left = 6.0
+offset_top = 83.0
+offset_right = 138.0
+offset_bottom = 106.0
+text = "Placeholder"
+label_settings = SubResource("LabelSettings_yfelw")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true

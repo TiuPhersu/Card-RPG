@@ -19,3 +19,12 @@ enum BATTERY_ENUM {
 	OverchargeMed, 
 	OverchargeFull
 }
+
+enum CARD_STATE_ENUM {
+	InHand,
+	InPlay,
+	InMouse,
+	FocusInHand,
+	MoveDrawnCardToHand,
+	ReorganizeHand
+}

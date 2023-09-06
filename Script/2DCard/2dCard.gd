@@ -28,6 +28,12 @@ extends Node2D
 @export var FLOPPY_DISK_ICON: Sprite2D
 @export var BATTERY_ICON: Sprite2D
 
+@onready var STATE: card_enum.CARD_STATE_ENUM
+@onready var START_POS
+@onready var TARGET_POS
+
+var T = 0
+var DRAW_TIME = .5
 
 func set_image_card():
 	if IMAGE_PATH == "":
@@ -43,4 +49,26 @@ func _ready():
 	FLOPPY_DISK_ICON.select_battery(FLOPPY_DISK_ENUM)
 	TITLE_LABEL.set_text(TITLE)
 	DESCRIPTION_LABEL.set_text(DESCRIPTION)
+	STATE = card_enum.CARD_STATE_ENUM.InHand
 	set_image_card()
+
+func _physics_process(delta):
+	match STATE:
+		card_enum.CARD_STATE_ENUM.InHand:
+			pass
+		card_enum.CARD_STATE_ENUM.InPlay:
+			pass
+		card_enum.CARD_STATE_ENUM.InMouse:
+			pass
+		card_enum.CARD_STATE_ENUM.FocusInHand:
+			pass
+		card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand:
+			if T <= 1:
+				position = START_POS.lerp(TARGET_POS, T)
+				T += delta/float(DRAW_TIME)
+			else:
+				position = TARGET_POS
+				STATE = card_enum.CARD_STATE_ENUM.InHand
+				T = 0
+		card_enum.CARD_STATE_ENUM.ReorganizeHand:
+			pass

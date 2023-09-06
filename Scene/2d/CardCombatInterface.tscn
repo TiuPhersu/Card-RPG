@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=33 format=3 uid="uid://ciwtniq6pkoia"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="1_05jmu"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="3_7l5rt"]
@@ -48,6 +48,10 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_t8ht1"]
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_quuwp")
+
+[sub_resource type="Curve" id="Curve_51msg"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5dix"]
 texture = ExtResource("3_ga3lb")
@@ -153,6 +157,8 @@ DESCRIPTION = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do e
 FLOPPY_DISK_ENUM = 1
 BATTERY_ENUM = 1
 IMAGE = "res://Sprites/CardImage/cat.jpg"
+SPREAD_CURVE = SubResource("Curve_51msg")
+HAND_WIDTH = 700
 CARD = ExtResource("3_x7ie0")
 
 [node name="MenuBar" type="Node2D" parent="."]
