@@ -54,7 +54,7 @@ func spread_hand(startpos):
 	for card in hand.get_children(false):
 		var handRatio = 0
 		var destination = hand.global_transform
-		var view = VIEWPORT_SIZE / Vector2(5,1.45)
+		var view = VIEWPORT_SIZE / Vector2(6,1.517)
 		destination = view
 
 		if hand.get_child_count(false) > 1:
@@ -73,11 +73,13 @@ func spread_hand(startpos):
 		
 		if  card.get_index() == (hand.get_child_count(false) - 1):
 			card.START_POS = startpos
+			card.STATE = card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand
 		else:
 			card.START_POS = destination
+			card.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
 		
 		card.TARGET_POS = destination
-		card.STATE = card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand
+		
 			
 		card.z_index = Z_COUNTER
 		Z_COUNTER += 1

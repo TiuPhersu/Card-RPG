@@ -33,7 +33,7 @@ extends Node2D
 @onready var TARGET_POS
 
 var T = 0
-var DRAW_TIME = .5
+var DRAW_TIME = .1
 
 func set_image_card():
 	if IMAGE_PATH == "":
@@ -63,12 +63,20 @@ func _physics_process(delta):
 		card_enum.CARD_STATE_ENUM.FocusInHand:
 			pass
 		card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand:
-			if T <= 1:
-				position = START_POS.lerp(TARGET_POS, T)
-				T += delta/float(DRAW_TIME)
-			else:
-				position = TARGET_POS
-				STATE = card_enum.CARD_STATE_ENUM.InHand
-				T = 0
+			move_to_destination(delta, true)
+
 		card_enum.CARD_STATE_ENUM.ReorganizeHand:
-			pass
+			move_to_destination(delta, false)
+
+func move_to_destination(delta, decktoHand):
+	if T <= 1:
+		position = START_POS.lerp(TARGET_POS, T)
+		if decktoHand:
+			scale = Vector2(T,T)
+		T += delta/float(DRAW_TIME)
+	else:
+		position = TARGET_POS
+		STATE = card_enum.CARD_STATE_ENUM.InHand
+		T = 0
+	
+

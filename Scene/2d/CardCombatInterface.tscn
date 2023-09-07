@@ -7,14 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://smj5r4t8uqex" path="res://Scene/2d/2dCard.tscn" id="3_x7ie0"]
 [ext_resource type="Texture2D" uid="uid://cclufxt270xw7" path="res://Sprites/Background/Taskbar/Start/Start-Button-Pressed.png" id="4_7e6dp"]
 [ext_resource type="Script" path="res://Script/2DCard/StartButton.gd" id="5_0os4i"]
-[ext_resource type="Texture2D" uid="uid://cgkahjrkobvdd" path="res://Sprites/Card/Card-ComputeSkinV3.3-Back-2.png" id="5_0vyyx"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeckButton.gd" id="5_8dny5"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDiscard.gd" id="5_ku8x1"]
-[ext_resource type="Texture2D" uid="uid://4e5oyt0t2r12" path="res://Sprites/Card/Card-ComputeSkinV3.3-Back.png" id="5_upngw"]
 [ext_resource type="Texture2D" uid="uid://blrhp8atcmbhy" path="res://Sprites/Background/Taskbar/File/File-Button.png" id="5_v1sga"]
 [ext_resource type="Texture2D" uid="uid://c0i30mpfl8asi" path="res://Sprites/Background/Taskbar/File/File-Button-Pressed.png" id="6_1ky5c"]
+[ext_resource type="Texture2D" uid="uid://ot58fvrchwn3" path="res://Sprites/Icon/Deck/Deck-Icon.png" id="7_2xloj"]
 [ext_resource type="Script" path="res://Script/2DCard/FileButton.gd" id="7_7wvd7"]
 [ext_resource type="Script" path="res://Script/2DCard/CardInterface.gd" id="8_a2cqq"]
+[ext_resource type="Texture2D" uid="uid://2imbw8rutag4" path="res://Sprites/Icon/Deck/Deck-Icon-Empty.png" id="8_g541p"]
 [ext_resource type="Texture2D" uid="uid://b34qixu87bnmw" path="res://Sprites/Icon/Folder/Folder-Open.png" id="9_a44y3"]
 [ext_resource type="Texture2D" uid="uid://4qgvra14vt1l" path="res://Sprites/Background/Windows Explorer 2.png" id="10_biwad"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="10_rmoou"]
@@ -107,32 +107,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DeckNode" type="Node2D" parent="CardInterface"]
-z_index = -2
-position = Vector2(1250, 600)
+z_index = 100
+position = Vector2(1310, 701)
 scale = Vector2(3, 3)
 script = ExtResource("3_7l5rt")
 DECK_SIZE = 10
 
 [node name="DeckButton" type="TextureButton" parent="CardInterface/DeckNode"]
 texture_filter = 1
-offset_right = 48.0
-offset_bottom = 64.0
-texture_normal = ExtResource("5_0vyyx")
-texture_pressed = ExtResource("5_upngw")
-texture_hover = ExtResource("5_upngw")
-texture_disabled = ExtResource("5_upngw")
+offset_right = 32.0
+offset_bottom = 33.0
+texture_normal = ExtResource("7_2xloj")
+texture_pressed = ExtResource("7_2xloj")
+texture_hover = ExtResource("7_2xloj")
+texture_disabled = ExtResource("8_g541p")
 script = ExtResource("5_8dny5")
 
 [node name="Folder" type="Sprite2D" parent="CardInterface/DeckNode"]
 texture_filter = 1
+position = Vector2(3, 4)
 texture = ExtResource("9_a44y3")
 
 [node name="Label" type="Label" parent="CardInterface/DeckNode"]
 texture_filter = 1
-offset_left = -12.0
-offset_top = -3.0
-offset_right = 11.0
-offset_bottom = 11.0
+offset_left = -10.3333
+offset_top = 0.666672
+offset_right = 12.6667
+offset_bottom = 14.6667
 text = "0
 "
 label_settings = SubResource("LabelSettings_k7ei7")
@@ -151,14 +152,14 @@ layer_0/tile_data = PackedInt32Array(327681, 1, 0, 327692, 65537, 0, 393217, 1, 
 [node name="HandNode" type="Node2D" parent="CardInterface"]
 z_index = -1
 script = ExtResource("1_05jmu")
-CARD_SIZE = 1.0
+CARD_SIZE = 0.5
 TITLE = "Title"
 DESCRIPTION = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 FLOPPY_DISK_ENUM = 1
 BATTERY_ENUM = 1
 IMAGE = "res://Sprites/CardImage/cat.jpg"
 SPREAD_CURVE = SubResource("Curve_51msg")
-HAND_WIDTH = 700
+HAND_WIDTH = 800
 CARD = ExtResource("3_x7ie0")
 
 [node name="MenuBar" type="Node2D" parent="."]
