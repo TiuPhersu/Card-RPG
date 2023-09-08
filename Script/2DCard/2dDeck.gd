@@ -15,14 +15,20 @@ func create_deck():
 		print(DECK[i])
 	DECK_COUNT.text = str(DECK.size())
 
-func draw_card_from_deck():
+func get_card_from_deck(cardLoc):
 	if DECK.size() <= 0:
+		#TODO: Reshuffle Discard Pile into the Deck
+		self.get_node("DeckButton").disabled = true
 		print("Outta Cards")
 		return
-	var drawnCard = DECK[DECK.size()-1]
-	DECK.remove_at(DECK.size()-1)
-	DECK_COUNT.text = str(DECK.size())
+	var drawnCard = DECK[cardLoc]
 	return drawnCard
+
+func remove_card_from_deck(cardLoc):
+	DECK.remove_at(cardLoc)
+	DECK_COUNT.text = str(DECK.size())
+	if DECK.size() <= 0:
+		self.get_node("DeckButton").disabled = true
 
 func _ready():
 	CARD_LIST = FILE_HELPER.list_files_in_directory("res://Data/Cards/")

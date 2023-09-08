@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://smj5r4t8uqex"]
+[gd_scene load_steps=13 format=3 uid="uid://smj5r4t8uqex"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dCard.gd" id="1_f66af"]
 [ext_resource type="Texture2D" uid="uid://cm07hmavj1q8k" path="res://Sprites/Card/Card-File-Skin.png" id="2_kby0a"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="3_gx2n4"]
 [ext_resource type="Texture2D" uid="uid://dhl118exodetj" path="res://Atlas/Battery-Icon.png" id="3_jhd51"]
+[ext_resource type="Texture2D" uid="uid://dyg63khmgcj4q" path="res://Sprites/CardImage/cat.jpg" id="3_k3jpc"]
 [ext_resource type="Texture2D" uid="uid://cpf8rngbppnlp" path="res://Atlas/Floppy-Disk-Icon.png" id="5_usujc"]
 [ext_resource type="Script" path="res://Script/2DCard/Floppy-Disk.gd" id="6_oikto"]
 [ext_resource type="Script" path="res://Script/2DCard/Battery.gd" id="8_u6xs3"]
+[ext_resource type="Texture2D" uid="uid://cp7l1vuovxf57" path="res://Sprites/CardImage/hamster.jpg" id="9_xsbvt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n7q47"]
 
@@ -28,24 +30,34 @@ shadow_size = 0
 script = ExtResource("1_f66af")
 TITLE_LABEL = NodePath("Title")
 DESCRIPTION_LABEL = NodePath("Description")
-CARD_IMAGE = NodePath("CardImage")
+CARD_IMAGE = NodePath("CardImageRect")
 FLOPPY_DISK_ICON = NodePath("Floppy-Disk-Icon")
 BATTERY_ICON = NodePath("Battery-Icon")
 
 [node name="CardImage" type="Sprite2D" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_n7q47")
-position = Vector2(81, 73)
+position = Vector2(81, 69)
 scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_k3jpc")
+
+[node name="CardImageRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(140, 72)
+offset_left = -70.0
+offset_top = -82.0
+offset_right = 70.0
+offset_bottom = -10.0
+texture = ExtResource("9_xsbvt")
+expand_mode = 1
 
 [node name="CardBase" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(81, 115)
 scale = Vector2(2, 2)
 texture = ExtResource("2_kby0a")
 
 [node name="Floppy-Disk-Icon" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(131, 201)
+position = Vector2(50, 86)
 scale = Vector2(2, 2)
 texture = ExtResource("5_usujc")
 region_enabled = true
@@ -54,7 +66,7 @@ script = ExtResource("6_oikto")
 
 [node name="Battery-Icon" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(33, 201)
+position = Vector2(-48, 86)
 scale = Vector2(2, 2)
 texture = ExtResource("3_jhd51")
 region_enabled = true
@@ -62,20 +74,29 @@ region_rect = Rect2(4, 4, 11, 6)
 script = ExtResource("8_u6xs3")
 
 [node name="Description" type="Label" parent="."]
-offset_left = 14.0
-offset_top = 113.0
-offset_right = 146.0
-offset_bottom = 173.0
+offset_left = -68.0
+offset_top = -2.0
+offset_right = 60.0
+offset_bottom = 58.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolor."
 label_settings = SubResource("LabelSettings_i1l3u")
 autowrap_mode = 3
 
 [node name="Title" type="Label" parent="."]
-offset_left = 8.0
-offset_top = 3.0
-offset_right = 104.0
-offset_bottom = 25.0
+offset_left = -73.0
+offset_top = -111.0
+offset_right = 23.0
+offset_bottom = -89.0
 text = "Placeholder"
 label_settings = SubResource("LabelSettings_yfelw")
 vertical_alignment = 1
 uppercase = true
+
+[node name="Selection" type="TextureButton" parent="."]
+offset_left = -81.0
+offset_top = -117.0
+offset_right = 80.0
+offset_bottom = 114.0
+
+[connection signal="mouse_entered" from="Selection" to="." method="_on_selection_mouse_entered"]
+[connection signal="mouse_exited" from="Selection" to="." method="_on_selection_mouse_exited"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=34 format=3 uid="uid://ciwtniq6pkoia"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="1_05jmu"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="3_7l5rt"]
+[ext_resource type="Texture2D" uid="uid://cvxc210p15xex" path="res://Sprites/Icon/Recycle/Recycle-Bin-Full.png" id="3_30jf5"]
 [ext_resource type="Texture2D" uid="uid://c42f6c3dwq4fv" path="res://Sprites/Background/Taskbar/Taskbar32by32.png" id="3_ga3lb"]
 [ext_resource type="Texture2D" uid="uid://d08h1qbpocr76" path="res://Sprites/Background/Taskbar/Start/Start-Button.png" id="3_vj3hu"]
 [ext_resource type="PackedScene" uid="uid://smj5r4t8uqex" path="res://Scene/2d/2dCard.tscn" id="3_x7ie0"]
@@ -82,13 +83,14 @@ position = Vector2(150, 700)
 scale = Vector2(3, 3)
 script = ExtResource("5_ku8x1")
 
-[node name="TextureButton" type="TextureButton" parent="CardInterface/DiscardNode"]
+[node name="DiscardButton" type="TextureButton" parent="CardInterface/DiscardNode"]
 texture_filter = 1
 offset_right = 30.0
 offset_bottom = 35.0
-texture_normal = ExtResource("10_yt83s")
-texture_pressed = ExtResource("10_yt83s")
-texture_hover = ExtResource("10_yt83s")
+disabled = true
+texture_normal = ExtResource("3_30jf5")
+texture_pressed = ExtResource("3_30jf5")
+texture_hover = ExtResource("3_30jf5")
 texture_disabled = ExtResource("10_yt83s")
 
 [node name="Folder" type="Sprite2D" parent="CardInterface/DiscardNode"]
@@ -159,7 +161,7 @@ FLOPPY_DISK_ENUM = 1
 BATTERY_ENUM = 1
 IMAGE = "res://Sprites/CardImage/cat.jpg"
 SPREAD_CURVE = SubResource("Curve_51msg")
-HAND_WIDTH = 800
+HAND_WIDTH = 850
 CARD = ExtResource("3_x7ie0")
 
 [node name="MenuBar" type="Node2D" parent="."]
@@ -249,5 +251,6 @@ texture_pressed = ExtResource("25_3j3rk")
 texture_hover = ExtResource("25_3j3rk")
 texture_disabled = ExtResource("25_3j3rk")
 
+[connection signal="pressed" from="CardInterface/DeckNode/DeckButton" to="CardInterface" method="_on_deck_button_pressed"]
 [connection signal="toggled" from="MenuBar/StartButton" to="MenuBar/StartButton" method="_on_toggled"]
 [connection signal="toggled" from="MenuBar/FileButton" to="MenuBar/FileButton" method="_on_toggled"]

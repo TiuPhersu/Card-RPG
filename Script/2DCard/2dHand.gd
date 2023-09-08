@@ -14,10 +14,9 @@ extends Node2D
 @export var CARD: PackedScene
 
 @onready var FILE_HELPER = file_helper.new()
-
 @onready var VIEWPORT_SIZE = Vector2(get_viewport().size)
-
-var Z_COUNTER = 0
+@onready var Z_COUNTER = 0
+@onready var CHECK_STATE_ALL = false
 
 func create_card():
 	var card = CARD.instantiate()
@@ -31,10 +30,16 @@ func create_card():
 	card.scale.y *= CARD_SIZE / card.scale.y
 	add_child(card)
 
-func create_card_from_database(selectedCard, startpos):
+func create_card_from_database(selectedCard, startpos) -> bool:
 	if selectedCard == null:
 		print("NULL")
-		return
+		return false
+		
+	var hand = self
+	for card in hand.get_children(false):
+		if card.STATE != card_enum.CARD_STATE_ENUM.InHand:
+			return false
+
 	var card = CARD.instantiate()
 	var cardData = FILE_HELPER.load_single_card_resource("res://Data/Cards/" + selectedCard)
 	card.TITLE = cardData.TITLE
@@ -45,8 +50,10 @@ func create_card_from_database(selectedCard, startpos):
 
 	card.scale.x *= CARD_SIZE / card.scale.x
 	card.scale.y *= CARD_SIZE / card.scale.y
+
 	add_child(card)
 	spread_hand(startpos)
+	return true
 
 func spread_hand(startpos):
 	var hand = self
@@ -54,7 +61,7 @@ func spread_hand(startpos):
 	for card in hand.get_children(false):
 		var handRatio = 0
 		var destination = hand.global_transform
-		var view = VIEWPORT_SIZE / Vector2(6,1.517)
+		var view = VIEWPORT_SIZE / Vector2(4.5,1.26)
 		destination = view
 
 		if hand.get_child_count(false) > 1:
@@ -69,8 +76,6 @@ func spread_hand(startpos):
 		elif hand.get_child_count(false) >= 2:
 			destination.x += SPREAD_CURVE.sample(handRatio) * HAND_WIDTH/4
 		
-		# card.set_global_position(destination)
-		
 		if  card.get_index() == (hand.get_child_count(false) - 1):
 			card.START_POS = startpos
 			card.STATE = card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand
@@ -80,7 +85,6 @@ func spread_hand(startpos):
 		
 		card.TARGET_POS = destination
 		
-			
 		card.z_index = Z_COUNTER
 		Z_COUNTER += 1
 		print(Z_COUNTER)

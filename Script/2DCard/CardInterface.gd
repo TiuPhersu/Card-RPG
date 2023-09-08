@@ -3,7 +3,13 @@ extends Node2D
 @onready var HAND = get_node("HandNode");
 @onready var DECK = get_node("DeckNode");
 
-func _input(event):
-	if Input.is_action_just_released("leftclick"):
-		var drawnCard = DECK.draw_card_from_deck()
-		HAND.create_card_from_database(drawnCard, DECK.position)
+func draw_card_from_deck():
+	var topCardLoc = DECK.DECK.size() - 1
+	var drawnCard = DECK.get_card_from_deck(topCardLoc)
+	var checkIfDrawn = HAND.create_card_from_database(drawnCard, DECK.position)
+	if checkIfDrawn:
+		DECK.remove_card_from_deck(topCardLoc)
+
+func _on_deck_button_pressed():
+	draw_card_from_deck()
+
