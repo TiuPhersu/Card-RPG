@@ -18,6 +18,44 @@ extends Node2D
 @onready var Z_COUNTER = 0
 @onready var CHECK_STATE_ALL = false
 
+var SELECTED_CARD
+
+func _input(event):
+	var hand = self
+	for card in hand.get_children(false):
+		if card.STATE == card_enum.CARD_STATE_ENUM.FocusInHand || card.STATE == card_enum.CARD_STATE_ENUM.InMouse:
+			SELECTED_CARD = card
+			
+	if SELECTED_CARD == null:
+		return
+		
+	match SELECTED_CARD.STATE:
+		card_enum.CARD_STATE_ENUM.FocusInHand, card_enum.CARD_STATE_ENUM.InMouse, card_enum.CARD_STATE_ENUM.InPlay:
+			if event.is_action_pressed("leftclick"):
+				if !SELECTED_CARD.CARD_SELECTED:
+					SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.InMouse
+					SELECTED_CARD.CARD_SELECTED = true
+					disable_cards()
+				else:
+					SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
+					SELECTED_CARD.CARD_SELECTED = false
+					enable_cards()
+			elif event.is_action_released("leftclick"):
+				SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
+				SELECTED_CARD.CARD_SELECTED = false
+				enable_cards()
+
+func disable_cards():
+	var hand = self
+	for card in hand.get_children(false):
+		if card.STATE != card_enum.CARD_STATE_ENUM.InMouse:
+			card.SETUP = false
+
+func enable_cards():
+	var hand = self
+	for card in hand.get_children(false):
+		card.SETUP = true
+
 func create_card():
 	var card = CARD.instantiate()
 	card.TITLE = TITLE
@@ -87,5 +125,4 @@ func spread_hand(startpos):
 		
 		card.z_index = Z_COUNTER
 		Z_COUNTER += 1
-		print(Z_COUNTER)
 	Z_COUNTER = 0

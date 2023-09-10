@@ -12,7 +12,6 @@ func create_deck():
 #	TODO: Get Deck Data from Database
 	for i in DECK_SIZE:
 		DECK.append(CARD_LIST[randi() % CARD_LIST.size()])
-		print(DECK[i])
 	DECK_COUNT.text = str(DECK.size())
 
 func get_card_from_deck(cardLoc):

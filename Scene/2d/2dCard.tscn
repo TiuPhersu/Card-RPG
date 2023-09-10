@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://smj5r4t8uqex"]
+[gd_scene load_steps=16 format=3 uid="uid://smj5r4t8uqex"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dCard.gd" id="1_f66af"]
 [ext_resource type="Texture2D" uid="uid://cm07hmavj1q8k" path="res://Sprites/Card/Card-File-Skin.png" id="2_kby0a"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://Script/2DCard/Floppy-Disk.gd" id="6_oikto"]
 [ext_resource type="Script" path="res://Script/2DCard/Battery.gd" id="8_u6xs3"]
 [ext_resource type="Texture2D" uid="uid://cp7l1vuovxf57" path="res://Sprites/CardImage/hamster.jpg" id="9_xsbvt"]
+[ext_resource type="Texture2D" uid="uid://croqmdyp0atxx" path="res://Sprites/Icon/Pointer/Dotted-Line.png" id="10_rer64"]
+[ext_resource type="Texture2D" uid="uid://pc7j7i5y0tun" path="res://Sprites/Icon/Pointer/Pointer.png" id="11_1djhs"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n7q47"]
 
@@ -22,9 +24,13 @@ shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_yfelw"]
 font = ExtResource("3_gx2n4")
-font_size = 9
+font_size = 13
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
+
+[sub_resource type="Curve" id="Curve_8rnt0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.962069, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -27.8128, 0.0, 0, 0]
+point_count = 3
 
 [node name="2dCard" type="Node2D" node_paths=PackedStringArray("TITLE_LABEL", "DESCRIPTION_LABEL", "CARD_IMAGE", "FLOPPY_DISK_ICON", "BATTERY_ICON")]
 script = ExtResource("1_f66af")
@@ -74,7 +80,7 @@ region_rect = Rect2(4, 4, 11, 6)
 script = ExtResource("8_u6xs3")
 
 [node name="Description" type="Label" parent="."]
-offset_left = -68.0
+offset_left = -66.0
 offset_top = -2.0
 offset_right = 60.0
 offset_bottom = 58.0
@@ -97,6 +103,19 @@ offset_left = -81.0
 offset_top = -117.0
 offset_right = 80.0
 offset_bottom = 114.0
+
+[node name="SelectTargetLine" type="Line2D" parent="."]
+z_index = -1
+texture_filter = 1
+width_curve = SubResource("Curve_8rnt0")
+texture = ExtResource("10_rer64")
+texture_mode = 1
+joint_mode = 2
+end_cap_mode = 2
+
+[node name="Pointer" type="Sprite2D" parent="SelectTargetLine"]
+scale = Vector2(2, 2)
+texture = ExtResource("11_1djhs")
 
 [connection signal="mouse_entered" from="Selection" to="." method="_on_selection_mouse_entered"]
 [connection signal="mouse_exited" from="Selection" to="." method="_on_selection_mouse_exited"]

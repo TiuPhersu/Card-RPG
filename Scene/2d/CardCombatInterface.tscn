@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=39 format=3 uid="uid://ciwtniq6pkoia"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="1_05jmu"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="3_7l5rt"]
@@ -10,8 +10,6 @@
 [ext_resource type="Script" path="res://Script/2DCard/StartButton.gd" id="5_0os4i"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeckButton.gd" id="5_8dny5"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDiscard.gd" id="5_ku8x1"]
-[ext_resource type="Texture2D" uid="uid://blrhp8atcmbhy" path="res://Sprites/Background/Taskbar/File/File-Button.png" id="5_v1sga"]
-[ext_resource type="Texture2D" uid="uid://c0i30mpfl8asi" path="res://Sprites/Background/Taskbar/File/File-Button-Pressed.png" id="6_1ky5c"]
 [ext_resource type="Texture2D" uid="uid://ot58fvrchwn3" path="res://Sprites/Icon/Deck/Deck-Icon.png" id="7_2xloj"]
 [ext_resource type="Script" path="res://Script/2DCard/FileButton.gd" id="7_7wvd7"]
 [ext_resource type="Script" path="res://Script/2DCard/CardInterface.gd" id="8_a2cqq"]
@@ -20,8 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://4qgvra14vt1l" path="res://Sprites/Background/Windows Explorer 2.png" id="10_biwad"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="10_rmoou"]
 [ext_resource type="Texture2D" uid="uid://dfv4iow0itlg2" path="res://Sprites/Icon/Recycle/Recycle-Bin-Empty.png" id="10_yt83s"]
+[ext_resource type="Texture2D" uid="uid://c1fmifpcacgva" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Start-Icon.png" id="18_d2n7l"]
+[ext_resource type="Texture2D" uid="uid://cjfbtf7dn3nxm" path="res://Sprites/Background/Taskbar/File/Task-Button.png" id="18_i35tw"]
+[ext_resource type="Texture2D" uid="uid://cudlm6ou8h8ds" path="res://Sprites/Background/Taskbar/File/Task-Button-Pressed.png" id="19_gop2c"]
 [ext_resource type="Texture2D" uid="uid://dxjx1gwrp2fvr" path="res://Sprites/Background/Taskbar/Start/Start-Top.png" id="19_yon3h"]
 [ext_resource type="Texture2D" uid="uid://dw22ns2orixr4" path="res://Sprites/Background/Taskbar/Start/Shutdown-Button.png" id="20_7hl5l"]
+[ext_resource type="Texture2D" uid="uid://do3gbkucdfmoi" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Folder-Icon.png" id="21_lmvjk"]
 [ext_resource type="Texture2D" uid="uid://c1nuviyr15cpj" path="res://Sprites/Background/Taskbar/Start/Shutdown-Button-HL.png" id="21_qwylt"]
 [ext_resource type="Texture2D" uid="uid://ckv0bxjlffkay" path="res://Sprites/Background/Taskbar/Start/Help-Button.png" id="22_k2q7r"]
 [ext_resource type="Texture2D" uid="uid://dc44fbklm3mq" path="res://Sprites/Background/Taskbar/Start/Help-Button-HL.png" id="23_3o0af"]
@@ -50,6 +52,10 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetAtlasSource_quuwp")
 
+[sub_resource type="LabelSettings" id="LabelSettings_2xsbn"]
+font = ExtResource("10_rmoou")
+font_size = 9
+
 [sub_resource type="Curve" id="Curve_51msg"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
@@ -64,6 +70,17 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_2ln5b"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_p5dix")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ubgt7"]
+font = ExtResource("10_rmoou")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_idg32"]
+line_spacing = 0.0
+font = ExtResource("10_rmoou")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
 
 [node name="CardCombatInterface" type="Control"]
 layout_mode = 3
@@ -109,7 +126,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="DeckNode" type="Node2D" parent="CardInterface"]
-z_index = 100
+z_index = 1
 position = Vector2(1310, 701)
 scale = Vector2(3, 3)
 script = ExtResource("3_7l5rt")
@@ -151,6 +168,15 @@ tile_set = SubResource("TileSet_t8ht1")
 format = 2
 layer_0/tile_data = PackedInt32Array(327681, 1, 0, 327692, 65537, 0, 393217, 1, 1, 393218, 65537, 1, 393219, 65537, 1, 393220, 65537, 1, 393221, 65537, 1, 393222, 65537, 1, 393223, 65537, 1, 393224, 65537, 1, 393225, 65537, 1, 393226, 65537, 1, 393227, 65537, 1, 393228, 65537, 1, 327682, 65537, 0, 327683, 65537, 0, 327684, 65537, 0, 327685, 65537, 0, 327686, 65537, 0, 327687, 65537, 0, 327688, 65537, 0, 327689, 65537, 0, 327690, 65537, 0, 327691, 65537, 0, 458753, 1, 2, 327693, 65537, 0, 327694, 131073, 0, 458754, 65537, 2, 458755, 65537, 2, 458758, 65537, 2, 458759, 65537, 2, 458757, 65537, 2, 458756, 65537, 2, 458760, 65537, 2, 458761, 65537, 2, 458764, 65537, 2, 458763, 65537, 2, 458762, 65537, 2, 458765, 65537, 2, 393229, 65537, 1, 393230, 131073, 1, 458766, 131073, 2)
 
+[node name="Label" type="Label" parent="CardInterface/Explorer"]
+offset_left = 37.0
+offset_top = 160.667
+offset_right = 86.0
+offset_bottom = 174.667
+text = "File"
+label_settings = SubResource("LabelSettings_2xsbn")
+vertical_alignment = 1
+
 [node name="HandNode" type="Node2D" parent="CardInterface"]
 z_index = -1
 script = ExtResource("1_05jmu")
@@ -189,21 +215,48 @@ texture_disabled = ExtResource("3_vj3hu")
 script = ExtResource("5_0os4i")
 MainUi = NodePath("../../StartMenu")
 
+[node name="Icon" type="Sprite2D" parent="MenuBar/StartButton"]
+position = Vector2(8.33333, 6.66666)
+texture = ExtResource("18_d2n7l")
+
+[node name="Label" type="Label" parent="MenuBar/StartButton"]
+layout_mode = 0
+offset_left = 14.6667
+offset_top = 1.0
+offset_right = 54.6667
+offset_bottom = 15.0
+text = "Start"
+label_settings = SubResource("LabelSettings_ubgt7")
+
 [node name="FileButton" type="TextureButton" parent="MenuBar" node_paths=PackedStringArray("MainUi")]
 texture_filter = 1
-offset_left = 106.0
+offset_left = 158.0
 offset_top = 820.0
-offset_right = 170.0
+offset_right = 254.0
 offset_bottom = 833.0
 scale = Vector2(3, 3)
 toggle_mode = true
 button_pressed = true
-texture_normal = ExtResource("5_v1sga")
-texture_pressed = ExtResource("6_1ky5c")
-texture_hover = ExtResource("5_v1sga")
-texture_disabled = ExtResource("5_v1sga")
+texture_normal = ExtResource("18_i35tw")
+texture_pressed = ExtResource("19_gop2c")
+texture_hover = ExtResource("18_i35tw")
+texture_disabled = ExtResource("18_i35tw")
 script = ExtResource("7_7wvd7")
 MainUi = NodePath("../../CardInterface")
+
+[node name="Icon" type="Sprite2D" parent="MenuBar/FileButton"]
+position = Vector2(8, 7)
+texture = ExtResource("21_lmvjk")
+
+[node name="Label" type="Label" parent="MenuBar/FileButton"]
+layout_mode = 0
+offset_left = 14.6667
+offset_top = 0.333344
+offset_right = 54.6667
+offset_bottom = 14.3333
+text = "File"
+label_settings = SubResource("LabelSettings_idg32")
+vertical_alignment = 1
 
 [node name="StartMenu" type="Node2D" parent="."]
 process_mode = 4

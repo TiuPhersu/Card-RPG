@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://qhbgstfsfx5g"
-path.s3tc="res://.godot/imported/Hand-Pointer-Icon-Sheet.png-c6cf6a696f83c66f8d98b37943a43971.s3tc.ctex"
+path.s3tc="res://.godot/imported/Hand-Pointer-Icon-Sheet.png-0daf6fb1b8f3c3125f0245c2b480c940.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Sprites/Icon/Hand-Pointer-Icon-Sheet.png"
-dest_files=["res://.godot/imported/Hand-Pointer-Icon-Sheet.png-c6cf6a696f83c66f8d98b37943a43971.s3tc.ctex"]
+source_file="res://Sprites/Icon/Pointer/Hand-Pointer-Icon-Sheet.png"
+dest_files=["res://.godot/imported/Hand-Pointer-Icon-Sheet.png-0daf6fb1b8f3c3125f0245c2b480c940.s3tc.ctex"]
 
 [params]
 
