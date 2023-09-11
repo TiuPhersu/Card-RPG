@@ -57,6 +57,10 @@ func _physics_process(delta):
 			move_to_destination(delta, true)
 		card_enum.CARD_STATE_ENUM.ReorganizeHand:
 			move_to_destination(1, false)
+	if self.get_node("Selection").is_hovered():
+		focus_in()
+	else:
+		focus_out()
 
 func _ready():
 	BATTERY_ICON.select_battery(BATTERY_ENUM)
@@ -117,16 +121,14 @@ func move_to_destination(delta, decktoHand):
 		T = 0
 		reset_line(TARGET_LINE)
 
-#	TODO: Look into alternative ways to focus on cards (current version not consistent)
-#	PS: Maybe look into 2d raycasting
-func _on_selection_mouse_entered():
+func focus_in():
 	if !SETUP:
 		return
 	match STATE:
 		card_enum.CARD_STATE_ENUM.InHand, card_enum.CARD_STATE_ENUM.ReorganizeHand:
 			STATE = card_enum.CARD_STATE_ENUM.FocusInHand
 
-func _on_selection_mouse_exited():
+func focus_out():
 	if !SETUP:
 		return
 	match STATE:

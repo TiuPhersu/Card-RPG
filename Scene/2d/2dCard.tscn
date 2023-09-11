@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://smj5r4t8uqex"]
+[gd_scene load_steps=16 format=3 uid="uid://smj5r4t8uqex"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dCard.gd" id="1_f66af"]
 [ext_resource type="Texture2D" uid="uid://cm07hmavj1q8k" path="res://Sprites/Card/Card-File-Skin.png" id="2_kby0a"]
@@ -27,9 +27,6 @@ font = ExtResource("3_gx2n4")
 font_size = 13
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_08yog"]
-size = Vector2(160, 232)
 
 [sub_resource type="Curve" id="Curve_8rnt0"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.962069, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -27.8128, 0.0, 0, 0]
@@ -107,12 +104,6 @@ offset_top = -117.0
 offset_right = 80.0
 offset_bottom = 114.0
 
-[node name="Area2D" type="Area2D" parent="Selection"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Selection/Area2D"]
-position = Vector2(80, 117)
-shape = SubResource("RectangleShape2D_08yog")
-
 [node name="SelectTargetLine" type="Line2D" parent="."]
 z_index = -1
 texture_filter = 1
@@ -125,6 +116,3 @@ end_cap_mode = 2
 [node name="Pointer" type="Sprite2D" parent="SelectTargetLine"]
 scale = Vector2(2, 2)
 texture = ExtResource("11_1djhs")
-
-[connection signal="mouse_entered" from="Selection" to="." method="_on_selection_mouse_entered"]
-[connection signal="mouse_exited" from="Selection" to="." method="_on_selection_mouse_exited"]
