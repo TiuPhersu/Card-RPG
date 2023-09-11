@@ -90,8 +90,8 @@ func card_targeting():
 	position = OLD_POS
 	var pointer = TARGET_LINE.get_node("Pointer")
 	set_line_points_to_bezier(TARGET_LINE, 
-		Vector2(0,-110), 
-		Vector2(0,-110), 
+		Vector2(0, -110), 
+		Vector2(0, -80), 
 		Vector2.ZERO, 
 		self.get_local_mouse_position())
 	pointer.position = TARGET_LINE.points[TARGET_LINE.get_point_count() - 4]

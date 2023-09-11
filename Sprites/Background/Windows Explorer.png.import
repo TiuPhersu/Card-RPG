@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4qgvra14vt1l"
-path="res://.godot/imported/Windows Explorer 2.png-1711d901a0a65d6b24763fc4c2ca7793.ctex"
+path="res://.godot/imported/Windows Explorer.png-da26cb7d7c8d1d386dacee53227313a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Background/Windows Explorer 2.png"
-dest_files=["res://.godot/imported/Windows Explorer 2.png-1711d901a0a65d6b24763fc4c2ca7793.ctex"]
+source_file="res://Sprites/Background/Windows Explorer.png"
+dest_files=["res://.godot/imported/Windows Explorer.png-da26cb7d7c8d1d386dacee53227313a6.ctex"]
 
 [params]
 
