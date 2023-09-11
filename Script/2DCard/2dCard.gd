@@ -32,11 +32,13 @@ extends Node2D
 @onready var OLD_STATE: card_enum.CARD_STATE_ENUM
 @onready var START_POS
 @onready var TARGET_POS
+@onready var OLD_POS
 @onready var TARGET_LINE = self.get_node("SelectTargetLine")
-var T = 0
-var DRAW_TIME = .15
-var SETUP = true
-var CARD_SELECTED = false
+@onready var T = 0
+@onready var DRAW_TIME = .15
+@onready var SETUP = true
+@onready var CARD_SELECTED = false
+@onready var IN_HAND_AREA = false
 
 func _physics_process(delta):
 	match STATE:
@@ -45,7 +47,10 @@ func _physics_process(delta):
 		card_enum.CARD_STATE_ENUM.InPlay:
 			pass
 		card_enum.CARD_STATE_ENUM.InMouse:
-			card_targeting()
+			if !IN_HAND_AREA:
+				card_dragging()
+			else:
+				card_targeting()
 		card_enum.CARD_STATE_ENUM.FocusInHand:
 			focus_card()
 		card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand:
@@ -68,13 +73,17 @@ func set_image_card():
 	
 	CARD_IMAGE.texture = image
 
+func card_dragging():
+	if !SETUP:
+		return
+	reset_line(TARGET_LINE)
+	position = get_global_mouse_position()
+
 func card_targeting():
 	if !SETUP:
 		return
 #	TODO: Check Card Type then determine if it should be a pointer or a floater
-#	position = get_global_mouse_position()
-
-#	TODO: Drag card a outside the hand area then go into pointer mode 
+	position = OLD_POS
 	var pointer = TARGET_LINE.get_node("Pointer")
 	set_line_points_to_bezier(TARGET_LINE, 
 		Vector2(0,-110), 
@@ -109,6 +118,7 @@ func move_to_destination(delta, decktoHand):
 		reset_line(TARGET_LINE)
 
 #	TODO: Look into alternative ways to focus on cards (current version not consistent)
+#	PS: Maybe look into 2d raycasting
 func _on_selection_mouse_entered():
 	if !SETUP:
 		return

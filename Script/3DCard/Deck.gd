@@ -1,6 +1,6 @@
 extends Node3D
 
-const CARD = preload("res://Scene/Card.tscn")
+const CARD = preload("res://Scene/3d/Card.tscn")
 var card_counter_fun: int = 0
 
 func load_data():

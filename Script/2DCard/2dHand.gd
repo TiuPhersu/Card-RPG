@@ -25,10 +25,10 @@ func _input(event):
 	for card in hand.get_children(false):
 		if card.STATE == card_enum.CARD_STATE_ENUM.FocusInHand || card.STATE == card_enum.CARD_STATE_ENUM.InMouse:
 			SELECTED_CARD = card
-			
+	
 	if SELECTED_CARD == null:
 		return
-		
+
 	match SELECTED_CARD.STATE:
 		card_enum.CARD_STATE_ENUM.FocusInHand, card_enum.CARD_STATE_ENUM.InMouse, card_enum.CARD_STATE_ENUM.InPlay:
 			if event.is_action_pressed("leftclick"):
@@ -122,7 +122,18 @@ func spread_hand(startpos):
 			card.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
 		
 		card.TARGET_POS = destination
+		card.OLD_POS = destination
 		
 		card.z_index = Z_COUNTER
 		Z_COUNTER += 1
 	Z_COUNTER = 0
+
+
+func _on_area_2d_mouse_entered():
+	if SELECTED_CARD != null:
+		SELECTED_CARD.IN_HAND_AREA = false
+
+
+func _on_area_2d_mouse_exited():
+	if SELECTED_CARD != null:
+		SELECTED_CARD.IN_HAND_AREA = true

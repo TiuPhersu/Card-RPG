@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=40 format=3 uid="uid://ciwtniq6pkoia"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="1_05jmu"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="3_7l5rt"]
@@ -55,6 +55,9 @@ sources/1 = SubResource("TileSetAtlasSource_quuwp")
 [sub_resource type="LabelSettings" id="LabelSettings_2xsbn"]
 font = ExtResource("10_rmoou")
 font_size = 9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dbb8"]
+size = Vector2(448, 96.3333)
 
 [sub_resource type="Curve" id="Curve_51msg"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
@@ -176,6 +179,12 @@ offset_bottom = 174.667
 text = "File"
 label_settings = SubResource("LabelSettings_2xsbn")
 vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="CardInterface/Explorer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CardInterface/Explorer/Area2D"]
+position = Vector2(256.333, 208.833)
+shape = SubResource("RectangleShape2D_0dbb8")
 
 [node name="HandNode" type="Node2D" parent="CardInterface"]
 z_index = -1
@@ -305,5 +314,7 @@ texture_hover = ExtResource("25_3j3rk")
 texture_disabled = ExtResource("25_3j3rk")
 
 [connection signal="pressed" from="CardInterface/DeckNode/DeckButton" to="CardInterface" method="_on_deck_button_pressed"]
+[connection signal="mouse_entered" from="CardInterface/Explorer/Area2D" to="CardInterface/HandNode" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="CardInterface/Explorer/Area2D" to="CardInterface/HandNode" method="_on_area_2d_mouse_exited"]
 [connection signal="toggled" from="MenuBar/StartButton" to="MenuBar/StartButton" method="_on_toggled"]
 [connection signal="toggled" from="MenuBar/FileButton" to="MenuBar/FileButton" method="_on_toggled"]
