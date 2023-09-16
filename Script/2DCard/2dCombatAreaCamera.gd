@@ -1,0 +1,10 @@
+extends Camera3D
+
+var mouse = Vector2()
+
+func get_selection(position):
+	var worldspace = get_world_3d().direct_space_state
+	var start = project_ray_origin(position)
+	var end = project_position(position, 1000)
+	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
+	return result

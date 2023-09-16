@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://b50dw2h4k4y83"]
+[gd_scene load_steps=24 format=3 uid="uid://b50dw2h4k4y83"]
 
 [ext_resource type="Script" path="res://Script/Units/Character.gd" id="1_4pqyg"]
+[ext_resource type="Texture2D" uid="uid://di0d54sfo447r" path="res://Sprites/Character/Small-8-Direction-Characters_by_AxulArt.png" id="2_nlif0"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hicak"]
 
@@ -211,6 +212,7 @@ billboard = 2
 shaded = true
 alpha_cut = 2
 texture_filter = 0
+texture = ExtResource("2_nlif0")
 hframes = 8
 vframes = 12
 frame = 31

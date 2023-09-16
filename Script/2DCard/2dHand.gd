@@ -15,45 +15,57 @@ extends Node2D
 
 @onready var FILE_HELPER = file_helper.new()
 @onready var VIEWPORT_SIZE = Vector2(get_viewport().size)
-@onready var Z_COUNTER = 0
 @onready var CHECK_STATE_ALL = false
 
 var SELECTED_CARD
+var START_POS
 
-func _input(event):
+func focus_card_in_hand(pressed, released):
 	var hand = self
 	for card in hand.get_children(false):
 		if card.STATE == card_enum.CARD_STATE_ENUM.FocusInHand || card.STATE == card_enum.CARD_STATE_ENUM.InMouse:
 			SELECTED_CARD = card
 	
 	if SELECTED_CARD == null:
-		return
+		return null
 
 	match SELECTED_CARD.STATE:
 		card_enum.CARD_STATE_ENUM.FocusInHand, card_enum.CARD_STATE_ENUM.InMouse, card_enum.CARD_STATE_ENUM.InPlay:
-			if event.is_action_pressed("leftclick"):
+			if pressed:
 				if !SELECTED_CARD.CARD_SELECTED:
 					SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.InMouse
 					SELECTED_CARD.CARD_SELECTED = true
 					disable_cards()
+					return(SELECTED_CARD)
 				else:
-					SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
-					SELECTED_CARD.CARD_SELECTED = false
 					enable_cards()
-			elif event.is_action_released("leftclick"):
-				SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
-				SELECTED_CARD.CARD_SELECTED = false
+					return null
+			elif released:
 				enable_cards()
+				return null
 
 func disable_cards():
+	var zCounter = 0
 	var hand = self
 	for card in hand.get_children(false):
 		if card.STATE != card_enum.CARD_STATE_ENUM.InMouse:
+			card.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
+			card.scale = Vector2(1,1)
 			card.SETUP = false
+			card.z_index = zCounter
+			zCounter += 1
+			
 
 func enable_cards():
+	SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
+	SELECTED_CARD.CARD_SELECTED = false
+	SELECTED_CARD.SETUP = true
+	SELECTED_CARD.position = SELECTED_CARD.TARGET_POS
+	print(SELECTED_CARD)
 	var hand = self
 	for card in hand.get_children(false):
+		card.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
+		card.CARD_SELECTED = false
 		card.SETUP = true
 
 func create_card():
@@ -68,15 +80,15 @@ func create_card():
 	card.scale.y *= CARD_SIZE / card.scale.y
 	add_child(card)
 
-func create_card_from_database(selectedCard, startpos) -> bool:
+func create_card_from_database(selectedCard, startPos) -> bool:
 	if selectedCard == null:
 		print("NULL")
 		return false
 		
 	var hand = self
-	for card in hand.get_children(false):
-		if card.STATE != card_enum.CARD_STATE_ENUM.InHand:
-			return false
+#	for card in hand.get_children(false):
+#		if card.STATE != card_enum.CARD_STATE_ENUM.InHand:
+#			return false
 
 	var card = CARD.instantiate()
 	var cardData = FILE_HELPER.load_single_card_resource("res://Data/Cards/" + selectedCard)
@@ -90,16 +102,16 @@ func create_card_from_database(selectedCard, startpos) -> bool:
 	card.scale.y *= CARD_SIZE / card.scale.y
 
 	add_child(card)
-	spread_hand(startpos)
+	spread_hand(startPos)
 	return true
 
-func spread_hand(startpos):
+func spread_hand(startPos):
 	var hand = self
-
+	var zCounter = 0
 	for card in hand.get_children(false):
 		var handRatio = 0
 		var destination = hand.global_transform
-		var view = VIEWPORT_SIZE / Vector2(4.5,1.26)
+		var view = VIEWPORT_SIZE / Vector2(4.5,1.258)
 		destination = view
 
 		if hand.get_child_count(false) > 1:
@@ -115,7 +127,7 @@ func spread_hand(startpos):
 			destination.x += SPREAD_CURVE.sample(handRatio) * HAND_WIDTH/4
 		
 		if  card.get_index() == (hand.get_child_count(false) - 1):
-			card.START_POS = startpos
+			card.START_POS = startPos
 			card.STATE = card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand
 		else:
 			card.START_POS = destination
@@ -124,15 +136,12 @@ func spread_hand(startpos):
 		card.TARGET_POS = destination
 		card.OLD_POS = destination
 		
-		card.z_index = Z_COUNTER
-		Z_COUNTER += 1
-	Z_COUNTER = 0
-
+		card.z_index = zCounter
+		zCounter += 1
 
 func _on_area_2d_mouse_entered():
 	if SELECTED_CARD != null:
 		SELECTED_CARD.IN_HAND_AREA = false
-
 
 func _on_area_2d_mouse_exited():
 	if SELECTED_CARD != null:

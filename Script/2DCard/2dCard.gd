@@ -40,7 +40,11 @@ extends Node2D
 @onready var CARD_SELECTED = false
 @onready var IN_HAND_AREA = false
 
-func _physics_process(delta):
+func _process(delta):
+	if self.get_node("Selection").is_hovered() :
+		focus_in()
+	else:
+		focus_out()
 	match STATE:
 		card_enum.CARD_STATE_ENUM.InHand:
 			pass
@@ -57,10 +61,6 @@ func _physics_process(delta):
 			move_to_destination(delta, true)
 		card_enum.CARD_STATE_ENUM.ReorganizeHand:
 			move_to_destination(1, false)
-	if self.get_node("Selection").is_hovered():
-		focus_in()
-	else:
-		focus_out()
 
 func _ready():
 	BATTERY_ICON.select_battery(BATTERY_ENUM)
@@ -68,6 +68,7 @@ func _ready():
 	TITLE_LABEL.set_text(TITLE)
 	DESCRIPTION_LABEL.set_text(DESCRIPTION)
 	STATE = card_enum.CARD_STATE_ENUM.InHand
+	scale = Vector2.ZERO
 	set_image_card()
 
 func set_image_card():
@@ -91,7 +92,7 @@ func card_targeting():
 	var pointer = TARGET_LINE.get_node("Pointer")
 	set_line_points_to_bezier(TARGET_LINE, 
 		Vector2(0, -110), 
-		Vector2(0, -80), 
+		Vector2(0, -60), 
 		Vector2.ZERO, 
 		self.get_local_mouse_position())
 	pointer.position = TARGET_LINE.points[TARGET_LINE.get_point_count() - 4]

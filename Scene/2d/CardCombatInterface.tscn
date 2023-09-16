@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=39 format=3 uid="uid://ciwtniq6pkoia"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="1_05jmu"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="3_7l5rt"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c1fmifpcacgva" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Start-Icon.png" id="18_d2n7l"]
 [ext_resource type="Texture2D" uid="uid://cjfbtf7dn3nxm" path="res://Sprites/Background/Taskbar/File/Task-Button.png" id="18_i35tw"]
 [ext_resource type="Texture2D" uid="uid://cudlm6ou8h8ds" path="res://Sprites/Background/Taskbar/File/Task-Button-Pressed.png" id="19_gop2c"]
+[ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Minecraft.ttf" id="19_hnmk3"]
 [ext_resource type="Texture2D" uid="uid://dxjx1gwrp2fvr" path="res://Sprites/Background/Taskbar/Start/Start-Top.png" id="19_yon3h"]
 [ext_resource type="Texture2D" uid="uid://dw22ns2orixr4" path="res://Sprites/Background/Taskbar/Start/Shutdown-Button.png" id="20_7hl5l"]
 [ext_resource type="Texture2D" uid="uid://do3gbkucdfmoi" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Folder-Icon.png" id="21_lmvjk"]
@@ -44,7 +45,7 @@ font = ExtResource("10_rmoou")
 font_size = 9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dbb8"]
-size = Vector2(448, 108)
+size = Vector2(448, 124.667)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5dix"]
 texture = ExtResource("3_ga3lb")
@@ -58,14 +59,12 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_p5dix")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ubgt7"]
-font = ExtResource("10_rmoou")
-font_size = 9
+font = ExtResource("19_hnmk3")
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_idg32"]
 line_spacing = 0.0
-font = ExtResource("10_rmoou")
-font_size = 9
+font = ExtResource("19_hnmk3")
 font_color = Color(0, 0, 0, 1)
 
 [node name="CardCombatInterface" type="Control"]
@@ -161,9 +160,9 @@ CARD = ExtResource("3_x7ie0")
 z_index = -1
 texture_filter = 1
 offset_left = 98.0
-offset_top = 514.0
+offset_top = 525.0
 offset_right = 545.0
-offset_bottom = 614.0
+offset_bottom = 621.0
 scale = Vector2(3, 3)
 texture = ExtResource("11_d0666")
 region_rect = Rect2(0, 0, 96, 96)
@@ -186,7 +185,7 @@ vertical_alignment = 1
 position = Vector2(-32.6667, -156)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CardInterface/Explorer/Area2D"]
-position = Vector2(256.333, 202.333)
+position = Vector2(256.333, 206.666)
 shape = SubResource("RectangleShape2D_0dbb8")
 
 [node name="MenuBar" type="Node2D" parent="."]
@@ -219,11 +218,13 @@ position = Vector2(8.33333, 6.66666)
 texture = ExtResource("18_d2n7l")
 
 [node name="Label" type="Label" parent="MenuBar/StartButton"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 14.6667
-offset_top = 1.0
-offset_right = 54.6667
-offset_bottom = 15.0
+offset_left = 16.6667
+offset_top = 2.66666
+offset_right = 56.6667
+offset_bottom = 21.6667
+scale = Vector2(0.6, 0.6)
 text = "Start"
 label_settings = SubResource("LabelSettings_ubgt7")
 
@@ -250,9 +251,10 @@ texture = ExtResource("21_lmvjk")
 [node name="Label" type="Label" parent="MenuBar/FileButton"]
 layout_mode = 0
 offset_left = 14.6667
-offset_top = 0.333344
+offset_top = 2.66672
 offset_right = 54.6667
-offset_bottom = 14.3333
+offset_bottom = 18.6667
+scale = Vector2(0.6, 0.6)
 text = "File"
 label_settings = SubResource("LabelSettings_idg32")
 vertical_alignment = 1
@@ -306,5 +308,5 @@ texture_disabled = ExtResource("25_3j3rk")
 [connection signal="pressed" from="CardInterface/DeckNode/DeckButton" to="CardInterface" method="_on_deck_button_pressed"]
 [connection signal="mouse_entered" from="CardInterface/Explorer/Area2D" to="CardInterface/HandNode" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="CardInterface/Explorer/Area2D" to="CardInterface/HandNode" method="_on_area_2d_mouse_exited"]
-[connection signal="toggled" from="MenuBar/StartButton" to="MenuBar/StartButton" method="_on_toggled"]
-[connection signal="toggled" from="MenuBar/FileButton" to="MenuBar/FileButton" method="_on_toggled"]
+[connection signal="toggled" from="MenuBar/StartButton" to="MenuBar/StartButton" method="_on_start_toggled"]
+[connection signal="toggled" from="MenuBar/FileButton" to="MenuBar/FileButton" method="_on_file_toggled"]

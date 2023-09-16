@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bn2j15w0nhube"
+path="res://.godot/imported/TADA.WAV-7a69528bf8ccac28357cb039e0de93b6.sample"
+
+[deps]
+
+source_file="res://Sound/SFX/Computer Sounds/Windows 95/TADA.WAV"
+dest_files=["res://.godot/imported/TADA.WAV-7a69528bf8ccac28357cb039e0de93b6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

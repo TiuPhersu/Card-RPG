@@ -1,3 +1,44 @@
-[gd_scene format=3 uid="uid://b6sinl6n0bk3y"]
+[gd_scene load_steps=8 format=3 uid="uid://b6sinl6n0bk3y"]
+
+[ext_resource type="Script" path="res://Script/2DCard/2dCombatArea.gd" id="1_8dnwq"]
+[ext_resource type="PackedScene" uid="uid://ciwtniq6pkoia" path="res://Scene/2d/CardCombatInterface.tscn" id="1_r7bhy"]
+[ext_resource type="Texture2D" uid="uid://dfaduem1ou8el" path="res://Sprites/Sky/Epic_BlueSunset_EquiRect_flat.png" id="2_lrkty"]
+[ext_resource type="Script" path="res://Script/2DCard/2dCombatAreaCamera.gd" id="4_l8oyl"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_dofua"]
+panorama = ExtResource("2_lrkty")
+
+[sub_resource type="Sky" id="Sky_l2kvd"]
+sky_material = SubResource("PanoramaSkyMaterial_dofua")
+
+[sub_resource type="Environment" id="Environment_snyvj"]
+background_mode = 2
+sky = SubResource("Sky_l2kvd")
 
 [node name="2dCombatArea" type="Node3D"]
+script = ExtResource("1_8dnwq")
+
+[node name="CardCombatInterface" parent="." instance=ExtResource("1_r7bhy")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_snyvj")
+
+[node name="2dCombatAreaCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.7202, 0.693767, 0, -0.693767, 0.7202, 0, 3.64831, 1.92956)
+script = ExtResource("4_l8oyl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(10, 1, 10)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58531, -3.91144)
+use_collision = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38219, 0.937637, -2.5833)
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.99346, 0.999323, -2.11259)
+use_collision = true

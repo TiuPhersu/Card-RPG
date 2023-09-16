@@ -1,18 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://smj5r4t8uqex"]
+[gd_scene load_steps=14 format=3 uid="uid://smj5r4t8uqex"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dCard.gd" id="1_f66af"]
 [ext_resource type="Texture2D" uid="uid://cm07hmavj1q8k" path="res://Sprites/Card/Card-File-Skin.png" id="2_kby0a"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="3_gx2n4"]
 [ext_resource type="Texture2D" uid="uid://dhl118exodetj" path="res://Atlas/Battery-Icon.png" id="3_jhd51"]
-[ext_resource type="Texture2D" uid="uid://dyg63khmgcj4q" path="res://Sprites/CardImage/cat.jpg" id="3_k3jpc"]
 [ext_resource type="Texture2D" uid="uid://cpf8rngbppnlp" path="res://Atlas/Floppy-Disk-Icon.png" id="5_usujc"]
 [ext_resource type="Script" path="res://Script/2DCard/Floppy-Disk.gd" id="6_oikto"]
 [ext_resource type="Script" path="res://Script/2DCard/Battery.gd" id="8_u6xs3"]
 [ext_resource type="Texture2D" uid="uid://cp7l1vuovxf57" path="res://Sprites/CardImage/hamster.jpg" id="9_xsbvt"]
 [ext_resource type="Texture2D" uid="uid://croqmdyp0atxx" path="res://Sprites/Icon/Pointer/Dotted-Line.png" id="10_rer64"]
 [ext_resource type="Texture2D" uid="uid://pc7j7i5y0tun" path="res://Sprites/Icon/Pointer/Pointer.png" id="11_1djhs"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7q47"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i1l3u"]
 line_spacing = 0.0
@@ -40,14 +37,8 @@ CARD_IMAGE = NodePath("CardImageRect")
 FLOPPY_DISK_ICON = NodePath("Floppy-Disk-Icon")
 BATTERY_ICON = NodePath("Battery-Icon")
 
-[node name="CardImage" type="Sprite2D" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_n7q47")
-position = Vector2(81, 69)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_k3jpc")
-
 [node name="CardImageRect" type="TextureRect" parent="."]
+z_index = 1
 custom_minimum_size = Vector2(140, 72)
 offset_left = -70.0
 offset_top = -82.0
@@ -57,11 +48,13 @@ texture = ExtResource("9_xsbvt")
 expand_mode = 1
 
 [node name="CardBase" type="Sprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("2_kby0a")
 
 [node name="Floppy-Disk-Icon" type="Sprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 position = Vector2(50, 86)
 scale = Vector2(2, 2)
@@ -71,6 +64,7 @@ region_rect = Rect2(4, 4, 12, 12)
 script = ExtResource("6_oikto")
 
 [node name="Battery-Icon" type="Sprite2D" parent="."]
+z_index = 1
 texture_filter = 1
 position = Vector2(-48, 86)
 scale = Vector2(2, 2)
@@ -80,6 +74,7 @@ region_rect = Rect2(4, 4, 11, 6)
 script = ExtResource("8_u6xs3")
 
 [node name="Description" type="Label" parent="."]
+z_index = 1
 offset_left = -66.0
 offset_top = -2.0
 offset_right = 60.0
@@ -89,6 +84,7 @@ label_settings = SubResource("LabelSettings_i1l3u")
 autowrap_mode = 3
 
 [node name="Title" type="Label" parent="."]
+z_index = 1
 offset_left = -73.0
 offset_top = -111.0
 offset_right = 23.0
@@ -105,7 +101,6 @@ offset_right = 80.0
 offset_bottom = 114.0
 
 [node name="SelectTargetLine" type="Line2D" parent="."]
-z_index = -1
 texture_filter = 1
 width_curve = SubResource("Curve_8rnt0")
 texture = ExtResource("10_rer64")
@@ -116,3 +111,5 @@ end_cap_mode = 2
 [node name="Pointer" type="Sprite2D" parent="SelectTargetLine"]
 scale = Vector2(2, 2)
 texture = ExtResource("11_1djhs")
+
+[node name="CardDrawTimer" type="Timer" parent="."]
