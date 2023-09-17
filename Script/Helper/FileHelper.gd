@@ -33,7 +33,6 @@ func save_single_card_resource(cardResource:card_data, path:String, oldPath):
 	
 func load_single_card_resource(path) -> card_data:
 	var cardResource = load(path)
-	
 	if not cardResource: # Check if exist
 		cardResource = card_data.new()
 	

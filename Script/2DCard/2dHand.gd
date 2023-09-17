@@ -54,14 +54,14 @@ func disable_cards():
 			card.SETUP = false
 			card.z_index = zCounter
 			zCounter += 1
-			
 
 func enable_cards():
-	SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
-	SELECTED_CARD.CARD_SELECTED = false
-	SELECTED_CARD.SETUP = true
-	SELECTED_CARD.position = SELECTED_CARD.TARGET_POS
-	print(SELECTED_CARD)
+	if SELECTED_CARD != null:
+		SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
+		SELECTED_CARD.CARD_SELECTED = false
+		SELECTED_CARD.SETUP = true
+		SELECTED_CARD.position = SELECTED_CARD.TARGET_POS
+#	print(SELECTED_CARD)
 	var hand = self
 	for card in hand.get_children(false):
 		card.STATE = card_enum.CARD_STATE_ENUM.ReorganizeHand
@@ -82,16 +82,12 @@ func create_card():
 
 func create_card_from_database(selectedCard, startPos) -> bool:
 	if selectedCard == null:
-		print("NULL")
+		print("No Cards. Create Card From Database.")
 		return false
-		
-	var hand = self
-#	for card in hand.get_children(false):
-#		if card.STATE != card_enum.CARD_STATE_ENUM.InHand:
-#			return false
-
+	
 	var card = CARD.instantiate()
 	var cardData = FILE_HELPER.load_single_card_resource("res://Data/Cards/" + selectedCard)
+
 	card.TITLE = cardData.TITLE
 	card.DESCRIPTION = cardData.DESCRIPTION
 	card.BATTERY_ENUM = cardData.COST
@@ -105,8 +101,20 @@ func create_card_from_database(selectedCard, startPos) -> bool:
 	spread_hand(startPos)
 	return true
 
+func remove_card_from_hand(selectedCard: Node2D) -> bool:
+	if selectedCard == null:
+		print("No Cards. Remove Card From Hand.")
+		return false
+		
+	selectedCard.queue_free()
+	
+	await get_tree().create_timer(0.01).timeout
+	spread_hand(null)
+	return true
+
 func spread_hand(startPos):
 	var hand = self
+	
 	var zCounter = 0
 	for card in hand.get_children(false):
 		var handRatio = 0
@@ -126,7 +134,7 @@ func spread_hand(startPos):
 		elif hand.get_child_count(false) >= 2:
 			destination.x += SPREAD_CURVE.sample(handRatio) * HAND_WIDTH/4
 		
-		if  card.get_index() == (hand.get_child_count(false) - 1):
+		if  card.get_index() == (hand.get_child_count(false) - 1) && startPos != null:
 			card.START_POS = startPos
 			card.STATE = card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand
 		else:
@@ -139,6 +147,8 @@ func spread_hand(startPos):
 		card.z_index = zCounter
 		zCounter += 1
 
+# BUGGED: Anytime a card is selected it will enter or exit the Area2d 
+# (will probably need to find an alternative method instead of using signals)
 func _on_area_2d_mouse_entered():
 	if SELECTED_CARD != null:
 		SELECTED_CARD.IN_HAND_AREA = false

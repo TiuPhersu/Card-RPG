@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=40 format=3 uid="uid://ciwtniq6pkoia"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="1_05jmu"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="3_7l5rt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cclufxt270xw7" path="res://Sprites/Background/Taskbar/Start/Start-Button-Pressed.png" id="4_7e6dp"]
 [ext_resource type="Script" path="res://Script/2DCard/StartButton.gd" id="5_0os4i"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeckButton.gd" id="5_8dny5"]
+[ext_resource type="Script" path="res://Script/2DCard/2dDiscardButton.gd" id="5_apjrv"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDiscard.gd" id="5_ku8x1"]
 [ext_resource type="Texture2D" uid="uid://ot58fvrchwn3" path="res://Sprites/Icon/Deck/Deck-Icon.png" id="7_2xloj"]
 [ext_resource type="Script" path="res://Script/2DCard/FileButton.gd" id="7_7wvd7"]
@@ -94,6 +95,7 @@ texture_normal = ExtResource("3_30jf5")
 texture_pressed = ExtResource("3_30jf5")
 texture_hover = ExtResource("3_30jf5")
 texture_disabled = ExtResource("10_yt83s")
+script = ExtResource("5_apjrv")
 
 [node name="Folder" type="Sprite2D" parent="CardInterface/DiscardNode"]
 texture_filter = 1
@@ -305,6 +307,7 @@ texture_pressed = ExtResource("25_3j3rk")
 texture_hover = ExtResource("25_3j3rk")
 texture_disabled = ExtResource("25_3j3rk")
 
+[connection signal="pressed" from="CardInterface/DiscardNode/DiscardButton" to="CardInterface" method="_on_discard_button_pressed"]
 [connection signal="pressed" from="CardInterface/DeckNode/DeckButton" to="CardInterface" method="_on_deck_button_pressed"]
 [connection signal="mouse_entered" from="CardInterface/Explorer/Area2D" to="CardInterface/HandNode" method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="CardInterface/Explorer/Area2D" to="CardInterface/HandNode" method="_on_area_2d_mouse_exited"]

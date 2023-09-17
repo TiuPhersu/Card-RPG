@@ -40,11 +40,8 @@ extends Node2D
 @onready var CARD_SELECTED = false
 @onready var IN_HAND_AREA = false
 
-func _process(delta):
-	if self.get_node("Selection").is_hovered() :
-		focus_in()
-	else:
-		focus_out()
+func _physics_process(delta):
+	checkHover()
 	match STATE:
 		card_enum.CARD_STATE_ENUM.InHand:
 			pass
@@ -61,6 +58,12 @@ func _process(delta):
 			move_to_destination(delta, true)
 		card_enum.CARD_STATE_ENUM.ReorganizeHand:
 			move_to_destination(1, false)
+
+func checkHover():
+	if self.get_node("Selection").is_hovered() :
+		focus_in()
+	else:
+		focus_out()
 
 func _ready():
 	BATTERY_ICON.select_battery(BATTERY_ENUM)
@@ -102,6 +105,7 @@ func card_targeting():
 func focus_card():
 	if !SETUP:
 		return
+	position = OLD_POS
 	scale = Vector2(1.2,1.2)
 	z_index = 100
 
