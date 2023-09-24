@@ -25,6 +25,7 @@ func focus_card_in_hand(pressed, released):
 	for card in hand.get_children(false):
 		if card.STATE == card_enum.CARD_STATE_ENUM.FocusInHand || card.STATE == card_enum.CARD_STATE_ENUM.InMouse:
 			SELECTED_CARD = card
+#			print(card)
 	
 	if SELECTED_CARD == null:
 		return null
@@ -36,7 +37,9 @@ func focus_card_in_hand(pressed, released):
 					SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.InMouse
 					SELECTED_CARD.CARD_SELECTED = true
 					disable_cards()
+					print(SELECTED_CARD)
 					return(SELECTED_CARD)
+					
 				else:
 					enable_cards()
 					return null
@@ -119,7 +122,8 @@ func spread_hand(startPos):
 	for card in hand.get_children(false):
 		var handRatio = 0
 		var destination = hand.global_transform
-		var view = VIEWPORT_SIZE / Vector2(4.5,1.258)
+#		var view = VIEWPORT_SIZE / Vector2(4.5,1.258)
+		var view = Vector2(340, 687)
 		destination = view
 
 		if hand.get_child_count(false) > 1:
@@ -149,10 +153,18 @@ func spread_hand(startPos):
 
 # BUGGED: Anytime a card is selected it will enter or exit the Area2d 
 # (will probably need to find an alternative method instead of using signals)
-func _on_area_2d_mouse_entered():
+func _on_hand_area_mouse_entered():
+	if SELECTED_CARD != null:
+		SELECTED_CARD.IN_HAND_AREA = true
+
+func _on_hand_area_mouse_exited():
 	if SELECTED_CARD != null:
 		SELECTED_CARD.IN_HAND_AREA = false
 
-func _on_area_2d_mouse_exited():
+func _on_play_area_mouse_entered():
 	if SELECTED_CARD != null:
-		SELECTED_CARD.IN_HAND_AREA = true
+		SELECTED_CARD.IN_PLAY_AREA = true
+
+func _on_play_area_mouse_exited():
+	if SELECTED_CARD != null:
+		SELECTED_CARD.IN_PLAY_AREA = false

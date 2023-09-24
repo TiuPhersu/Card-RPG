@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://67vjtjnncbjk"]
+
+[ext_resource type="Texture2D" uid="uid://b3ptj6mv7dbec" path="res://Sprites/Character/Companion/Slime-Sheet.png" id="1_nbse1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aoxv1"]
+
+[sub_resource type="Animation" id="Animation_d8kes"]
+resource_name = "block"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_206k3"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SlimeSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_42yw6"]
+_data = {
+"block": SubResource("Animation_d8kes"),
+"idle": SubResource("Animation_206k3")
+}
+
+[node name="Slime" type="CharacterBody3D"]
+
+[node name="SlimeSprite" type="Sprite3D" parent="."]
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_nbse1")
+hframes = 5
+vframes = 3
+frame = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.163717, 0)
+shape = SubResource("SphereShape3D_aoxv1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_42yw6")
+}

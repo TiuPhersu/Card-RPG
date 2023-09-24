@@ -14,8 +14,8 @@ func _input(event):
 		# TODO: Check Collision then Play Card
 		CARD_COMBAT_INTERFACE.get_node("CardInterface").play_card(SELECTED_CARD)
 		SELECTED_OBJECT = COMBAT_AREA_CAMERA.get_selection(event.position)
-#		print(SELECTED_OBJECT)
+		print(SELECTED_OBJECT)
 		
 	if event.is_action_pressed("leftclick") || event.is_action_released("leftclick"):
 		SELECTED_CARD = CARD_COMBAT_INTERFACE.get_node("CardInterface").get_card_in_hand(event.is_action_pressed("leftclick"), event.is_action_released("leftclick"))
-#		print(SELECTED_CARD)
+		print(SELECTED_CARD)

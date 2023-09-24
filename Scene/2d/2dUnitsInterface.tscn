@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://djphexnogca8g"]
+
+[ext_resource type="PackedScene" uid="uid://bd72muvp3d5wu" path="res://Scene/2d/2dCharacterInterface.tscn" id="1_43mpb"]
+
+[node name="2dUnitsInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="2dCharacterInterface" parent="." instance=ExtResource("1_43mpb")]
+scale = Vector2(1.5, 1.5)
+
+[node name="2dCharacterInterface2" parent="." instance=ExtResource("1_43mpb")]
+position = Vector2(0, 96)
+scale = Vector2(1.5, 1.5)
+
+[node name="2dCharacterInterface3" parent="." instance=ExtResource("1_43mpb")]
+position = Vector2(0, 186)
+scale = Vector2(1.5, 1.5)
+
+[node name="2dCharacterInterface4" parent="." instance=ExtResource("1_43mpb")]
+position = Vector2(0, 276)
+scale = Vector2(1.5, 1.5)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

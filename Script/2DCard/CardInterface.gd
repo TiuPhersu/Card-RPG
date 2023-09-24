@@ -46,7 +46,7 @@ func draw_multiple_cards_from_deck(numCards:int):
 func play_card(card):
 	if card == null:
 		return
-	if card.IN_HAND_AREA:
+	if !card.IN_HAND_AREA and card.IN_PLAY_AREA:
 		HAND.remove_card_from_hand(card)
 	#	print(card.TITLE)
 		DISCARD.put_card_to_discard(card.TITLE)

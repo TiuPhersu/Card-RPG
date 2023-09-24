@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhp7g70uuqs5w"]
+
+[ext_resource type="Texture2D" uid="uid://c3oeu3n4bc8y4" path="res://Sprites/Character/64bitMC/MC-Proto-Idle-Sheet.png" id="1_skaoo"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_42jjy"]
+
+[sub_resource type="Animation" id="Animation_icl0q"]
+resource_name = "Idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MainCharacterSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3x76t"]
+_data = {
+"Idle": SubResource("Animation_icl0q")
+}
+
+[sub_resource type="AnimationRootNode" id="AnimationRootNode_utvy7"]
+
+[node name="MainCharacter" type="CharacterBody3D"]
+
+[node name="MainCharacterSprite" type="Sprite3D" parent="."]
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("1_skaoo")
+hframes = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_42jjy")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_3x76t")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationRootNode_utvy7")
+anim_player = NodePath("../AnimationPlayer")

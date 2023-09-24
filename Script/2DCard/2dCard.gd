@@ -38,7 +38,9 @@ extends Node2D
 @onready var DRAW_TIME = .15
 @onready var SETUP = true
 @onready var CARD_SELECTED = false
-@onready var IN_HAND_AREA = false
+
+@onready var IN_HAND_AREA = true
+@onready var IN_PLAY_AREA = false
 
 func _physics_process(delta):
 	checkHover()
@@ -48,10 +50,12 @@ func _physics_process(delta):
 		card_enum.CARD_STATE_ENUM.InPlay:
 			pass
 		card_enum.CARD_STATE_ENUM.InMouse:
-			if !IN_HAND_AREA:
+			if IN_HAND_AREA && !IN_PLAY_AREA:
 				card_dragging()
-			else:
+			elif !IN_HAND_AREA && IN_PLAY_AREA:
 				card_targeting()
+			else:
+				reset_line(TARGET_LINE)
 		card_enum.CARD_STATE_ENUM.FocusInHand:
 			focus_card()
 		card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand:
@@ -95,7 +99,7 @@ func card_targeting():
 	var pointer = TARGET_LINE.get_node("Pointer")
 	set_line_points_to_bezier(TARGET_LINE, 
 		Vector2(0, -110), 
-		Vector2(0, -60), 
+		Vector2(0, -80), 
 		Vector2.ZERO, 
 		self.get_local_mouse_position())
 	pointer.position = TARGET_LINE.points[TARGET_LINE.get_point_count() - 4]

@@ -1,47 +1,59 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba2f2ghbuf1mx"]
+[gd_scene load_steps=8 format=3 uid="uid://ba2f2ghbuf1mx"]
 
 [ext_resource type="PackedScene" uid="uid://b50dw2h4k4y83" path="res://Scene/Overworld/Character.tscn" id="1_7ebtk"]
+[ext_resource type="PackedScene" uid="uid://buxrjso6tle5" path="res://Models/shopping_mall.glb" id="2_erelj"]
+[ext_resource type="Texture2D" uid="uid://dfaduem1ou8el" path="res://Sprites/Sky/Epic_BlueSunset_EquiRect_flat.png" id="3_p6wd2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4lxq"]
 albedo_color = Color(0, 0.756863, 0, 1)
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_eh1p1"]
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j874e"]
+panorama = ExtResource("3_p6wd2")
 
-[sub_resource type="Sky" id="Sky_1omo7"]
-sky_material = SubResource("PanoramaSkyMaterial_eh1p1")
+[sub_resource type="Sky" id="Sky_6moj4"]
+sky_material = SubResource("PanoramaSkyMaterial_j874e")
 
-[sub_resource type="Environment" id="Environment_c8rxx"]
+[sub_resource type="Environment" id="Environment_tnnkj"]
 background_mode = 2
-sky = SubResource("Sky_1omo7")
+sky = SubResource("Sky_6moj4")
 
 [node name="World" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.79694, -0.593376, -1.84268)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.127612, 0, 0, 0, 1, 0, 0, 0, 0.453477, 4.1297, 0, -0.489433)
 material_override = SubResource("StandardMaterial3D_o4lxq")
 use_collision = true
-size = Vector3(100, 1, 100)
+size = Vector3(100, 1, 18.1303)
 
-[node name="Tower" type="CSGCylinder3D" parent="CSGBox3D"]
-radius = 2.856
-height = 30.919
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.0162848, 0, 0, 0, 10.023, 0, 0, 0, 0.568867, 35.8618, -0.0467558, 2.27632)
+material_override = SubResource("StandardMaterial3D_o4lxq")
+use_collision = true
+size = Vector3(100, 0.944992, 24.2898)
 
-[node name="Tower2" type="CSGCylinder3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4962, 4.75082, 6.21219)
-radius = 2.856
-height = 30.919
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.127612, 0, 0, 0, 4.10723, 0, 0, 0, 0.453477, -56.3932, 1.2085, 4.59438)
+material_override = SubResource("StandardMaterial3D_o4lxq")
+use_collision = true
+size = Vector3(100, 1.32405, 24.2898)
 
-[node name="Tower3" type="CSGCylinder3D" parent="CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 0.0722225, 0, 0, 0, 1, 0, 0.251936, 17.8161)
-radius = 2.856
-height = 30.919
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-0.000602309, 0, -5.78303, 0, 10.023, 0, 0.0571332, 0, -0.0609656, -9.90889, -0.899625, -5.39605)
+material_override = SubResource("StandardMaterial3D_o4lxq")
+use_collision = true
+size = Vector3(100, 0.944992, 24.2898)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_7ebtk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.52255, 0.673496, 10.2011)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 3.25758, 0.697464, 1.77595)
+
+[node name="shopping_mall" parent="." instance=ExtResource("2_erelj")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0.510677, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13403, 1.35984, 4.08868)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_c8rxx")
+environment = SubResource("Environment_tnnkj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.817869, 0.575405, 0, -0.575405, 0.817869, -1.69655, 35.3053, 39.9091)
-shadow_enabled = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.24415, 1.41447, 5.54033)

@@ -40,16 +40,15 @@ BATTERY_ICON = NodePath("Battery-Icon")
 [node name="CardImageRect" type="TextureRect" parent="."]
 z_index = 1
 custom_minimum_size = Vector2(140, 72)
-offset_left = -70.0
-offset_top = -82.0
-offset_right = 70.0
-offset_bottom = -10.0
+offset_left = -72.0
+offset_top = -84.0
+offset_right = 72.0
+offset_bottom = -8.0
 texture = ExtResource("9_xsbvt")
 expand_mode = 1
 
 [node name="CardBase" type="Sprite2D" parent="."]
 z_index = 1
-texture_filter = 1
 scale = Vector2(2, 2)
 texture = ExtResource("2_kby0a")
 

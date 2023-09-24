@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://bd72muvp3d5wu"]
+
+[ext_resource type="Script" path="res://Script/2DCard/2dCharacterInterface.gd" id="1_cd64j"]
+[ext_resource type="Texture2D" uid="uid://v1861ttl16kf" path="res://Sprites/Icon/Heart/Heart-Icon-High.png" id="1_ploeq"]
+[ext_resource type="Texture2D" uid="uid://cqygn4xjb1t4c" path="res://Sprites/Icon/Character/Character-Icon-MC.png" id="1_vmgqm"]
+[ext_resource type="Texture2D" uid="uid://cncuuq61cl0tu" path="res://Sprites/Icon/Bar/Health-Sheet.png" id="3_usdiv"]
+[ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Minecraft.ttf" id="4_qafbs"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rnucp"]
+font = ExtResource("4_qafbs")
+
+[node name="2dCharacterInterface" type="Node2D"]
+position = Vector2(0, 6)
+script = ExtResource("1_cd64j")
+
+[node name="HeartIcon" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(42, 18)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ploeq")
+
+[node name="CharacterIcon" type="TextureButton" parent="."]
+texture_filter = 1
+offset_top = 9.0
+offset_right = 16.0
+offset_bottom = 25.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_vmgqm")
+texture_pressed = ExtResource("1_vmgqm")
+texture_hover = ExtResource("1_vmgqm")
+texture_disabled = ExtResource("1_vmgqm")
+texture_focused = ExtResource("1_vmgqm")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(75, 42)
+scale = Vector2(3, 3)
+texture = ExtResource("3_usdiv")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 45.0
+offset_top = 17.0
+offset_right = 104.0
+offset_bottom = 40.0
+text = "100/100"
+label_settings = SubResource("LabelSettings_rnucp")
