@@ -1,48 +1,71 @@
-[gd_scene load_steps=7 format=3 uid="uid://bd72muvp3d5wu"]
+[gd_scene load_steps=10 format=3 uid="uid://bd72muvp3d5wu"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dCharacterInterface.gd" id="1_cd64j"]
 [ext_resource type="Texture2D" uid="uid://v1861ttl16kf" path="res://Sprites/Icon/Heart/Heart-Icon-High.png" id="1_ploeq"]
-[ext_resource type="Texture2D" uid="uid://cqygn4xjb1t4c" path="res://Sprites/Icon/Character/Character-Icon-MC.png" id="1_vmgqm"]
-[ext_resource type="Texture2D" uid="uid://cncuuq61cl0tu" path="res://Sprites/Icon/Bar/Health-Sheet.png" id="3_usdiv"]
+[ext_resource type="Script" path="res://Script/2DCard/HeartIcon.gd" id="3_kenyl"]
+[ext_resource type="Texture2D" uid="uid://da6tgbb50x070" path="res://Sprites/Icon/Character/Character-Icon-Slime.png" id="4_3uu38"]
 [ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Minecraft.ttf" id="4_qafbs"]
+[ext_resource type="Texture2D" uid="uid://dq5baw51h2wqc" path="res://Sprites/Icon/Bar/Health-Bar-Progress.png" id="5_5g0gk"]
+[ext_resource type="Texture2D" uid="uid://cq7n4onx56xle" path="res://Sprites/Icon/Bar/Health-Bar-Over.png" id="6_v8c0y"]
+[ext_resource type="Script" path="res://Script/2DCard/CharacterIcon.gd" id="8_uwdyk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rnucp"]
 font = ExtResource("4_qafbs")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 1, 0)
 
-[node name="2dCharacterInterface" type="Node2D"]
+[node name="2dCharacterInterface" type="Node2D" node_paths=PackedStringArray("HEALTH_LABEL", "HEALTH_BAR", "CHARACTER_ICON", "HEART_ICON")]
 position = Vector2(0, 6)
 script = ExtResource("1_cd64j")
+CHARACTER_ICON_ENUM = 1
+HEART_ICON_ENUM = 1
+HEALTH = 60
+HEALTH_LABEL = NodePath("HealthLabel")
+HEALTH_BAR = NodePath("HealthBar")
+CHARACTER_ICON = NodePath("CharacterIcon")
+HEART_ICON = NodePath("HeartIcon")
 
 [node name="HeartIcon" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(42, 18)
+position = Vector2(33, 24)
 scale = Vector2(3, 3)
 texture = ExtResource("1_ploeq")
+script = ExtResource("3_kenyl")
 
-[node name="CharacterIcon" type="TextureButton" parent="."]
+[node name="CharacterIcon" type="Sprite2D" parent="."]
 texture_filter = 1
-offset_top = 9.0
-offset_right = 16.0
-offset_bottom = 25.0
+position = Vector2(24, 36)
 scale = Vector2(3, 3)
-texture_normal = ExtResource("1_vmgqm")
-texture_pressed = ExtResource("1_vmgqm")
-texture_hover = ExtResource("1_vmgqm")
-texture_disabled = ExtResource("1_vmgqm")
-texture_focused = ExtResource("1_vmgqm")
-metadata/_edit_use_anchors_ = true
+texture = ExtResource("4_3uu38")
+script = ExtResource("8_uwdyk")
 
-[node name="HealthBar" type="Sprite2D" parent="."]
+[node name="HealthLabel" type="Label" parent="."]
 texture_filter = 1
-position = Vector2(75, 42)
-scale = Vector2(3, 3)
-texture = ExtResource("3_usdiv")
-
-[node name="Label" type="Label" parent="."]
-texture_filter = 1
-offset_left = 45.0
+offset_left = 46.0
 offset_top = 17.0
-offset_right = 104.0
-offset_bottom = 40.0
+offset_right = 105.0
+offset_bottom = 36.0
 text = "100/100"
 label_settings = SubResource("LabelSettings_rnucp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+texture_filter = 1
+offset_left = 42.0
+offset_top = 33.0
+offset_right = 64.0
+offset_bottom = 38.0
+scale = Vector2(3, 3)
+value = 40.0
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = ExtResource("5_5g0gk")
+texture_over = ExtResource("6_v8c0y")
+texture_progress = ExtResource("5_5g0gk")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0, 0.6, 0.0470588, 1)

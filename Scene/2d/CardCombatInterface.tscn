@@ -1,26 +1,15 @@
-[gd_scene load_steps=41 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=25 format=3 uid="uid://ciwtniq6pkoia"]
 
-[ext_resource type="Script" path="res://Script/2DCard/CardInterface.gd" id="1_4gb1r"]
-[ext_resource type="Script" path="res://Script/2DCard/2dDiscard.gd" id="2_knpnu"]
+[ext_resource type="PackedScene" uid="uid://wpfj0p0tut4c" path="res://Scene/2d/CardInterface.tscn" id="1_r24bd"]
 [ext_resource type="Texture2D" uid="uid://c42f6c3dwq4fv" path="res://Sprites/Background/Taskbar/Taskbar32by32.png" id="3_ga3lb"]
-[ext_resource type="Texture2D" uid="uid://cvxc210p15xex" path="res://Sprites/Icon/Recycle/Recycle-Bin-Full.png" id="3_ri0ec"]
 [ext_resource type="Texture2D" uid="uid://d08h1qbpocr76" path="res://Sprites/Background/Taskbar/Start/Start-Button.png" id="3_vj3hu"]
 [ext_resource type="Texture2D" uid="uid://cclufxt270xw7" path="res://Sprites/Background/Taskbar/Start/Start-Button-Pressed.png" id="4_7e6dp"]
-[ext_resource type="Texture2D" uid="uid://dfv4iow0itlg2" path="res://Sprites/Icon/Recycle/Recycle-Bin-Empty.png" id="4_beu4k"]
 [ext_resource type="Script" path="res://Script/2DCard/StartButton.gd" id="5_0os4i"]
-[ext_resource type="Script" path="res://Script/2DCard/2dDiscardButton.gd" id="5_f01c1"]
-[ext_resource type="Texture2D" uid="uid://b34qixu87bnmw" path="res://Sprites/Icon/Folder/Folder-Open.png" id="6_3pg8y"]
 [ext_resource type="Script" path="res://Script/2DCard/FileButton.gd" id="7_7wvd7"]
-[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="7_ke3qw"]
-[ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="8_n2iy4"]
-[ext_resource type="Texture2D" uid="uid://ot58fvrchwn3" path="res://Sprites/Icon/Deck/Deck-Icon.png" id="9_p1ea8"]
-[ext_resource type="Texture2D" uid="uid://2imbw8rutag4" path="res://Sprites/Icon/Deck/Deck-Icon-Empty.png" id="10_ypay3"]
-[ext_resource type="Script" path="res://Script/2DCard/2dDeckButton.gd" id="11_qynjl"]
-[ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="12_b66wb"]
-[ext_resource type="PackedScene" uid="uid://smj5r4t8uqex" path="res://Scene/2d/2dCard.tscn" id="13_o004p"]
-[ext_resource type="Texture2D" uid="uid://4qgvra14vt1l" path="res://Sprites/Background/Windows Explorer.png" id="14_08llf"]
+[ext_resource type="Script" path="res://Script/2DCard/PartyButton.gd" id="12_83wup"]
 [ext_resource type="Texture2D" uid="uid://c1fmifpcacgva" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Start-Icon.png" id="18_d2n7l"]
 [ext_resource type="Texture2D" uid="uid://cjfbtf7dn3nxm" path="res://Sprites/Background/Taskbar/File/Task-Button.png" id="18_i35tw"]
+[ext_resource type="PackedScene" uid="uid://dbvhvff4jmjo8" path="res://Scene/2d/2dPartyInterface.tscn" id="19_ebluk"]
 [ext_resource type="Texture2D" uid="uid://cudlm6ou8h8ds" path="res://Sprites/Background/Taskbar/File/Task-Button-Pressed.png" id="19_gop2c"]
 [ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Minecraft.ttf" id="19_hnmk3"]
 [ext_resource type="Texture2D" uid="uid://dxjx1gwrp2fvr" path="res://Sprites/Background/Taskbar/Start/Start-Top.png" id="19_yon3h"]
@@ -31,25 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://dc44fbklm3mq" path="res://Sprites/Background/Taskbar/Start/Help-Button-HL.png" id="23_3o0af"]
 [ext_resource type="Texture2D" uid="uid://dhkgjkuwvk85w" path="res://Sprites/Background/Taskbar/Start/Setting-Button.png" id="24_j84ld"]
 [ext_resource type="Texture2D" uid="uid://d3fqxwpviup8t" path="res://Sprites/Background/Taskbar/Start/Setting-Button-HL.png" id="25_3j3rk"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_lghhk"]
-font = ExtResource("7_ke3qw")
-font_size = 9
-font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Curve" id="Curve_hiu3k"]
-_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
-point_count = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_fut18"]
-font = ExtResource("7_ke3qw")
-font_size = 9
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bo31"]
-size = Vector2(448, 119.333)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2ajc"]
-size = Vector2(511.667, 161)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5dix"]
 texture = ExtResource("3_ga3lb")
@@ -79,131 +49,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CardInterface" type="Node2D" parent="."]
-script = ExtResource("1_4gb1r")
-
-[node name="DiscardNode" type="Node2D" parent="CardInterface"]
-z_index = 1
-position = Vector2(150, 700)
-scale = Vector2(3, 3)
-script = ExtResource("2_knpnu")
-
-[node name="DiscardButton" type="TextureButton" parent="CardInterface/DiscardNode"]
-texture_filter = 1
-offset_right = 30.0
-offset_bottom = 35.0
-disabled = true
-texture_normal = ExtResource("3_ri0ec")
-texture_pressed = ExtResource("3_ri0ec")
-texture_hover = ExtResource("3_ri0ec")
-texture_disabled = ExtResource("4_beu4k")
-script = ExtResource("5_f01c1")
-metadata/_edit_use_anchors_ = true
-
-[node name="Folder" type="Sprite2D" parent="CardInterface/DiscardNode"]
-texture_filter = 1
-texture = ExtResource("6_3pg8y")
-
-[node name="Label" type="Label" parent="CardInterface/DiscardNode"]
-texture_filter = 1
-offset_left = -12.0
-offset_top = -3.0
-offset_right = 11.0
-offset_bottom = 11.0
-text = "0"
-label_settings = SubResource("LabelSettings_lghhk")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="DeckNode" type="Node2D" parent="CardInterface"]
-z_index = 1
-position = Vector2(1310, 701)
-scale = Vector2(3, 3)
-script = ExtResource("8_n2iy4")
-DECK_SIZE = 10
-
-[node name="DeckButton" type="TextureButton" parent="CardInterface/DeckNode"]
-texture_filter = 1
-offset_right = 32.0
-offset_bottom = 33.0
-texture_normal = ExtResource("9_p1ea8")
-texture_pressed = ExtResource("9_p1ea8")
-texture_hover = ExtResource("9_p1ea8")
-texture_disabled = ExtResource("10_ypay3")
-script = ExtResource("11_qynjl")
-metadata/_edit_use_anchors_ = true
-
-[node name="Folder" type="Sprite2D" parent="CardInterface/DeckNode"]
-texture_filter = 1
-position = Vector2(3, 4)
-texture = ExtResource("6_3pg8y")
-
-[node name="Label" type="Label" parent="CardInterface/DeckNode"]
-texture_filter = 1
-offset_left = -10.3333
-offset_top = 0.666672
-offset_right = 12.6667
-offset_bottom = 14.6667
-text = "0
-"
-label_settings = SubResource("LabelSettings_lghhk")
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="HandNode" type="Node2D" parent="CardInterface"]
-script = ExtResource("12_b66wb")
-CARD_SIZE = 0.5
-TITLE = "Title"
-DESCRIPTION = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-FLOPPY_DISK_ENUM = 1
-BATTERY_ENUM = 1
-IMAGE = "res://Sprites/CardImage/cat.jpg"
-SPREAD_CURVE = SubResource("Curve_hiu3k")
-HAND_WIDTH = 850
-CARD = ExtResource("13_o004p")
-
-[node name="Explorer" type="NinePatchRect" parent="CardInterface"]
+[node name="CardInterface" parent="." instance=ExtResource("1_r24bd")]
 z_index = -1
-texture_filter = 1
-offset_left = 98.0
-offset_top = 525.0
-offset_right = 545.0
-offset_bottom = 621.0
-scale = Vector2(3, 3)
-texture = ExtResource("14_08llf")
-region_rect = Rect2(0, 0, 96, 96)
-patch_margin_left = 32
-patch_margin_top = 32
-patch_margin_right = 32
-patch_margin_bottom = 32
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="CardInterface/Explorer"]
-layout_mode = 0
-offset_left = 4.33333
-offset_top = 0.667007
-offset_right = 53.3333
-offset_bottom = 14.667
-text = "File"
-label_settings = SubResource("LabelSettings_fut18")
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="HandArea" type="Area2D" parent="CardInterface/Explorer"]
-position = Vector2(-32.6667, -156)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardInterface/Explorer/HandArea"]
-position = Vector2(256.333, 209.333)
-shape = SubResource("RectangleShape2D_7bo31")
-
-[node name="PlayArea" type="Area2D" parent="CardInterface/Explorer"]
-position = Vector2(0, -112)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CardInterface/Explorer/PlayArea"]
-position = Vector2(223.833, 17.8333)
-shape = SubResource("RectangleShape2D_g2ajc")
 
 [node name="MenuBar" type="Node2D" parent="."]
 
@@ -245,7 +92,7 @@ scale = Vector2(0.6, 0.6)
 text = "Start"
 label_settings = SubResource("LabelSettings_ubgt7")
 
-[node name="FileButton" type="TextureButton" parent="MenuBar"]
+[node name="FileButton" type="TextureButton" parent="MenuBar" node_paths=PackedStringArray("MainUi")]
 texture_filter = 1
 offset_left = 158.0
 offset_top = 820.0
@@ -259,6 +106,7 @@ texture_pressed = ExtResource("19_gop2c")
 texture_hover = ExtResource("18_i35tw")
 texture_disabled = ExtResource("18_i35tw")
 script = ExtResource("7_7wvd7")
+MainUi = NodePath("../../CardInterface")
 
 [node name="Icon" type="Sprite2D" parent="MenuBar/FileButton"]
 position = Vector2(8, 7)
@@ -267,11 +115,42 @@ texture = ExtResource("21_lmvjk")
 [node name="Label" type="Label" parent="MenuBar/FileButton"]
 layout_mode = 0
 offset_left = 14.6667
-offset_top = 2.66672
-offset_right = 54.6667
-offset_bottom = 18.6667
+offset_top = 2.00009
+offset_right = 125.667
+offset_bottom = 18.0001
 scale = Vector2(0.6, 0.6)
-text = "File"
+text = "Card Manager"
+label_settings = SubResource("LabelSettings_idg32")
+vertical_alignment = 1
+
+[node name="PartyButton" type="TextureButton" parent="MenuBar" node_paths=PackedStringArray("MainUi")]
+texture_filter = 1
+offset_left = 452.0
+offset_top = 820.0
+offset_right = 548.0
+offset_bottom = 833.0
+scale = Vector2(3, 3)
+toggle_mode = true
+button_pressed = true
+texture_normal = ExtResource("18_i35tw")
+texture_pressed = ExtResource("19_gop2c")
+texture_hover = ExtResource("18_i35tw")
+texture_disabled = ExtResource("18_i35tw")
+script = ExtResource("12_83wup")
+MainUi = NodePath("../../2dPartyInterface")
+
+[node name="Icon" type="Sprite2D" parent="MenuBar/PartyButton"]
+position = Vector2(8.33331, 7.66666)
+texture = ExtResource("21_lmvjk")
+
+[node name="Label" type="Label" parent="MenuBar/PartyButton"]
+layout_mode = 0
+offset_left = 14.6667
+offset_top = 2.00009
+offset_right = 125.667
+offset_bottom = 18.0001
+scale = Vector2(0.6, 0.6)
+text = "Party Manager"
 label_settings = SubResource("LabelSettings_idg32")
 vertical_alignment = 1
 
@@ -321,11 +200,9 @@ texture_pressed = ExtResource("25_3j3rk")
 texture_hover = ExtResource("25_3j3rk")
 texture_disabled = ExtResource("25_3j3rk")
 
-[connection signal="pressed" from="CardInterface/DiscardNode/DiscardButton" to="CardInterface" method="_on_discard_button_pressed"]
-[connection signal="pressed" from="CardInterface/DeckNode/DeckButton" to="CardInterface" method="_on_deck_button_pressed"]
-[connection signal="mouse_entered" from="CardInterface/Explorer/HandArea" to="CardInterface/HandNode" method="_on_hand_area_mouse_entered"]
-[connection signal="mouse_exited" from="CardInterface/Explorer/HandArea" to="CardInterface/HandNode" method="_on_hand_area_mouse_exited"]
-[connection signal="mouse_entered" from="CardInterface/Explorer/PlayArea" to="CardInterface/HandNode" method="_on_play_area_mouse_entered"]
-[connection signal="mouse_exited" from="CardInterface/Explorer/PlayArea" to="CardInterface/HandNode" method="_on_play_area_mouse_exited"]
+[node name="2dPartyInterface" parent="." instance=ExtResource("19_ebluk")]
+position = Vector2(10, 10)
+
 [connection signal="toggled" from="MenuBar/StartButton" to="MenuBar/StartButton" method="_on_start_toggled"]
 [connection signal="toggled" from="MenuBar/FileButton" to="MenuBar/FileButton" method="_on_file_toggled"]
+[connection signal="toggled" from="MenuBar/PartyButton" to="MenuBar/PartyButton" method="_on_party_toggled"]

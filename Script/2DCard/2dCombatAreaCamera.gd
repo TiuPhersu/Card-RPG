@@ -7,4 +7,6 @@ func get_selection(mousePosition):
 	var start = project_ray_origin(mousePosition)
 	var end = project_position(mousePosition, 1000)
 	var result = worldspace.intersect_ray(PhysicsRayQueryParameters3D.create(start, end))
-	return result
+	if !result.is_empty() and result.collider.is_in_group("Characters"):
+		print(result)
+		return result

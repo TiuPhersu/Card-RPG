@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bubk2nw11oxeb"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dCardCreator.gd" id="1_rkxxl"]
-[ext_resource type="PackedScene" uid="uid://oe5cyfiodir" path="res://Scene/2d/2dCard.tscn" id="2_1u43r"]
+[ext_resource type="PackedScene" uid="uid://smj5r4t8uqex" path="res://Scene/2d/2dCard.tscn" id="2_1u43r"]
 
 [node name="2dCardCreator" type="Control"]
 layout_mode = 3

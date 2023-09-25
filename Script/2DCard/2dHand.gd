@@ -20,7 +20,7 @@ extends Node2D
 var SELECTED_CARD
 var START_POS
 
-func focus_card_in_hand(pressed, released):
+func focus_card_in_hand(pressCard, releaseCard):
 	var hand = self
 	for card in hand.get_children(false):
 		if card.STATE == card_enum.CARD_STATE_ENUM.FocusInHand || card.STATE == card_enum.CARD_STATE_ENUM.InMouse:
@@ -32,18 +32,18 @@ func focus_card_in_hand(pressed, released):
 
 	match SELECTED_CARD.STATE:
 		card_enum.CARD_STATE_ENUM.FocusInHand, card_enum.CARD_STATE_ENUM.InMouse, card_enum.CARD_STATE_ENUM.InPlay:
-			if pressed:
+			if pressCard:
 				if !SELECTED_CARD.CARD_SELECTED:
 					SELECTED_CARD.STATE = card_enum.CARD_STATE_ENUM.InMouse
 					SELECTED_CARD.CARD_SELECTED = true
 					disable_cards()
-					print(SELECTED_CARD)
+#					print(SELECTED_CARD)
 					return(SELECTED_CARD)
 					
 				else:
 					enable_cards()
 					return null
-			elif released:
+			elif releaseCard:
 				enable_cards()
 				return null
 

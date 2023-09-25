@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cncuuq61cl0tu"
-path="res://.godot/imported/Health-Sheet.png-fe8a7602962c2e67bf882c1b34bcc085.ctex"
+uid="uid://cyoatmdxc2r7e"
+path="res://.godot/imported/Heart-Icon.png-675a6a3d21004922c5243f6d18ef5469.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Icon/Bar/Health-Sheet.png"
-dest_files=["res://.godot/imported/Health-Sheet.png-fe8a7602962c2e67bf882c1b34bcc085.ctex"]
+source_file="res://Atlas/Heart-Icon.png"
+dest_files=["res://.godot/imported/Heart-Icon.png-675a6a3d21004922c5243f6d18ef5469.ctex"]
 
 [params]
 
