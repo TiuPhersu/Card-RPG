@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d0il7ay6pwgwv"]
+
+[node name="TurnManagerStateMachine" type="Node"]
+
+[node name="StartTurnState" type="Node" parent="."]
+
+[node name="DrawPhaseState" type="Node" parent="."]
+
+[node name="StandbyPhaseState" type="Node" parent="."]
+
+[node name="MainPhaseState" type="Node" parent="."]
