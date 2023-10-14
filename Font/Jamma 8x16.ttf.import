@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dqkpgoqwvsq4d"
-path="res://.godot/imported/VT323-Regular.ttf-3684065a4e5036d4a2bc1c858bea847c.fontdata"
+uid="uid://cd4s5bmlqof3f"
+path="res://.godot/imported/Jamma 8x16.ttf-e62b6fcf871ba2a303787f2c5af529e9.fontdata"
 
 [deps]
 
-source_file="res://Font/VT323-Regular.ttf"
-dest_files=["res://.godot/imported/VT323-Regular.ttf-3684065a4e5036d4a2bc1c858bea847c.fontdata"]
+source_file="res://Font/Jamma 8x16.ttf"
+dest_files=["res://.godot/imported/Jamma 8x16.ttf-e62b6fcf871ba2a303787f2c5af529e9.fontdata"]
 
 [params]
 

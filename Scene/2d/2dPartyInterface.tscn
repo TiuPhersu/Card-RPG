@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bd72muvp3d5wu" path="res://Scene/2d/2dCharacterInterface.tscn" id="1_iwpwo"]
 [ext_resource type="Texture2D" uid="uid://4qgvra14vt1l" path="res://Sprites/Background/Windows Explorer.png" id="1_n52h1"]
-[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="2_hwa0e"]
+[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="2_hwa0e"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_2h1pu"]
 font = ExtResource("2_hwa0e")
@@ -38,19 +38,23 @@ scale = Vector2(1.5, 1.5)
 CHARACTER_ICON_ENUM = 0
 HEART_ICON_ENUM = 0
 HEALTH = 100
+MAX_HEALTH = 100
 
 [node name="2dCharacterInterface2" parent="." instance=ExtResource("1_iwpwo")]
 position = Vector2(0, 110)
 scale = Vector2(1.5, 1.5)
+MAX_HEALTH = 100
 
 [node name="2dCharacterInterface3" parent="." instance=ExtResource("1_iwpwo")]
 position = Vector2(0, 184)
 scale = Vector2(1.5, 1.5)
 HEART_ICON_ENUM = 2
 HEALTH = 10
+MAX_HEALTH = 100
 
 [node name="2dCharacterInterface4" parent="." instance=ExtResource("1_iwpwo")]
 position = Vector2(0, 258)
 scale = Vector2(1.5, 1.5)
 HEART_ICON_ENUM = 0
-HEALTH = 100
+HEALTH = 210
+MAX_HEALTH = 300

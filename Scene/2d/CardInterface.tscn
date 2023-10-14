@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dfv4iow0itlg2" path="res://Sprites/Icon/Recycle/Recycle-Bin-Empty.png" id="4_6ri8v"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDiscardButton.gd" id="5_i1lvm"]
 [ext_resource type="Texture2D" uid="uid://b34qixu87bnmw" path="res://Sprites/Icon/Folder/Folder-Open.png" id="6_ph11q"]
-[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="7_o7dui"]
+[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="7_o7dui"]
 [ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="8_c7ylb"]
 [ext_resource type="Texture2D" uid="uid://ot58fvrchwn3" path="res://Sprites/Icon/Deck/Deck-Icon.png" id="9_fpoqd"]
 [ext_resource type="Texture2D" uid="uid://2imbw8rutag4" path="res://Sprites/Icon/Deck/Deck-Icon-Empty.png" id="10_wy6ql"]
@@ -29,10 +29,10 @@ font = ExtResource("7_o7dui")
 font_size = 9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxghn"]
-size = Vector2(448, 119.333)
+size = Vector2(448, 135.666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0ofx"]
-size = Vector2(511.667, 161)
+size = Vector2(511.667, 151.333)
 
 [node name="CardInterface" type="Node2D"]
 script = ExtResource("1_gtcd6")
@@ -150,14 +150,14 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-32.6667, -156)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer/HandArea"]
-position = Vector2(256.333, 209.333)
+position = Vector2(256.333, 201.166)
 shape = SubResource("RectangleShape2D_yxghn")
 
 [node name="PlayArea" type="Area2D" parent="Explorer"]
 position = Vector2(0, -112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer/PlayArea"]
-position = Vector2(223.833, 17.8333)
+position = Vector2(223.833, 13)
 shape = SubResource("RectangleShape2D_d0ofx")
 
 [connection signal="pressed" from="DiscardNode/DiscardButton" to="." method="_on_discard_button_pressed"]

@@ -8,6 +8,8 @@ func get_card_in_hand(pressed, released):
 	return HAND.focus_card_in_hand(pressed, released)
 
 func draw_card_from_deck():
+	if !DECK.check_deck_has_cards():
+		shuffle_discard_to_deck()
 	var topCardLoc = DECK.DECK.size() - 1
 	var drawnCard = DECK.get_card_from_deck(topCardLoc)
 	var checkIfDrawn = HAND.create_card_from_database(drawnCard, DECK.position)
@@ -17,19 +19,21 @@ func draw_card_from_deck():
 func shuffle_discard_to_deck():
 	print("Shuffle")
 	var allDiscard = DISCARD.get_all_card_from_discard()
+	if allDiscard == null:
+		return
 	DECK.shuffle_cards_into_deck(allDiscard)
 	DISCARD.clear_discard_pile()
 
 func draw_multiple_cards_from_deck(numCards:int):
 	var i: int = 0
-#	TODO: Remove this after getting discard to deck reshuffle to work
+
 	if DECK.DECK.size() <= 0:
-		return
-#	TODO: Remove this after getting discard to deck reshuffle to work
-	if DECK.DECK.size() < numCards:
-		numCards = DECK.DECK.size()
+		shuffle_discard_to_deck()
 		
 	while i < numCards:
+		if !DECK.check_deck_has_cards():
+			shuffle_discard_to_deck()
+			
 		var topCardLoc = DECK.DECK.size() - 1
 		var drawnCard = DECK.get_card_from_deck(topCardLoc)
 		if drawnCard == null:
@@ -50,6 +54,11 @@ func play_card(card):
 		HAND.remove_card_from_hand(card)
 	#	print(card.TITLE)
 		DISCARD.put_card_to_discard(card.TITLE)
+
+func discard_hand():
+	for card in HAND.get_children(false):
+		DISCARD.put_card_to_discard(card.TITLE)
+		HAND.remove_card_from_hand(card)
 
 # TODO: SHOW DECKLIST INSTEAD OF DRAWING CARD
 func _on_deck_button_pressed():

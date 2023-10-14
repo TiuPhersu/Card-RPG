@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://baj2j7ym23kar"
-path="res://.godot/imported/BakbakOne-Regular.ttf-3041f3a9a02a6674bf477b504e45c1c9.fontdata"
+uid="uid://cmta7igrwulft"
+path="res://.godot/imported/Centurion 8x16.ttf-dbf5304d43ef5c270477af8ccc6f5a16.fontdata"
 
 [deps]
 
-source_file="res://Font/BakbakOne-Regular.ttf"
-dest_files=["res://.godot/imported/BakbakOne-Regular.ttf-3041f3a9a02a6674bf477b504e45c1c9.fontdata"]
+source_file="res://Font/Centurion 8x16.ttf"
+dest_files=["res://.godot/imported/Centurion 8x16.ttf-dbf5304d43ef5c270477af8ccc6f5a16.fontdata"]
 
 [params]
 

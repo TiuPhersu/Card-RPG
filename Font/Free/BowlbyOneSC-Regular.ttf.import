@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dt2jvoq76wggf"
-path="res://.godot/imported/Forque-M3An.ttf-fc71faa33030f4f9ca0375c8b46f91c8.fontdata"
+uid="uid://dky1vuf2k12qa"
+path="res://.godot/imported/BowlbyOneSC-Regular.ttf-815a9e305a1fad48aeed534bc4c59129.fontdata"
 
 [deps]
 
-source_file="res://Font/Forque-M3An.ttf"
-dest_files=["res://.godot/imported/Forque-M3An.ttf-fc71faa33030f4f9ca0375c8b46f91c8.fontdata"]
+source_file="res://Font/Free/BowlbyOneSC-Regular.ttf"
+dest_files=["res://.godot/imported/BowlbyOneSC-Regular.ttf-815a9e305a1fad48aeed534bc4c59129.fontdata"]
 
 [params]
 

@@ -106,7 +106,7 @@ func create_card_from_database(selectedCard, startPos) -> bool:
 
 func remove_card_from_hand(selectedCard: Node2D) -> bool:
 	if selectedCard == null:
-		print("No Cards. Remove Card From Hand.")
+		print("No card to remove from hand.")
 		return false
 		
 	selectedCard.queue_free()
@@ -151,8 +151,6 @@ func spread_hand(startPos):
 		card.z_index = zCounter
 		zCounter += 1
 
-# BUGGED: Anytime a card is selected it will enter or exit the Area2d 
-# (will probably need to find an alternative method instead of using signals)
 func _on_hand_area_mouse_entered():
 	if SELECTED_CARD != null:
 		SELECTED_CARD.IN_HAND_AREA = true

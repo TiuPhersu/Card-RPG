@@ -12,8 +12,12 @@ extends Node2D
 @export var HEALTH: int:
 	get: return HEALTH
 	set(value): HEALTH = value
+
+@export var MAX_HEALTH: int:
+	get: return MAX_HEALTH
+	set(value): MAX_HEALTH = value
 	
-@export_category("Card Component")
+@export_category("Character Component")
 @export var HEALTH_LABEL: Label
 @export var HEALTH_BAR: TextureProgressBar
 @export var CHARACTER_ICON: Sprite2D
@@ -22,5 +26,7 @@ extends Node2D
 func _ready():
 	CHARACTER_ICON.select_character(CHARACTER_ICON_ENUM)
 	HEART_ICON.select_heart(HEART_ICON_ENUM)
-	HEALTH_LABEL.set_text(str(HEALTH) + "/100")
-	HEALTH_BAR.set_value_no_signal(HEALTH)
+	HEALTH_LABEL.set_text(str(HEALTH) + "/" + str(MAX_HEALTH))
+	var calcHealthPercentage = (float(HEALTH)/float(MAX_HEALTH)) * 100
+	print(calcHealthPercentage)
+	HEALTH_BAR.set_value_no_signal(calcHealthPercentage)

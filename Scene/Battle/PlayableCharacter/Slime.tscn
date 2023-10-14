@@ -52,7 +52,6 @@ texture_filter = 0
 texture = ExtResource("1_nbse1")
 hframes = 5
 vframes = 3
-frame = 5
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, -0.163717, 0)

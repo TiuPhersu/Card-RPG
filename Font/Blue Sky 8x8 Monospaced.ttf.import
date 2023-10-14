@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dhwvhls8pqvvb"
-path="res://.godot/imported/PressStart2P-Regular.ttf-9b04c7808efd620f37d68f89a8a16989.fontdata"
+uid="uid://blyv205yyo4ix"
+path="res://.godot/imported/Blue Sky 8x8 Monospaced.ttf-62171dc6af15e973612c6d0951736297.fontdata"
 
 [deps]
 
-source_file="res://Font/PressStart2P-Regular.ttf"
-dest_files=["res://.godot/imported/PressStart2P-Regular.ttf-9b04c7808efd620f37d68f89a8a16989.fontdata"]
+source_file="res://Font/Blue Sky 8x8 Monospaced.ttf"
+dest_files=["res://.godot/imported/Blue Sky 8x8 Monospaced.ttf-62171dc6af15e973612c6d0951736297.fontdata"]
 
 [params]
 

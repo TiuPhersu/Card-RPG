@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cjfbtf7dn3nxm" path="res://Sprites/Background/Taskbar/File/Task-Button.png" id="18_i35tw"]
 [ext_resource type="PackedScene" uid="uid://dbvhvff4jmjo8" path="res://Scene/2d/2dPartyInterface.tscn" id="19_ebluk"]
 [ext_resource type="Texture2D" uid="uid://cudlm6ou8h8ds" path="res://Sprites/Background/Taskbar/File/Task-Button-Pressed.png" id="19_gop2c"]
-[ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Minecraft.ttf" id="19_hnmk3"]
+[ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Free/Minecraft.ttf" id="19_hnmk3"]
 [ext_resource type="Texture2D" uid="uid://dxjx1gwrp2fvr" path="res://Sprites/Background/Taskbar/Start/Start-Top.png" id="19_yon3h"]
 [ext_resource type="Texture2D" uid="uid://dw22ns2orixr4" path="res://Sprites/Background/Taskbar/Start/Shutdown-Button.png" id="20_7hl5l"]
 [ext_resource type="Texture2D" uid="uid://do3gbkucdfmoi" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Folder-Icon.png" id="21_lmvjk"]

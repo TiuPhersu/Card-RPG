@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Script/2DCard/2dCard.gd" id="1_f66af"]
 [ext_resource type="Texture2D" uid="uid://cm07hmavj1q8k" path="res://Sprites/Card/Card-File-Skin.png" id="2_kby0a"]
-[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/PixeloidSansBold-PKnYd.ttf" id="3_gx2n4"]
+[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="3_gx2n4"]
 [ext_resource type="Texture2D" uid="uid://dhl118exodetj" path="res://Atlas/Battery-Icon.png" id="3_jhd51"]
 [ext_resource type="Texture2D" uid="uid://cpf8rngbppnlp" path="res://Atlas/Floppy-Disk-Icon.png" id="5_usujc"]
 [ext_resource type="Script" path="res://Script/2DCard/Floppy-Disk.gd" id="6_oikto"]

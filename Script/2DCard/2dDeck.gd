@@ -23,7 +23,6 @@ func shuffle_cards_into_deck(cardList: Array):
 
 func get_card_from_deck(cardLoc):
 	if !check_deck_has_cards():
-		#TODO: Reshuffle Discard Pile into the Deck
 		return
 	var drawnCard = DECK[cardLoc]
 	return drawnCard

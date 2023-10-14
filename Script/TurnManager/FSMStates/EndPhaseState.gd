@@ -3,10 +3,12 @@ extends State
 
 @export var COMBAT_INTERFACE: Control
 
+@onready var CARD_INTERFACE = COMBAT_INTERFACE.get_node("CardInterface")
 @onready var FSM: FiniteStateMachine
 
 func _enter_state() -> void:
 	print("End Phase!")
+	CARD_INTERFACE.discard_hand()
 	_exit_state("EnemyPhaseState")
 	pass
 

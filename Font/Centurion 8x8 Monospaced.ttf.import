@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://cbfnf36nahj73"
-path="res://.godot/imported/PixeloidSansBold-PKnYd.ttf-2cec11c1ad03e17d2038d2e6d5491502.fontdata"
+uid="uid://orxxqsmeqnt7"
+path="res://.godot/imported/Centurion 8x8 Monospaced.ttf-0f8fe04a608e801515a5d493980cac21.fontdata"
 
 [deps]
 
-source_file="res://Font/PixeloidSansBold-PKnYd.ttf"
-dest_files=["res://.godot/imported/PixeloidSansBold-PKnYd.ttf-2cec11c1ad03e17d2038d2e6d5491502.fontdata"]
+source_file="res://Font/Centurion 8x8 Monospaced.ttf"
+dest_files=["res://.godot/imported/Centurion 8x8 Monospaced.ttf-0f8fe04a608e801515a5d493980cac21.fontdata"]
 
 [params]
 

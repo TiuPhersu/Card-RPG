@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://v1861ttl16kf" path="res://Sprites/Icon/Heart/Heart-Icon-High.png" id="1_ploeq"]
 [ext_resource type="Script" path="res://Script/2DCard/HeartIcon.gd" id="3_kenyl"]
 [ext_resource type="Texture2D" uid="uid://da6tgbb50x070" path="res://Sprites/Icon/Character/Character-Icon-Slime.png" id="4_3uu38"]
-[ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Minecraft.ttf" id="4_qafbs"]
+[ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Free/Minecraft.ttf" id="4_qafbs"]
 [ext_resource type="Texture2D" uid="uid://dq5baw51h2wqc" path="res://Sprites/Icon/Bar/Health-Bar-Progress.png" id="5_5g0gk"]
 [ext_resource type="Texture2D" uid="uid://cq7n4onx56xle" path="res://Sprites/Icon/Bar/Health-Bar-Over.png" id="6_v8c0y"]
 [ext_resource type="Script" path="res://Script/2DCard/CharacterIcon.gd" id="8_uwdyk"]

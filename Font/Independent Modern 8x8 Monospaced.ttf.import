@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dkkousdi0iyb7"
-path="res://.godot/imported/Minecraft.ttf-463385ce90f370198d50ac95f8d8e395.fontdata"
+uid="uid://bpncod8xkablh"
+path="res://.godot/imported/Independent Modern 8x8 Monospaced.ttf-d4f015c799b7502dbe545a4c69cb17d7.fontdata"
 
 [deps]
 
-source_file="res://Font/Minecraft.ttf"
-dest_files=["res://.godot/imported/Minecraft.ttf-463385ce90f370198d50ac95f8d8e395.fontdata"]
+source_file="res://Font/Independent Modern 8x8 Monospaced.ttf"
+dest_files=["res://.godot/imported/Independent Modern 8x8 Monospaced.ttf-d4f015c799b7502dbe545a4c69cb17d7.fontdata"]
 
 [params]
 
