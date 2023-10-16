@@ -18,9 +18,8 @@ shadow_color = Color(0, 0, 1, 0)
 [node name="2dCharacterInterface" type="Node2D" node_paths=PackedStringArray("HEALTH_LABEL", "HEALTH_BAR", "CHARACTER_ICON", "HEART_ICON")]
 position = Vector2(0, 6)
 script = ExtResource("1_cd64j")
-CHARACTER_ICON_ENUM = 1
-HEART_ICON_ENUM = 1
 HEALTH = 60
+MAX_HEALTH = 100
 HEALTH_LABEL = NodePath("HealthLabel")
 HEALTH_BAR = NodePath("HealthBar")
 CHARACTER_ICON = NodePath("CharacterIcon")

@@ -12,7 +12,7 @@ font_size = 9
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 texture_filter = 1
-offset_right = 66.0
+offset_right = 69.0
 offset_bottom = 118.0
 scale = Vector2(3, 3)
 texture = ExtResource("1_n52h1")
@@ -35,26 +35,22 @@ vertical_alignment = 1
 [node name="2dCharacterInterface" parent="." instance=ExtResource("1_iwpwo")]
 position = Vector2(0, 37)
 scale = Vector2(1.5, 1.5)
-CHARACTER_ICON_ENUM = 0
-HEART_ICON_ENUM = 0
 HEALTH = 100
-MAX_HEALTH = 100
 
 [node name="2dCharacterInterface2" parent="." instance=ExtResource("1_iwpwo")]
 position = Vector2(0, 110)
 scale = Vector2(1.5, 1.5)
-MAX_HEALTH = 100
+CHARACTER_ICON_ENUM = 1
 
 [node name="2dCharacterInterface3" parent="." instance=ExtResource("1_iwpwo")]
 position = Vector2(0, 184)
 scale = Vector2(1.5, 1.5)
-HEART_ICON_ENUM = 2
+CHARACTER_ICON_ENUM = 1
 HEALTH = 10
-MAX_HEALTH = 100
 
 [node name="2dCharacterInterface4" parent="." instance=ExtResource("1_iwpwo")]
 position = Vector2(0, 258)
 scale = Vector2(1.5, 1.5)
-HEART_ICON_ENUM = 0
+CHARACTER_ICON_ENUM = 1
 HEALTH = 210
 MAX_HEALTH = 300

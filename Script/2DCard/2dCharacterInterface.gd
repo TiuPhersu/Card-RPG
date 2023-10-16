@@ -23,10 +23,38 @@ extends Node2D
 @export var CHARACTER_ICON: Sprite2D
 @export var HEART_ICON: Sprite2D
 
-func _ready():
+func _ready()  :
+	test_health_random()
 	CHARACTER_ICON.select_character(CHARACTER_ICON_ENUM)
-	HEART_ICON.select_heart(HEART_ICON_ENUM)
 	HEALTH_LABEL.set_text(str(HEALTH) + "/" + str(MAX_HEALTH))
 	var calcHealthPercentage = (float(HEALTH)/float(MAX_HEALTH)) * 100
 	print(calcHealthPercentage)
-	HEALTH_BAR.set_value_no_signal(calcHealthPercentage)
+	HEALTH_BAR.set_value_no_signal(0)
+	set_heart_icon(calcHealthPercentage)
+	set_health_percentage(calcHealthPercentage)
+
+func update_health():
+	HEALTH_LABEL.set_text(str(HEALTH) + "/" + str(MAX_HEALTH))
+	var calcHealthPercentage = (float(HEALTH)/float(MAX_HEALTH)) * 100
+	set_heart_icon(calcHealthPercentage)
+	set_health_percentage(calcHealthPercentage)
+
+func set_heart_icon(health_percentage):
+	if health_percentage >= 70:
+		HEART_ICON.select_heart(0)
+	elif health_percentage < 70 && health_percentage > 30:
+		HEART_ICON.select_heart(1)
+	else:
+		HEART_ICON.select_heart(2)
+
+func set_health_percentage(health_percentage):
+	var tween = get_tree().create_tween()
+	tween.tween_property(HEALTH_BAR,"value", health_percentage, .5).set_trans(Tween.TRANS_LINEAR)
+	
+func test_health_random():
+	var rng = RandomNumberGenerator.new()
+	var rngMaxHealth = rng.randi_range(0, 1000)
+	var rngCurHealth = rng.randi_range(0, rngMaxHealth)
+	
+	MAX_HEALTH = rngMaxHealth
+	HEALTH = rngCurHealth

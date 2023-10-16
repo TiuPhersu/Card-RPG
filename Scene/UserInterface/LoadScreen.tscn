@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3sv2e5nwmaji"]
+
+[ext_resource type="Script" path="res://Script/UserInterface/Load.gd" id="1_gah88"]
+[ext_resource type="Texture2D" uid="uid://dq5baw51h2wqc" path="res://Sprites/Icon/Bar/Health-Bar-Progress.png" id="2_xqgje"]
+[ext_resource type="Texture2D" uid="uid://drl66s8hk6lg2" path="res://Sprites/Icon/Bar/ComputerLoadBar.png" id="3_jlnin"]
+[ext_resource type="Texture2D" uid="uid://cia4l7pfytfcj" path="res://Sprites/Icon/Eyeball.png" id="4_jrxha"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mcig"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eriyn"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dciln"]
+font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_tok77"]
+font_size = 24
+
+[node name="LoadScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gah88")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1536.0
+offset_bottom = 864.0
+color = Color(0, 0, 0, 1)
+
+[node name="SubColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 706.0
+offset_right = 1536.0
+offset_bottom = 862.0
+color = Color(0.627451, 0.635294, 0.65098, 1)
+
+[node name="Label" type="Label" parent="SubColorRect"]
+layout_mode = 0
+offset_left = 567.0
+offset_top = 92.0
+offset_right = 1024.0
+offset_bottom = 129.0
+text = "Copyright XXXX-XXXX Provided By XXXX"
+label_settings = SubResource("LabelSettings_6mcig")
+
+[node name="Progress" type="Node2D" parent="."]
+position = Vector2(534, 734)
+
+[node name="LoadProgressBar" type="TextureProgressBar" parent="Progress"]
+texture_filter = 1
+offset_left = 149.0
+offset_top = 6.0
+offset_right = 272.0
+offset_bottom = 14.0
+scale = Vector2(3, 3)
+value = 40.0
+nine_patch_stretch = true
+stretch_margin_left = 1
+stretch_margin_top = 1
+stretch_margin_right = 1
+stretch_margin_bottom = 1
+texture_under = ExtResource("2_xqgje")
+texture_over = ExtResource("3_jlnin")
+texture_progress = ExtResource("2_xqgje")
+tint_under = Color(0.32549, 0.32549, 0.32549, 1)
+tint_progress = Color(0.0196078, 0.0823529, 0.47451, 1)
+
+[node name="Label" type="Label" parent="Progress"]
+offset_right = 147.0
+offset_bottom = 37.0
+text = "Starting up...
+"
+label_settings = SubResource("LabelSettings_eriyn")
+
+[node name="MainLogo" type="Node2D" parent="."]
+position = Vector2(527, 240)
+
+[node name="Eyeball" type="Sprite2D" parent="MainLogo"]
+texture_filter = 1
+position = Vector2(96, 96)
+scale = Vector2(3, 3)
+texture = ExtResource("4_jrxha")
+
+[node name="MainLabel" type="Label" parent="MainLogo"]
+offset_left = 192.0
+offset_right = 525.0
+offset_bottom = 135.0
+text = "Cornea"
+label_settings = SubResource("LabelSettings_dciln")
+
+[node name="SubLabel" type="Label" parent="MainLogo"]
+offset_left = 200.0
+offset_top = 129.0
+offset_right = 565.0
+offset_bottom = 171.0
+text = "A New Window To The Soul"
+label_settings = SubResource("LabelSettings_tok77")

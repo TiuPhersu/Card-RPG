@@ -3,9 +3,9 @@ extends Sprite2D
 var MAIN_TEXTURE = load("res://Atlas/Heart-Icon.png")
 
 var HEART_DICTIONARY = {
-	0 : Rect2(0, 0, 19, 19), 
-	1 : Rect2(0, 40, 19, 19), 
-	2 : Rect2(0, 20, 19, 19)
+	0 : Rect2(0, -1, 20, 20), 
+	1 : Rect2(0, 39, 20, 20), 
+	2 : Rect2(0, 19, 20, 20)
 }
 
 func select_heart(selection):
