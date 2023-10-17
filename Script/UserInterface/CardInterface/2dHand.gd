@@ -106,7 +106,7 @@ func create_card_from_database(selectedCard, startPos) -> bool:
 
 func remove_card_from_hand(selectedCard: Node2D) -> bool:
 	if selectedCard == null:
-		print("No Cards. Remove Card From Hand.")
+		print("No card to remove from hand.")
 		return false
 		
 	selectedCard.queue_free()

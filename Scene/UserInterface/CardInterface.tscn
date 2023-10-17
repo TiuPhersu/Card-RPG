@@ -1,17 +1,17 @@
 [gd_scene load_steps=20 format=3 uid="uid://wpfj0p0tut4c"]
 
-[ext_resource type="Script" path="res://Script/2DCard/CardInterface.gd" id="1_gtcd6"]
-[ext_resource type="Script" path="res://Script/2DCard/2dDiscard.gd" id="2_jwvxs"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/CardInterface.gd" id="1_j6vpk"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/2dDiscard.gd" id="2_c6s3o"]
 [ext_resource type="Texture2D" uid="uid://cvxc210p15xex" path="res://Sprites/Icon/Recycle/Recycle-Bin-Full.png" id="3_xuwso"]
 [ext_resource type="Texture2D" uid="uid://dfv4iow0itlg2" path="res://Sprites/Icon/Recycle/Recycle-Bin-Empty.png" id="4_6ri8v"]
-[ext_resource type="Script" path="res://Script/2DCard/2dDiscardButton.gd" id="5_i1lvm"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/2dDiscardButton.gd" id="5_eikaw"]
 [ext_resource type="Texture2D" uid="uid://b34qixu87bnmw" path="res://Sprites/Icon/Folder/Folder-Open.png" id="6_ph11q"]
-[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="7_2ytgw"]
-[ext_resource type="Script" path="res://Script/2DCard/2dDeck.gd" id="8_c7ylb"]
+[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="7_o7dui"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/2dDeck.gd" id="8_suky8"]
 [ext_resource type="Texture2D" uid="uid://ot58fvrchwn3" path="res://Sprites/Icon/Deck/Deck-Icon.png" id="9_fpoqd"]
 [ext_resource type="Texture2D" uid="uid://2imbw8rutag4" path="res://Sprites/Icon/Deck/Deck-Icon-Empty.png" id="10_wy6ql"]
-[ext_resource type="Script" path="res://Script/2DCard/2dDeckButton.gd" id="11_i16kh"]
-[ext_resource type="Script" path="res://Script/2DCard/2dHand.gd" id="12_x6eyk"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/2dDeckButton.gd" id="11_fdfpi"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/2dHand.gd" id="12_jrm6g"]
 [ext_resource type="PackedScene" uid="uid://smj5r4t8uqex" path="res://Scene/2d/2dCard.tscn" id="13_rdaic"]
 [ext_resource type="Texture2D" uid="uid://4qgvra14vt1l" path="res://Sprites/Background/Windows Explorer.png" id="14_mgrf6"]
 
@@ -29,19 +29,19 @@ font = ExtResource("7_o7dui")
 font_size = 9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yxghn"]
-size = Vector2(448, 136.666)
+size = Vector2(448, 135.666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d0ofx"]
-size = Vector2(511.667, 150.333)
+size = Vector2(511.667, 151.333)
 
 [node name="CardInterface" type="Node2D"]
-script = ExtResource("1_gtcd6")
+script = ExtResource("1_j6vpk")
 
 [node name="DiscardNode" type="Node2D" parent="."]
 z_index = 1
 position = Vector2(150, 700)
 scale = Vector2(3, 3)
-script = ExtResource("2_jwvxs")
+script = ExtResource("2_c6s3o")
 
 [node name="DiscardButton" type="TextureButton" parent="DiscardNode"]
 texture_filter = 1
@@ -52,7 +52,7 @@ texture_normal = ExtResource("3_xuwso")
 texture_pressed = ExtResource("3_xuwso")
 texture_hover = ExtResource("3_xuwso")
 texture_disabled = ExtResource("4_6ri8v")
-script = ExtResource("5_i1lvm")
+script = ExtResource("5_eikaw")
 metadata/_edit_use_anchors_ = true
 
 [node name="Folder" type="Sprite2D" parent="DiscardNode"]
@@ -75,7 +75,7 @@ metadata/_edit_use_anchors_ = true
 z_index = 1
 position = Vector2(1310, 701)
 scale = Vector2(3, 3)
-script = ExtResource("8_c7ylb")
+script = ExtResource("8_suky8")
 DECK_SIZE = 10
 
 [node name="DeckButton" type="TextureButton" parent="DeckNode"]
@@ -86,7 +86,7 @@ texture_normal = ExtResource("9_fpoqd")
 texture_pressed = ExtResource("9_fpoqd")
 texture_hover = ExtResource("9_fpoqd")
 texture_disabled = ExtResource("10_wy6ql")
-script = ExtResource("11_i16kh")
+script = ExtResource("11_fdfpi")
 metadata/_edit_use_anchors_ = true
 
 [node name="Folder" type="Sprite2D" parent="DeckNode"]
@@ -108,7 +108,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="HandNode" type="Node2D" parent="."]
-script = ExtResource("12_x6eyk")
+script = ExtResource("12_jrm6g")
 CARD_SIZE = 0.5
 TITLE = "Title"
 DESCRIPTION = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -150,14 +150,14 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(-32.6667, -156)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer/HandArea"]
-position = Vector2(256.333, 200.666)
+position = Vector2(256.333, 201.166)
 shape = SubResource("RectangleShape2D_yxghn")
 
 [node name="PlayArea" type="Area2D" parent="Explorer"]
 position = Vector2(0, -112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Explorer/PlayArea"]
-position = Vector2(223.833, 12.5)
+position = Vector2(223.833, 13)
 shape = SubResource("RectangleShape2D_d0ofx")
 
 [connection signal="pressed" from="DiscardNode/DiscardButton" to="." method="_on_discard_button_pressed"]

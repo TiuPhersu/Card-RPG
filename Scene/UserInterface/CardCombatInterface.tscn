@@ -1,15 +1,15 @@
 [gd_scene load_steps=25 format=3 uid="uid://ciwtniq6pkoia"]
 
-[ext_resource type="PackedScene" uid="uid://wpfj0p0tut4c" path="res://Scene/2d/CardInterface.tscn" id="1_r24bd"]
+[ext_resource type="PackedScene" uid="uid://wpfj0p0tut4c" path="res://Scene/UserInterface/CardInterface.tscn" id="1_r24bd"]
 [ext_resource type="Texture2D" uid="uid://c42f6c3dwq4fv" path="res://Sprites/Background/Taskbar/Taskbar32by32.png" id="3_ga3lb"]
 [ext_resource type="Texture2D" uid="uid://d08h1qbpocr76" path="res://Sprites/Background/Taskbar/Start/Start-Button.png" id="3_vj3hu"]
 [ext_resource type="Texture2D" uid="uid://cclufxt270xw7" path="res://Sprites/Background/Taskbar/Start/Start-Button-Pressed.png" id="4_7e6dp"]
-[ext_resource type="Script" path="res://Script/2DCard/StartButton.gd" id="5_0os4i"]
-[ext_resource type="Script" path="res://Script/2DCard/FileButton.gd" id="7_7wvd7"]
-[ext_resource type="Script" path="res://Script/2DCard/PartyButton.gd" id="12_83wup"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/StartButton.gd" id="5_8y5yc"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/FileButton.gd" id="10_07vc8"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/PartyButton.gd" id="12_kxoe2"]
 [ext_resource type="Texture2D" uid="uid://c1fmifpcacgva" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Start-Icon.png" id="18_d2n7l"]
 [ext_resource type="Texture2D" uid="uid://cjfbtf7dn3nxm" path="res://Sprites/Background/Taskbar/File/Task-Button.png" id="18_i35tw"]
-[ext_resource type="PackedScene" uid="uid://dbvhvff4jmjo8" path="res://Scene/2d/2dPartyInterface.tscn" id="19_ebluk"]
+[ext_resource type="PackedScene" uid="uid://dbvhvff4jmjo8" path="res://Scene/UserInterface/2dPartyInterface.tscn" id="19_ebluk"]
 [ext_resource type="Texture2D" uid="uid://cudlm6ou8h8ds" path="res://Sprites/Background/Taskbar/File/Task-Button-Pressed.png" id="19_gop2c"]
 [ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Free/Minecraft.ttf" id="19_hnmk3"]
 [ext_resource type="Texture2D" uid="uid://dxjx1gwrp2fvr" path="res://Sprites/Background/Taskbar/Start/Start-Top.png" id="19_yon3h"]
@@ -74,7 +74,7 @@ texture_normal = ExtResource("3_vj3hu")
 texture_pressed = ExtResource("4_7e6dp")
 texture_hover = ExtResource("3_vj3hu")
 texture_disabled = ExtResource("3_vj3hu")
-script = ExtResource("5_0os4i")
+script = ExtResource("5_8y5yc")
 MainUi = NodePath("../../StartMenu")
 
 [node name="Icon" type="Sprite2D" parent="MenuBar/StartButton"]
@@ -105,7 +105,7 @@ texture_normal = ExtResource("18_i35tw")
 texture_pressed = ExtResource("19_gop2c")
 texture_hover = ExtResource("18_i35tw")
 texture_disabled = ExtResource("18_i35tw")
-script = ExtResource("7_7wvd7")
+script = ExtResource("10_07vc8")
 MainUi = NodePath("../../CardInterface")
 
 [node name="Icon" type="Sprite2D" parent="MenuBar/FileButton"]
@@ -136,7 +136,7 @@ texture_normal = ExtResource("18_i35tw")
 texture_pressed = ExtResource("19_gop2c")
 texture_hover = ExtResource("18_i35tw")
 texture_disabled = ExtResource("18_i35tw")
-script = ExtResource("12_83wup")
+script = ExtResource("12_kxoe2")
 MainUi = NodePath("../../2dPartyInterface")
 
 [node name="Icon" type="Sprite2D" parent="MenuBar/PartyButton"]

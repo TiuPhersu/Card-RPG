@@ -17,6 +17,7 @@ func _process(_delta: float):
 	match LOADING_STATUS:
 		ResourceLoader.THREAD_LOAD_IN_PROGRESS:
 			LOAD_PROGRESS_BAR.set_value_no_signal(PROGRESS[0] * 100) # Change the ProgressBar value
+#			print(PROGRESS.size())
 		ResourceLoader.THREAD_LOAD_LOADED:
 			# When done loading, change to the target scene:
 			LOAD_PROGRESS_BAR.set_value_no_signal(PROGRESS[0] * 100) # Change the ProgressBar value

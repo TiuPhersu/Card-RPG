@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://b6sinl6n0bk3y"]
 
-[ext_resource type="PackedScene" uid="uid://ciwtniq6pkoia" path="res://Scene/2d/CardCombatInterface.tscn" id="1_r7bhy"]
-[ext_resource type="Script" path="res://Script/2DCard/2dCombatAreaCamera.gd" id="4_l8oyl"]
+[ext_resource type="PackedScene" uid="uid://ciwtniq6pkoia" path="res://Scene/UserInterface/CardCombatInterface.tscn" id="1_r7bhy"]
+[ext_resource type="Script" path="res://Script/UserInterface/CardInterface/2dCombatAreaCamera.gd" id="4_l8oyl"]
 [ext_resource type="PackedScene" uid="uid://bhp7g70uuqs5w" path="res://Scene/Battle/PlayableCharacter/MainCharacter.tscn" id="5_tstnj"]
 [ext_resource type="Texture2D" uid="uid://cq1ye2ud4i2sp" path="res://Sprites/Character/Enemy/Hotdog.png" id="7_n5c2w"]
 [ext_resource type="Script" path="res://Script/TurnManager/FiniteStateMachine.gd" id="8_6kfeh"]

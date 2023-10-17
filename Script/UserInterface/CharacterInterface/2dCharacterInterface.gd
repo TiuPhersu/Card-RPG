@@ -28,7 +28,7 @@ func _ready()  :
 	CHARACTER_ICON.select_character(CHARACTER_ICON_ENUM)
 	HEALTH_LABEL.set_text(str(HEALTH) + "/" + str(MAX_HEALTH))
 	var calcHealthPercentage = (float(HEALTH)/float(MAX_HEALTH)) * 100
-	print(calcHealthPercentage)
+#	print(calcHealthPercentage)
 	HEALTH_BAR.set_value_no_signal(0)
 	set_heart_icon(calcHealthPercentage)
 	set_health_percentage(calcHealthPercentage)

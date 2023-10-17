@@ -7,7 +7,7 @@ var states = {}
 
 func _ready():
 	get_all_states()
-	print(states)
+#	print(states)
 	change_state(STATE.name)
 
 func change_state(new_state):

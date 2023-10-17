@@ -1,23 +1,23 @@
 [gd_scene load_steps=10 format=3 uid="uid://bd72muvp3d5wu"]
 
-[ext_resource type="Script" path="res://Script/2DCard/2dCharacterInterface.gd" id="1_cd64j"]
-[ext_resource type="Texture2D" uid="uid://v1861ttl16kf" path="res://Sprites/Icon/Heart/Heart-Icon-High.png" id="1_ploeq"]
-[ext_resource type="Script" path="res://Script/2DCard/HeartIcon.gd" id="3_kenyl"]
-[ext_resource type="Texture2D" uid="uid://da6tgbb50x070" path="res://Sprites/Icon/Character/Character-Icon-Slime.png" id="4_3uu38"]
-[ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Free/Minecraft.ttf" id="4_qafbs"]
-[ext_resource type="Texture2D" uid="uid://dq5baw51h2wqc" path="res://Sprites/Icon/Bar/Health-Bar-Progress.png" id="5_5g0gk"]
-[ext_resource type="Texture2D" uid="uid://cq7n4onx56xle" path="res://Sprites/Icon/Bar/Health-Bar-Over.png" id="6_v8c0y"]
-[ext_resource type="Script" path="res://Script/2DCard/CharacterIcon.gd" id="8_uwdyk"]
+[ext_resource type="Script" path="res://Script/UserInterface/CharacterInterface/2dCharacterInterface.gd" id="1_curhj"]
+[ext_resource type="Texture2D" uid="uid://v1861ttl16kf" path="res://Sprites/Icon/Heart/Heart-Icon-High.png" id="2_v2kfd"]
+[ext_resource type="Script" path="res://Script/2DCard/HeartIcon.gd" id="3_7dykq"]
+[ext_resource type="Texture2D" uid="uid://da6tgbb50x070" path="res://Sprites/Icon/Character/Character-Icon-Slime.png" id="4_6gnph"]
+[ext_resource type="Script" path="res://Script/2DCard/CharacterIcon.gd" id="5_qh3ge"]
+[ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Free/Minecraft.ttf" id="6_wvaef"]
+[ext_resource type="Texture2D" uid="uid://dq5baw51h2wqc" path="res://Sprites/Icon/Bar/Health-Bar-Progress.png" id="7_uqleo"]
+[ext_resource type="Texture2D" uid="uid://cq7n4onx56xle" path="res://Sprites/Icon/Bar/Health-Bar-Over.png" id="8_keauc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rnucp"]
-font = ExtResource("4_qafbs")
+font = ExtResource("6_wvaef")
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 shadow_color = Color(0, 0, 1, 0)
 
 [node name="2dCharacterInterface" type="Node2D" node_paths=PackedStringArray("HEALTH_LABEL", "HEALTH_BAR", "CHARACTER_ICON", "HEART_ICON")]
 position = Vector2(0, 6)
-script = ExtResource("1_cd64j")
+script = ExtResource("1_curhj")
 HEALTH = 60
 MAX_HEALTH = 100
 HEALTH_LABEL = NodePath("HealthLabel")
@@ -29,15 +29,15 @@ HEART_ICON = NodePath("HeartIcon")
 texture_filter = 1
 position = Vector2(33, 24)
 scale = Vector2(3, 3)
-texture = ExtResource("1_ploeq")
-script = ExtResource("3_kenyl")
+texture = ExtResource("2_v2kfd")
+script = ExtResource("3_7dykq")
 
 [node name="CharacterIcon" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(24, 36)
 scale = Vector2(3, 3)
-texture = ExtResource("4_3uu38")
-script = ExtResource("8_uwdyk")
+texture = ExtResource("4_6gnph")
+script = ExtResource("5_qh3ge")
 
 [node name="HealthLabel" type="Label" parent="."]
 texture_filter = 1
@@ -63,8 +63,8 @@ stretch_margin_left = 1
 stretch_margin_top = 1
 stretch_margin_right = 1
 stretch_margin_bottom = 1
-texture_under = ExtResource("5_5g0gk")
-texture_over = ExtResource("6_v8c0y")
-texture_progress = ExtResource("5_5g0gk")
+texture_under = ExtResource("7_uqleo")
+texture_over = ExtResource("8_keauc")
+texture_progress = ExtResource("7_uqleo")
 tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(0, 0.6, 0.0470588, 1)
