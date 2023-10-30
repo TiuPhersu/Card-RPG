@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://d3sv2e5nwmaji"]
 
-[ext_resource type="Script" path="res://Script/UserInterface/Load.gd" id="1_gah88"]
+[ext_resource type="Script" path="res://Script/UserInterface/MainInterface/Load.gd" id="1_7j0ul"]
 [ext_resource type="Texture2D" uid="uid://dq5baw51h2wqc" path="res://Sprites/Icon/Bar/Health-Bar-Progress.png" id="2_xqgje"]
 [ext_resource type="Texture2D" uid="uid://drl66s8hk6lg2" path="res://Sprites/Icon/Bar/ComputerLoadBar.png" id="3_jlnin"]
 [ext_resource type="Texture2D" uid="uid://cia4l7pfytfcj" path="res://Sprites/Icon/Eyeball.png" id="4_jrxha"]
@@ -26,7 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gah88")
+script = ExtResource("1_7j0ul")
 
 [node name="BackgroundColorRect" type="ColorRect" parent="."]
 layout_mode = 0

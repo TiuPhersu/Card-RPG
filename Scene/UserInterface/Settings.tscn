@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ynt07okeukd"]
+
+[ext_resource type="Script" path="res://Script/UserInterface/MainInterface/FullScreen.gd" id="1_a4jbg"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullScreenButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Full Screen"
+script = ExtResource("1_a4jbg")
+
+[connection signal="pressed" from="FullScreenButton" to="FullScreenButton" method="_on_pressed"]

@@ -17,7 +17,7 @@ func list_files_in_directory(path):
 	dir.list_dir_end()
 
 	if files.is_empty():
-		files.append("No Cards Found")
+		files.append("No Files Found")
 	return files
 
 func save_single_card_resource(cardResource:card_data, path:String, oldPath):

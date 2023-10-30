@@ -7,7 +7,7 @@ var PROGRESS: Array[float]
 @onready var LOAD_PROGRESS_BAR = self.get_node("Progress/LoadProgressBar")
 
 func _ready():
-	var loader = ResourceLoader.load_threaded_request(TARGET_SCENE_PATH)
+	ResourceLoader.load_threaded_request(TARGET_SCENE_PATH)
 
 func _process(_delta: float):
 	# Update the status:

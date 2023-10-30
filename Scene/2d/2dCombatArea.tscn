@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6sinl6n0bk3y"]
+[gd_scene load_steps=18 format=3 uid="uid://b6sinl6n0bk3y"]
 
 [ext_resource type="PackedScene" uid="uid://ciwtniq6pkoia" path="res://Scene/UserInterface/CardCombatInterface.tscn" id="1_r7bhy"]
+[ext_resource type="Script" path="res://Script/2DCard/Party.gd" id="3_dn4gd"]
 [ext_resource type="Script" path="res://Script/UserInterface/CardInterface/2dCombatAreaCamera.gd" id="4_l8oyl"]
 [ext_resource type="PackedScene" uid="uid://bhp7g70uuqs5w" path="res://Scene/Battle/PlayableCharacter/MainCharacter.tscn" id="5_tstnj"]
 [ext_resource type="Texture2D" uid="uid://cq1ye2ud4i2sp" path="res://Sprites/Character/Enemy/Hotdog.png" id="7_n5c2w"]
@@ -44,6 +45,7 @@ script = ExtResource("4_l8oyl")
 
 [node name="Party" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 3)
+script = ExtResource("3_dn4gd")
 
 [node name="FirstMember" type="Node3D" parent="Party"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67052, 1.14495, 0)

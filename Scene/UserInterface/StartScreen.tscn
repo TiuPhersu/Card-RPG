@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://doal5l228t4c0"]
 
-[ext_resource type="Script" path="res://Script/UserInterface/Start.gd" id="1_m1xab"]
+[ext_resource type="Script" path="res://Script/UserInterface/MainInterface/Start.gd" id="1_lg1l3"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -9,12 +9,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_m1xab")
 
-[node name="Button" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="."]
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Load Scene"
+script = ExtResource("1_lg1l3")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]

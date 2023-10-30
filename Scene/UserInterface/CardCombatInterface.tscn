@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=26 format=3 uid="uid://ciwtniq6pkoia"]
 
 [ext_resource type="PackedScene" uid="uid://wpfj0p0tut4c" path="res://Scene/UserInterface/CardInterface.tscn" id="1_r24bd"]
 [ext_resource type="Texture2D" uid="uid://c42f6c3dwq4fv" path="res://Sprites/Background/Taskbar/Taskbar32by32.png" id="3_ga3lb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Script/UserInterface/CardInterface/PartyButton.gd" id="12_kxoe2"]
 [ext_resource type="Texture2D" uid="uid://c1fmifpcacgva" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Start-Icon.png" id="18_d2n7l"]
 [ext_resource type="Texture2D" uid="uid://cjfbtf7dn3nxm" path="res://Sprites/Background/Taskbar/File/Task-Button.png" id="18_i35tw"]
+[ext_resource type="Script" path="res://Script/UserInterface/Help.gd" id="18_nsorb"]
 [ext_resource type="PackedScene" uid="uid://dbvhvff4jmjo8" path="res://Scene/UserInterface/2dPartyInterface.tscn" id="19_ebluk"]
 [ext_resource type="Texture2D" uid="uid://cudlm6ou8h8ds" path="res://Sprites/Background/Taskbar/File/Task-Button-Pressed.png" id="19_gop2c"]
 [ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Free/Minecraft.ttf" id="19_hnmk3"]
@@ -187,6 +188,7 @@ texture_normal = ExtResource("22_k2q7r")
 texture_pressed = ExtResource("23_3o0af")
 texture_hover = ExtResource("23_3o0af")
 texture_disabled = ExtResource("23_3o0af")
+script = ExtResource("18_nsorb")
 
 [node name="SettingButton" type="TextureButton" parent="StartMenu"]
 texture_filter = 1
@@ -206,3 +208,4 @@ position = Vector2(10, 10)
 [connection signal="toggled" from="MenuBar/StartButton" to="MenuBar/StartButton" method="_on_start_toggled"]
 [connection signal="toggled" from="MenuBar/FileButton" to="MenuBar/FileButton" method="_on_file_toggled"]
 [connection signal="toggled" from="MenuBar/PartyButton" to="MenuBar/PartyButton" method="_on_party_toggled"]
+[connection signal="pressed" from="StartMenu/HelpButton" to="StartMenu/HelpButton" method="_on_pressed"]
