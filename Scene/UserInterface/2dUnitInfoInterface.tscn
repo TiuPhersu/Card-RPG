@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://vaf4xbtpcft6"]
+
+[ext_resource type="PackedScene" uid="uid://uxox8l7vqa73" path="res://Scene/UserInterface/RadarChart.tscn" id="1_3y52p"]
+[ext_resource type="Script" path="res://Script/UserInterface/CharacterInterface/2dUnitInfoInterface.gd" id="1_otubi"]
+
+[node name="2dUnitInfoInterface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_otubi")
+
+[node name="RadarChart" parent="." instance=ExtResource("1_3y52p")]
+offset_left = 232.0
+offset_top = 139.0
+offset_right = 232.0
+offset_bottom = 139.0
+scale = Vector2(0.5, 0.5)

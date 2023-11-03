@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=3 uid="uid://uxox8l7vqa73"]
+
+[ext_resource type="Script" path="res://Script/UserInterface/CharacterInterface/RadarChart.gd" id="1_jc5hy"]
+[ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="2_fmbyv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qdhlp"]
+font = ExtResource("2_fmbyv")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_dchmg"]
+font = ExtResource("2_fmbyv")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_3hhx7"]
+font = ExtResource("2_fmbyv")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_586y5"]
+font = ExtResource("2_fmbyv")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_u1c6l"]
+font = ExtResource("2_fmbyv")
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_sbxav"]
+font = ExtResource("2_fmbyv")
+font_size = 24
+
+[node name="RadarChart" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jc5hy")
+DATA = Array[float]([20.0, 40.0, 60.0, 80.0, 90.0, 100.0])
+LIMITS = Array[float]([100.0, 100.0, 100.0, 100.0, 100.0, 100.0])
+LINE_WIDTH = 5.0
+POLYGON_COLOR = Color(0, 1, 0, 1)
+POLYGON_BACKGROUND_COLOR = Color(1, 1, 1, 1)
+TEXT_COLOR = Color(1, 0, 0, 1)
+
+[node name="ConsitutionLabel" type="Label" parent="."]
+offset_left = -400.0
+offset_top = -15.0
+offset_right = -225.0
+offset_bottom = 18.0
+text = "Consitution"
+label_settings = SubResource("LabelSettings_qdhlp")
+
+[node name="StrengthLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -230.0
+offset_top = -215.0
+offset_right = -93.0
+offset_bottom = -182.0
+text = "Strength
+"
+label_settings = SubResource("LabelSettings_dchmg")
+
+[node name="DexterityLabel" type="Label" parent="."]
+offset_left = 100.0
+offset_top = -215.0
+offset_right = 245.0
+offset_bottom = -182.0
+text = "Dexterity"
+label_settings = SubResource("LabelSettings_3hhx7")
+
+[node name="IntelligenceLabel" type="Label" parent="."]
+offset_left = 215.0
+offset_top = -15.0
+offset_right = 398.0
+offset_bottom = 18.0
+text = "Intelligence"
+label_settings = SubResource("LabelSettings_586y5")
+
+[node name="WillpowerLabel" type="Label" parent="."]
+offset_left = 105.0
+offset_top = 180.0
+offset_right = 201.0
+offset_bottom = 206.0
+text = "Willpower"
+label_settings = SubResource("LabelSettings_u1c6l")
+
+[node name="LuckLabel" type="Label" parent="."]
+offset_left = -160.0
+offset_top = 180.0
+offset_right = -87.0
+offset_bottom = 213.0
+text = "Luck
+"
+label_settings = SubResource("LabelSettings_sbxav")
