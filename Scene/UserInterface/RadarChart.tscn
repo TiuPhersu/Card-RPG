@@ -1,90 +1,217 @@
-[gd_scene load_steps=9 format=3 uid="uid://uxox8l7vqa73"]
+[gd_scene load_steps=19 format=3 uid="uid://uxox8l7vqa73"]
 
 [ext_resource type="Script" path="res://Script/UserInterface/CharacterInterface/RadarChart.gd" id="1_jc5hy"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="2_fmbyv"]
+[ext_resource type="Resource" uid="uid://x5j81786ius" path="res://Data/Unit/Turtle.tres" id="2_u75wv"]
+[ext_resource type="Texture2D" uid="uid://bfu5fv4dm2p65" path="res://Sprites/Icon/Status/CON-Stat-Icon.png" id="3_7dwew"]
+[ext_resource type="Texture2D" uid="uid://dxvob16qwrxn2" path="res://Sprites/Icon/Status/STR-Stat-Icon.png" id="5_unass"]
+[ext_resource type="Texture2D" uid="uid://b4t5qqjx0vyoa" path="res://Sprites/Icon/Status/DEX-Stat-Icon.png" id="6_hn2uo"]
+[ext_resource type="Texture2D" uid="uid://d3u2u10u1id5f" path="res://Sprites/Icon/Status/INT-Stat-Icon.png" id="7_kw4v0"]
+[ext_resource type="Texture2D" uid="uid://b7bi8ua0g1kls" path="res://Sprites/Icon/Status/WIL-Stat-Icon.png" id="8_whxah"]
+[ext_resource type="Texture2D" uid="uid://cfbj1bnylajrl" path="res://Sprites/Icon/Status/LUK-Stat-Icon.png" id="9_f3bx7"]
+[ext_resource type="Texture2D" uid="uid://blrhp8atcmbhy" path="res://Sprites/Background/Taskbar/File/File-Button.png" id="10_cx7r2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdhlp"]
 font = ExtResource("2_fmbyv")
-font_size = 24
+font_size = 36
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_dchmg"]
 font = ExtResource("2_fmbyv")
-font_size = 24
+font_size = 36
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3hhx7"]
 font = ExtResource("2_fmbyv")
-font_size = 24
+font_size = 36
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_586y5"]
 font = ExtResource("2_fmbyv")
-font_size = 24
+font_size = 36
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_u1c6l"]
 font = ExtResource("2_fmbyv")
-font_size = 24
+font_size = 36
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sbxav"]
 font = ExtResource("2_fmbyv")
-font_size = 24
+font_size = 36
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8l5y5"]
+font = ExtResource("2_fmbyv")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nrnlc"]
+font = ExtResource("2_fmbyv")
+font_size = 9
+font_color = Color(0, 0, 0, 1)
 
 [node name="RadarChart" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_jc5hy")
-DATA = Array[float]([20.0, 40.0, 60.0, 80.0, 90.0, 100.0])
-LIMITS = Array[float]([100.0, 100.0, 100.0, 100.0, 100.0, 100.0])
+UNIT_DATA = ExtResource("2_u75wv")
 LINE_WIDTH = 5.0
-POLYGON_COLOR = Color(0, 1, 0, 1)
+POLYLINE_COLOR = Color(1, 0, 0, 1)
+POLYGON_COLOR = Color(0, 1, 0, 0.588235)
 POLYGON_BACKGROUND_COLOR = Color(1, 1, 1, 1)
-TEXT_COLOR = Color(1, 0, 0, 1)
 
-[node name="ConsitutionLabel" type="Label" parent="."]
-offset_left = -400.0
-offset_top = -15.0
-offset_right = -225.0
-offset_bottom = 18.0
-text = "Consitution"
+[node name="Constitution" type="Node2D" parent="."]
+position = Vector2(-226, -20)
+
+[node name="ConstitutionIcon" type="Sprite2D" parent="Constitution"]
+texture_filter = 1
+position = Vector2(12, 19)
+scale = Vector2(9, 9)
+texture = ExtResource("3_7dwew")
+
+[node name="ConstitutionLabel" type="Label" parent="Constitution"]
+offset_right = 28.0
+offset_bottom = 47.0
+text = "?"
 label_settings = SubResource("LabelSettings_qdhlp")
 
-[node name="StrengthLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = -230.0
-offset_top = -215.0
-offset_right = -93.0
-offset_bottom = -182.0
-text = "Strength
-"
+[node name="Strength" type="Node2D" parent="."]
+position = Vector2(-124, -216)
+
+[node name="StrengthIcon" type="Sprite2D" parent="Strength"]
+texture_filter = 1
+position = Vector2(10, 30)
+scale = Vector2(9, 9)
+texture = ExtResource("5_unass")
+
+[node name="StrengthLabel" type="Label" parent="Strength"]
+offset_right = 28.0
+offset_bottom = 47.0
+text = "?"
 label_settings = SubResource("LabelSettings_dchmg")
 
-[node name="DexterityLabel" type="Label" parent="."]
-offset_left = 100.0
-offset_top = -215.0
-offset_right = 245.0
-offset_bottom = -182.0
-text = "Dexterity"
+[node name="Dexterity" type="Node2D" parent="."]
+position = Vector2(105, -215)
+
+[node name="DexterityIcon" type="Sprite2D" parent="Dexterity"]
+texture_filter = 1
+position = Vector2(8, 26)
+scale = Vector2(9, 9)
+texture = ExtResource("6_hn2uo")
+
+[node name="DexterityLabel" type="Label" parent="Dexterity"]
+offset_right = 28.0
+offset_bottom = 47.0
+text = "?"
 label_settings = SubResource("LabelSettings_3hhx7")
 
-[node name="IntelligenceLabel" type="Label" parent="."]
-offset_left = 215.0
-offset_top = -15.0
-offset_right = 398.0
-offset_bottom = 18.0
-text = "Intelligence"
+[node name="Intelligence" type="Node2D" parent="."]
+position = Vector2(209, -20)
+
+[node name="IntelligenceIcon" type="Sprite2D" parent="Intelligence"]
+texture_filter = 1
+position = Vector2(8, 24)
+scale = Vector2(9, 9)
+texture = ExtResource("7_kw4v0")
+
+[node name="IntelligenceLabel" type="Label" parent="Intelligence"]
+offset_right = 28.0
+offset_bottom = 47.0
+text = "?"
 label_settings = SubResource("LabelSettings_586y5")
 
-[node name="WillpowerLabel" type="Label" parent="."]
-offset_left = 105.0
-offset_top = 180.0
-offset_right = 201.0
-offset_bottom = 206.0
-text = "Willpower"
+[node name="Willpower" type="Node2D" parent="."]
+position = Vector2(106, 156)
+
+[node name="WillpowerIcon" type="Sprite2D" parent="Willpower"]
+texture_filter = 1
+position = Vector2(8, 26)
+scale = Vector2(9, 9)
+texture = ExtResource("8_whxah")
+
+[node name="WillpowerLabel" type="Label" parent="Willpower"]
+offset_right = 28.0
+offset_bottom = 47.0
+text = "?"
 label_settings = SubResource("LabelSettings_u1c6l")
 
-[node name="LuckLabel" type="Label" parent="."]
-offset_left = -160.0
-offset_top = 180.0
-offset_right = -87.0
-offset_bottom = 213.0
-text = "Luck
-"
+[node name="Luck" type="Node2D" parent="."]
+position = Vector2(-129, 159)
+
+[node name="LuckIcon" type="Sprite2D" parent="Luck"]
+texture_filter = 1
+position = Vector2(16, 17)
+scale = Vector2(9, 9)
+texture = ExtResource("9_f3bx7")
+
+[node name="LuckLabel" type="Label" parent="Luck"]
+offset_left = 4.0
+offset_top = -3.0
+offset_right = 32.0
+offset_bottom = 44.0
+text = "?"
 label_settings = SubResource("LabelSettings_sbxav")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 215.0
+offset_top = -236.0
+offset_right = 239.0
+offset_bottom = -219.0
+scale = Vector2(6, 6)
+texture = ExtResource("10_cx7r2")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="TotalLegendColorRect" type="ColorRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 22.0
+offset_bottom = 8.0
+color = Color(0, 1, 0, 0.588235)
+
+[node name="Label" type="Label" parent="NinePatchRect/TotalLegendColorRect"]
+layout_mode = 0
+offset_left = 2.5
+offset_top = -0.166664
+offset_right = 31.5
+offset_bottom = 13.8333
+scale = Vector2(0.5, 0.5)
+text = "Total"
+label_settings = SubResource("LabelSettings_8l5y5")
+
+[node name="BaseColorRect" type="ColorRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 9.0
+offset_right = 22.0
+offset_bottom = 15.0
+color = Color(1, 0, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect/BaseColorRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 19.0
+offset_bottom = 5.0
+color = Color(0.627451, 0.635294, 0.65098, 1)
+
+[node name="Label" type="Label" parent="NinePatchRect/BaseColorRect"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 31.0
+offset_bottom = 14.0
+scale = Vector2(0.5, 0.5)
+text = "Base"
+label_settings = SubResource("LabelSettings_nrnlc")
