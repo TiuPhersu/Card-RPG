@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bsfoef1gssgsh"]
 
 [ext_resource type="Texture2D" uid="uid://bfkegmspx20ei" path="res://Sprites/Character/Companion/Rock.png" id="1_kkxv4"]
-[ext_resource type="Script" path="res://Script/Units/Unit/PlayableUnit.gd" id="1_my3wl"]
+[ext_resource type="Script" uid="uid://csyj2plmdfgyq" path="res://Script/Units/Unit/PlayableUnit.gd" id="1_my3wl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tirjx"]
 
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f36ub"]
 _data = {
-"RESET": SubResource("Animation_j7msr"),
-"idle": SubResource("Animation_t4x2e")
+&"RESET": SubResource("Animation_j7msr"),
+&"idle": SubResource("Animation_t4x2e")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sygaa"]

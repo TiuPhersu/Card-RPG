@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bhp7g70uuqs5w"]
 
-[ext_resource type="Script" path="res://Script/Units/Unit/PlayableUnit.gd" id="1_220ne"]
+[ext_resource type="Script" uid="uid://csyj2plmdfgyq" path="res://Script/Units/Unit/PlayableUnit.gd" id="1_220ne"]
 [ext_resource type="Texture2D" uid="uid://bil8gfxaknv7w" path="res://Sprites/Character/128bitMC/Main Character-F.png" id="2_6rnt2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_42jjy"]
@@ -39,8 +39,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fnm27"]
 _data = {
-"RESET": SubResource("Animation_42yd1"),
-"idle": SubResource("Animation_pixdy")
+&"RESET": SubResource("Animation_42yd1"),
+&"idle": SubResource("Animation_pixdy")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1r7w"]

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="unit_data" load_steps=2 format=3 uid="uid://x5j81786ius"]
+[gd_resource type="Resource" script_class="unit_data" load_steps=3 format=3 uid="uid://x5j81786ius"]
 
-[ext_resource type="Script" path="res://Script/Resource/UnitData.gd" id="1_a2sxi"]
+[ext_resource type="Script" uid="uid://dvoaoc7qu31f2" path="res://Script/Resource/UnitData.gd" id="1_a2sxi"]
+[ext_resource type="Script" uid="uid://cy6b6ydqd4ug1" path="res://Script/Resource/CardData.gd" id="1_nhkeq"]
 
 [resource]
 script = ExtResource("1_a2sxi")
@@ -21,4 +22,4 @@ ADDITIONAL_DEXTERITY = 0
 ADDITIONAL_INTELLIGENCE = 50
 ADDITIONAL_WILLPOWER = 30
 ADDITIONAL_LUCK = 80
-DECK = Array[Resource("res://Script/Resource/CardData.gd")]([])
+DECK = Array[ExtResource("1_nhkeq")]([])

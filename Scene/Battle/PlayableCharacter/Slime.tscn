@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://67vjtjnncbjk"]
 
 [ext_resource type="Texture2D" uid="uid://b3ptj6mv7dbec" path="res://Sprites/Character/Companion/Slime-Sheet.png" id="1_nbse1"]
-[ext_resource type="Script" path="res://Script/Units/Unit/PlayableUnit.gd" id="1_rqvg7"]
+[ext_resource type="Script" uid="uid://csyj2plmdfgyq" path="res://Script/Units/Unit/PlayableUnit.gd" id="1_rqvg7"]
 [ext_resource type="Resource" uid="uid://c4i5jimgbpiqv" path="res://Data/Units/Slime.tres" id="2_kk4cl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aoxv1"]
@@ -42,8 +42,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_42yw6"]
 _data = {
-"block": SubResource("Animation_d8kes"),
-"idle": SubResource("Animation_206k3")
+&"block": SubResource("Animation_d8kes"),
+&"idle": SubResource("Animation_206k3")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6cu0o"]

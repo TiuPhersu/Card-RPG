@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://bd72muvp3d5wu"]
 
-[ext_resource type="Script" path="res://Script/UserInterface/CharacterInterface/2dCharacterInterface.gd" id="1_curhj"]
+[ext_resource type="Script" uid="uid://xrvuema4h6dl" path="res://Script/UserInterface/CharacterInterface/2dCharacterInterface.gd" id="1_curhj"]
 [ext_resource type="Texture2D" uid="uid://v1861ttl16kf" path="res://Sprites/Icon/Heart/Heart-Icon-High.png" id="2_v2kfd"]
-[ext_resource type="Script" path="res://Script/2DCard/HeartIcon.gd" id="3_7dykq"]
+[ext_resource type="Script" uid="uid://drpdlpnt70cyf" path="res://Script/2DCard/HeartIcon.gd" id="3_7dykq"]
 [ext_resource type="Texture2D" uid="uid://da6tgbb50x070" path="res://Sprites/Icon/Character/Character-Icon-Slime.png" id="4_6gnph"]
-[ext_resource type="Script" path="res://Script/2DCard/CharacterIcon.gd" id="5_qh3ge"]
+[ext_resource type="Script" uid="uid://d10fj36heitjg" path="res://Script/2DCard/CharacterIcon.gd" id="5_qh3ge"]
 [ext_resource type="FontFile" uid="uid://dkkousdi0iyb7" path="res://Font/Free/Minecraft.ttf" id="6_wvaef"]
 [ext_resource type="Texture2D" uid="uid://dq5baw51h2wqc" path="res://Sprites/Icon/Bar/Health-Bar-Progress.png" id="7_uqleo"]
 [ext_resource type="Texture2D" uid="uid://cq7n4onx56xle" path="res://Sprites/Icon/Bar/Health-Bar-Over.png" id="8_keauc"]

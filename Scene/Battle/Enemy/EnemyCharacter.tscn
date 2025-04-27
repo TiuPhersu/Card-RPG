@@ -38,8 +38,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fnm27"]
 _data = {
-"RESET": SubResource("Animation_42yd1"),
-"idle": SubResource("Animation_pixdy")
+&"RESET": SubResource("Animation_42yd1"),
+&"idle": SubResource("Animation_pixdy")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1r7w"]

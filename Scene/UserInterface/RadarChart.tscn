@@ -1,9 +1,9 @@
 [gd_scene load_steps=21 format=3 uid="uid://uxox8l7vqa73"]
 
-[ext_resource type="Script" path="res://Script/UserInterface/CharacterInterface/RadarChart.gd" id="1_jc5hy"]
-[ext_resource type="Script" path="res://Script/Resource/CardData.gd" id="2_a30ic"]
+[ext_resource type="Script" uid="uid://dp1l7ypuiigaa" path="res://Script/UserInterface/CharacterInterface/RadarChart.gd" id="1_jc5hy"]
+[ext_resource type="Script" uid="uid://cy6b6ydqd4ug1" path="res://Script/Resource/CardData.gd" id="2_a30ic"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="2_fmbyv"]
-[ext_resource type="Script" path="res://Script/Resource/UnitData.gd" id="2_w526e"]
+[ext_resource type="Script" uid="uid://dvoaoc7qu31f2" path="res://Script/Resource/UnitData.gd" id="2_w526e"]
 [ext_resource type="Texture2D" uid="uid://bfu5fv4dm2p65" path="res://Sprites/Icon/Status/CON-Stat-Icon.png" id="3_7dwew"]
 [ext_resource type="Texture2D" uid="uid://dxvob16qwrxn2" path="res://Sprites/Icon/Status/STR-Stat-Icon.png" id="5_unass"]
 [ext_resource type="Texture2D" uid="uid://b4t5qqjx0vyoa" path="res://Sprites/Icon/Status/DEX-Stat-Icon.png" id="6_hn2uo"]

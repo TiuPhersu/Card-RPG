@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://b50dw2h4k4y83"]
 
-[ext_resource type="Script" path="res://Script/Units/Character.gd" id="1_4pqyg"]
+[ext_resource type="Script" uid="uid://bsypnk86ae5wm" path="res://Script/Units/Character.gd" id="1_4pqyg"]
 [ext_resource type="Texture2D" uid="uid://dx0l4g04khr10" path="res://Sprites/Character/32bitMC/MC-Proto-32-V2-Sheet.png" id="2_ak0fx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sprie"]
@@ -162,12 +162,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bvugj"]
 _data = {
-"IdleLeft": SubResource("Animation_076wh"),
-"IdleRight": SubResource("Animation_8u57o"),
-"MoveDown": SubResource("Animation_gxw1w"),
-"MoveLeft": SubResource("Animation_kpa56"),
-"MoveRight": SubResource("Animation_t4j31"),
-"MoveUp": SubResource("Animation_nb2g1")
+&"IdleLeft": SubResource("Animation_076wh"),
+&"IdleRight": SubResource("Animation_8u57o"),
+&"MoveDown": SubResource("Animation_gxw1w"),
+&"MoveLeft": SubResource("Animation_kpa56"),
+&"MoveRight": SubResource("Animation_t4j31"),
+&"MoveUp": SubResource("Animation_nb2g1")
 }
 
 [node name="CharacterBody3D" type="CharacterBody3D"]

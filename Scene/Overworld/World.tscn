@@ -1,7 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ba2f2ghbuf1mx"]
 
 [ext_resource type="PackedScene" uid="uid://b50dw2h4k4y83" path="res://Scene/Overworld/Character.tscn" id="1_7ebtk"]
-[ext_resource type="PackedScene" uid="uid://uhehm7jhmhm3" path="res://Models/City/Polygon_City_Demo.glb" id="3_gbwth"]
 [ext_resource type="Texture2D" uid="uid://dfaduem1ou8el" path="res://Sprites/Sky/Epic_BlueSunset_EquiRect_flat.png" id="3_p6wd2"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_j874e"]
@@ -16,6 +15,9 @@ sky = SubResource("Sky_6moj4")
 tonemap_mode = 2
 sdfgi_enabled = true
 
+[sub_resource type="Resource" id="Resource_pxflk"]
+metadata/__load_path__ = "res://Models/City/Polygon_City_Demo.glb"
+
 [node name="World" type="Node3D"]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_7ebtk")]
@@ -27,7 +29,7 @@ environment = SubResource("Environment_tnnkj")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 0.740617, 0.671927, 0, -0.671927, 0.740617, 3.24415, 5.17139, -3.35329)
 
-[node name="Polygon_City_Demo" parent="." instance=ExtResource("3_gbwth")]
+[node name="Polygon_City_Demo" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0546695, 0.0971994, 0.198941)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Polygon_City_Demo"]

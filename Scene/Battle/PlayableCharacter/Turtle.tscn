@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://0attq12o6td6"]
 
-[ext_resource type="Script" path="res://Script/Units/Unit/PlayableUnit.gd" id="1_q2hyf"]
+[ext_resource type="Script" uid="uid://csyj2plmdfgyq" path="res://Script/Units/Unit/PlayableUnit.gd" id="1_q2hyf"]
 [ext_resource type="Texture2D" uid="uid://cc8mtujfl3a4a" path="res://Sprites/Character/Companion/Tortoise.png" id="1_reucj"]
-[ext_resource type="Resource" uid="uid://x5j81786ius" path="res://Sprites/CardImage/Turtle.tres" id="2_28poi"]
+[ext_resource type="Resource" uid="uid://x5j81786ius" path="res://Data/Units/Turtle.tres" id="2_28poi"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_37scd"]
 
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bjje5"]
 _data = {
-"RESET": SubResource("Animation_yjdoe"),
-"idle": SubResource("Animation_vhrrf")
+&"RESET": SubResource("Animation_yjdoe"),
+&"idle": SubResource("Animation_vhrrf")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b2of2"]
