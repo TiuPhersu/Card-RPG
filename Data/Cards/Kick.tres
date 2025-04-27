@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="card_data" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Script/Resource/CardData.gd" id="1_15krf"]
+
+[resource]
+script = ExtResource("1_15krf")
+TITLE = "Kick"
+DESCRIPTION = "Deal 14 Damage"
+IMAGE_PATH = "res://Sprites/CardImage/cat.jpg"
+COST = 2
+TYPE = 0
+BLOCK = 0
+ATTACK = 14

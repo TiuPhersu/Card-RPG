@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="unit_data" load_steps=2 format=3 uid="uid://x5j81786ius"]
+
+[ext_resource type="Script" path="res://Script/Resource/UnitData.gd" id="1_a2sxi"]
+
+[resource]
+script = ExtResource("1_a2sxi")
+UNIT_NAME = "Turtle"
+CHARACTER_ICON = "res://Sprites/Character/Companion/Icon/Tortoise.jpg"
+UNIT_LEVEL = 5
+UNIT_HEALTH = 30
+UNIT_EXPERIENCE = 30
+BASE_CONSTITUTION = 50
+BASE_STRENGTH = 10
+BASE_DEXTERITY = 10
+BASE_INTELLIGENCE = 50
+BASE_WILLPOWER = 50
+BASE_LUCK = 20
+ADDITIONAL_CONSTITUTION = 30
+ADDITIONAL_STRENGTH = 20
+ADDITIONAL_DEXTERITY = 0
+ADDITIONAL_INTELLIGENCE = 50
+ADDITIONAL_WILLPOWER = 30
+ADDITIONAL_LUCK = 80
+DECK = Array[Resource("res://Script/Resource/CardData.gd")]([])

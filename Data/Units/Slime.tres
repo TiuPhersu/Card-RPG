@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="unit_data" load_steps=2 format=3 uid="uid://c4i5jimgbpiqv"]
+
+[ext_resource type="Script" path="res://Script/Resource/UnitData.gd" id="1_k6foe"]
+
+[resource]
+script = ExtResource("1_k6foe")
+UNIT_NAME = "Slime"
+CHARACTER_ICON = "res://Sprites/Character/Companion/Icon/Slime.jpg"
+UNIT_LEVEL = 5
+UNIT_HEALTH = 100
+UNIT_EXPERIENCE = 20
+BASE_CONSTITUTION = 10
+BASE_STRENGTH = 10
+BASE_DEXTERITY = 10
+BASE_INTELLIGENCE = 10
+BASE_WILLPOWER = 10
+BASE_LUCK = 10
+ADDITIONAL_CONSTITUTION = 50
+ADDITIONAL_STRENGTH = 30
+ADDITIONAL_DEXTERITY = 20
+ADDITIONAL_INTELLIGENCE = 60
+ADDITIONAL_WILLPOWER = 10
+ADDITIONAL_LUCK = 100
+DECK = Array[Resource("res://Script/Resource/CardData.gd")]([])
