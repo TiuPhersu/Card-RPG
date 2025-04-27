@@ -1,5 +1,8 @@
 extends Node2D
 
+@export var HAND_LOCATION_X: int = 0;
+@export var HAND_LOCATION_Y: int = 0;
+
 @export var CARD_SIZE: float = 0
 
 @export var TITLE: String
@@ -84,6 +87,7 @@ func create_card():
 	add_child(card)
 
 func create_card_from_database(selectedCard, startPos) -> bool:
+	#Try to get the top card of deck if no cards then warn user
 	if selectedCard == null:
 		print("No Cards. Create Card From Database.")
 		return false
@@ -123,7 +127,9 @@ func spread_hand(startPos):
 		var handRatio = 0
 		var destination = hand.global_transform
 #		var view = VIEWPORT_SIZE / Vector2(4.5,1.258)
-		var view = Vector2(340, 687)
+		#var view = Vector2(340, 687)
+		var view = Vector2(HAND_LOCATION_X, HAND_LOCATION_Y)
+
 		destination = view
 
 		if hand.get_child_count(false) > 1:
@@ -150,19 +156,3 @@ func spread_hand(startPos):
 		
 		card.z_index = zCounter
 		zCounter += 1
-
-func _on_hand_area_mouse_entered():
-	if SELECTED_CARD != null:
-		SELECTED_CARD.IN_HAND_AREA = true
-
-func _on_hand_area_mouse_exited():
-	if SELECTED_CARD != null:
-		SELECTED_CARD.IN_HAND_AREA = false
-
-func _on_play_area_mouse_entered():
-	if SELECTED_CARD != null:
-		SELECTED_CARD.IN_PLAY_AREA = true
-
-func _on_play_area_mouse_exited():
-	if SELECTED_CARD != null:
-		SELECTED_CARD.IN_PLAY_AREA = false

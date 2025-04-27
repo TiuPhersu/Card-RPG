@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 @export var UNIT_DATA: Resource
 @export var LIMIT: float = 100
@@ -29,6 +29,10 @@ var MAX_STAT:float = 100
 @onready var WIL_LBL = self.get_node("Willpower/WillpowerLabel")
 @onready var LUK_LBL = self.get_node("Luck/LuckLabel")
 
+func set_unit_data(set_unit):
+	UNIT_DATA = set_unit
+	setup()
+
 func set_actual_data():
 	ACTUAL_STAT_DATA["CONSTITUTION"] = UNIT_DATA.BASE_CONSTITUTION + UNIT_DATA.ADDITIONAL_CONSTITUTION
 	ACTUAL_STAT_DATA["STRENGTH"] = UNIT_DATA.BASE_STRENGTH + UNIT_DATA.ADDITIONAL_STRENGTH
@@ -51,7 +55,6 @@ func set_percentage_data():
 	TOTAL_STAT_PERCENTAGE["INTELLIGENCE"] = ((UNIT_DATA.BASE_INTELLIGENCE + UNIT_DATA.ADDITIONAL_INTELLIGENCE) / MAX_STAT) * 100
 	TOTAL_STAT_PERCENTAGE["WILLPOWER"] = ((UNIT_DATA.BASE_WILLPOWER + UNIT_DATA.ADDITIONAL_WILLPOWER) / MAX_STAT) * 100
 	TOTAL_STAT_PERCENTAGE["LUCK"] = ((UNIT_DATA.BASE_LUCK + UNIT_DATA.ADDITIONAL_LUCK) / MAX_STAT) * 100
-	
 
 func set_ranking():
 	CON_LBL.text = determine_rank(TOTAL_STAT_PERCENTAGE["CONSTITUTION"])
@@ -84,7 +87,7 @@ func determine_rank(value):
 		rank = "?"
 	return rank
 
-func _ready():
+func setup():
 	set_actual_data()
 	determine_max_stat()
 	set_percentage_data()

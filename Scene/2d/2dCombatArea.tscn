@@ -1,19 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6sinl6n0bk3y"]
+[gd_scene load_steps=22 format=3 uid="uid://b6sinl6n0bk3y"]
 
 [ext_resource type="PackedScene" uid="uid://ciwtniq6pkoia" path="res://Scene/UserInterface/CardCombatInterface.tscn" id="1_r7bhy"]
 [ext_resource type="Script" path="res://Script/2DCard/Party.gd" id="3_dn4gd"]
 [ext_resource type="Script" path="res://Script/UserInterface/CardInterface/2dCombatAreaCamera.gd" id="4_l8oyl"]
 [ext_resource type="PackedScene" uid="uid://bhp7g70uuqs5w" path="res://Scene/Battle/PlayableCharacter/MainCharacter.tscn" id="5_tstnj"]
-[ext_resource type="Texture2D" uid="uid://cq1ye2ud4i2sp" path="res://Sprites/Character/Enemy/Hotdog.png" id="7_n5c2w"]
+[ext_resource type="PackedScene" uid="uid://bsfoef1gssgsh" path="res://Scene/Battle/PlayableCharacter/Rock.tscn" id="5_xdk6h"]
+[ext_resource type="PackedScene" uid="uid://0attq12o6td6" path="res://Scene/Battle/PlayableCharacter/Turtle.tscn" id="6_x8ol1"]
+[ext_resource type="PackedScene" uid="uid://cs8ywhyhnfvsj" path="res://Scene/Battle/Enemy/Cabbage.tscn" id="7_eyaak"]
 [ext_resource type="Script" path="res://Script/TurnManager/FiniteStateMachine.gd" id="8_6kfeh"]
-[ext_resource type="PackedScene" uid="uid://bnfvvledj7dlv" path="res://Models/Shop_Interior/arcade.glb" id="8_g0l8a"]
+[ext_resource type="PackedScene" uid="uid://ck5d165kfak2p" path="res://Scene/Battle/Enemy/EnemyCharacter.tscn" id="8_c1csa"]
 [ext_resource type="PackedScene" uid="uid://67vjtjnncbjk" path="res://Scene/Battle/PlayableCharacter/Slime.tscn" id="8_tbtto"]
 [ext_resource type="Script" path="res://Script/TurnManager/FSMStates/StartState.gd" id="9_6x3it"]
 [ext_resource type="Script" path="res://Script/TurnManager/FSMStates/DrawPhaseState.gd" id="9_18qel"]
+[ext_resource type="PackedScene" uid="uid://bsdhppoye80an" path="res://Scene/Battle/Enemy/Heli-Cabbage.tscn" id="9_merlu"]
 [ext_resource type="Script" path="res://Script/TurnManager/FSMStates/StandbyPhaseState.gd" id="10_5i07i"]
 [ext_resource type="Script" path="res://Script/TurnManager/FSMStates/MainPhaseState.gd" id="11_vwdn0"]
 [ext_resource type="Script" path="res://Script/TurnManager/FSMStates/EndPhaseState.gd" id="12_slr18"]
 [ext_resource type="Script" path="res://Script/TurnManager/FSMStates/EnemyPhase.gd" id="13_55ngb"]
+[ext_resource type="PackedScene" uid="uid://clgrcilcl1qsr" path="res://Models/Town/POLYGON_Town_Demo.fbx" id="14_mwwep"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_24ktw"]
 
@@ -25,7 +29,7 @@ background_mode = 2
 sky = SubResource("Sky_l2kvd")
 tonemap_mode = 2
 
-[node name="2dCombatArea" type="Node3D"]
+[node name="2dCombatArea" type="Node"]
 
 [node name="CardCombatInterface" parent="." instance=ExtResource("1_r7bhy")]
 
@@ -33,14 +37,16 @@ tonemap_mode = 2
 environment = SubResource("Environment_snyvj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 0.953233, 0.302236, 0, -0.302236, 0.953233, 0, 3.24296, 5.24918)
-light_energy = 0.456
+transform = Transform3D(1, 0, 0, 0, 0.894194, 0.44768, 0, -0.44768, 0.894194, 0, -9.24672, 138.516)
+light_energy = 0.675
 light_bake_mode = 1
 shadow_enabled = true
+directional_shadow_mode = 1
 sky_mode = 1
 
 [node name="2dCombatAreaCamera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.94242, 0.334432, 0, -0.334432, 0.94242, -0.632799, 1.69978, 7.16373)
+transform = Transform3D(1, 0, 0, 0, 0.993915, 0.110151, 0, -0.110151, 0.993915, 0, 1.78577, 9.18316)
+current = true
 script = ExtResource("4_l8oyl")
 
 [node name="Party" type="Node3D" parent="."]
@@ -48,44 +54,51 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 3)
 script = ExtResource("3_dn4gd")
 
 [node name="FirstMember" type="Node3D" parent="Party"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.67052, 1.14495, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21796, 1.14495, 0)
 
 [node name="MainCharacter" parent="Party/FirstMember" groups=["Characters"] instance=ExtResource("5_tstnj")]
-transform = Transform3D(1.99975, 0, 0.0315542, 0, 2, 0, -0.0315542, 0, 1.99975, 0, 0, 0)
+transform = Transform3D(1.99975, 0, 0.0315542, 0, 2, 0, -0.0315542, 0, 1.99975, 0, 0.625873, 0)
 
 [node name="SecondMember" type="Node3D" parent="Party"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.91465, 1.145, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.145, 0)
 
-[node name="Slime" parent="Party/SecondMember" groups=["Characters"] instance=ExtResource("8_tbtto")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+[node name="Rock" parent="Party/SecondMember" groups=["Characters"] instance=ExtResource("5_xdk6h")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.613319, 0)
 
 [node name="ThirdMember" type="Node3D" parent="Party"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.87727, 1.145, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.13, -0.013)
 
 [node name="Slime" parent="Party/ThirdMember" groups=["Characters"] instance=ExtResource("8_tbtto")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="FourthMember" type="Node3D" parent="Party"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.306, 1.145, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.145, 0)
 
-[node name="Slime" parent="Party/FourthMember" groups=["Characters"] instance=ExtResource("8_tbtto")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.584528, 0, 0)
+[node name="Turtle" parent="Party/FourthMember" groups=["Characters"] instance=ExtResource("6_x8ol1")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.650321, 0)
 
 [node name="Enemies" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 3)
 
-[node name="Sprite3D" type="Sprite3D" parent="Enemies"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.96666, 1.145, 0)
-billboard = 2
-shaded = true
-texture_filter = 0
-texture = ExtResource("7_n5c2w")
+[node name="FirstMember" type="Node3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.21796, 1.14495, 0)
+
+[node name="EnemyCharacter" parent="Enemies/FirstMember" instance=ExtResource("8_c1csa")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 11.1608, 0.603239, 0)
+
+[node name="SecondMember" type="Node3D" parent="Enemies"]
+
+[node name="Heli-Cabbage" parent="Enemies/SecondMember" groups=["Enemies"] instance=ExtResource("9_merlu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 4.5, 2, 0)
+
+[node name="ThirdMember" type="Node3D" parent="Enemies"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.028, 0, 0)
+
+[node name="Cabbage" parent="Enemies/ThirdMember" groups=["Enemies"] instance=ExtResource("7_eyaak")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
 
 [node name="CombatMap" type="Node3D" parent="."]
 transform = Transform3D(-0.4, 0, 3.49691e-08, 0, 0.4, 0, -3.49691e-08, 0, -0.4, 0, 0, 0)
-
-[node name="ArcadeArea" parent="CombatMap" instance=ExtResource("8_g0l8a")]
-transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 7.10543e-15, 0, 1, 0, 0, 0)
 
 [node name="FiniteStateMachine" type="Node" parent="." node_paths=PackedStringArray("STATE")]
 script = ExtResource("8_6kfeh")
@@ -115,3 +128,6 @@ COMBAT_INTERFACE = NodePath("../../CardCombatInterface")
 [node name="EnemyPhaseState" type="Node" parent="FiniteStateMachine" node_paths=PackedStringArray("COMBAT_INTERFACE")]
 script = ExtResource("13_55ngb")
 COMBAT_INTERFACE = NodePath("../../CardCombatInterface")
+
+[node name="POLYGON_Town_Demo" parent="." instance=ExtResource("14_mwwep")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -2.80054, 0, 0.452522)

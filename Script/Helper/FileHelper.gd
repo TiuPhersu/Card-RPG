@@ -40,3 +40,8 @@ func load_single_card_resource(path) -> card_data:
 
 func delete_single_card_resource(path):
 	DirAccess.remove_absolute(path)
+
+func load_single_unit_resource(path) -> unit_data:
+	var unitResource = load(path)
+	
+	return unitResource

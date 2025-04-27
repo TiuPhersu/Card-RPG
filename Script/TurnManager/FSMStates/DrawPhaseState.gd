@@ -1,7 +1,7 @@
 class_name DrawPhaseState
 extends State
 
-@export var COMBAT_INTERFACE: Control
+@export var COMBAT_INTERFACE: Node2D
 @export var STARTING_HAND_COUNT: int = 5
 
 @onready var CARD_INTERFACE = COMBAT_INTERFACE.get_node("CardInterface")

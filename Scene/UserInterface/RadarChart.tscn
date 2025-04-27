@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://uxox8l7vqa73"]
+[gd_scene load_steps=21 format=3 uid="uid://uxox8l7vqa73"]
 
 [ext_resource type="Script" path="res://Script/UserInterface/CharacterInterface/RadarChart.gd" id="1_jc5hy"]
+[ext_resource type="Script" path="res://Script/Resource/CardData.gd" id="2_a30ic"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="2_fmbyv"]
-[ext_resource type="Resource" uid="uid://x5j81786ius" path="res://Data/Unit/Turtle.tres" id="2_u75wv"]
+[ext_resource type="Script" path="res://Script/Resource/UnitData.gd" id="2_w526e"]
 [ext_resource type="Texture2D" uid="uid://bfu5fv4dm2p65" path="res://Sprites/Icon/Status/CON-Stat-Icon.png" id="3_7dwew"]
 [ext_resource type="Texture2D" uid="uid://dxvob16qwrxn2" path="res://Sprites/Icon/Status/STR-Stat-Icon.png" id="5_unass"]
 [ext_resource type="Texture2D" uid="uid://b4t5qqjx0vyoa" path="res://Sprites/Icon/Status/DEX-Stat-Icon.png" id="6_hn2uo"]
@@ -10,6 +11,27 @@
 [ext_resource type="Texture2D" uid="uid://b7bi8ua0g1kls" path="res://Sprites/Icon/Status/WIL-Stat-Icon.png" id="8_whxah"]
 [ext_resource type="Texture2D" uid="uid://cfbj1bnylajrl" path="res://Sprites/Icon/Status/LUK-Stat-Icon.png" id="9_f3bx7"]
 [ext_resource type="Texture2D" uid="uid://blrhp8atcmbhy" path="res://Sprites/Background/Taskbar/File/File-Button.png" id="10_cx7r2"]
+
+[sub_resource type="Resource" id="Resource_ll518"]
+script = ExtResource("2_w526e")
+UNIT_NAME = "Placeholder"
+CHARACTER_ICON = ""
+UNIT_LEVEL = 5
+UNIT_HEALTH = 10
+UNIT_EXPERIENCE = 10
+BASE_CONSTITUTION = 10
+BASE_STRENGTH = 10
+BASE_DEXTERITY = 10
+BASE_INTELLIGENCE = 10
+BASE_WILLPOWER = 10
+BASE_LUCK = 10
+ADDITIONAL_CONSTITUTION = 10
+ADDITIONAL_STRENGTH = 10
+ADDITIONAL_DEXTERITY = 10
+ADDITIONAL_INTELLIGENCE = 10
+ADDITIONAL_WILLPOWER = 10
+ADDITIONAL_LUCK = 10
+DECK = Array[ExtResource("2_a30ic")]([])
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdhlp"]
 font = ExtResource("2_fmbyv")
@@ -57,11 +79,9 @@ font = ExtResource("2_fmbyv")
 font_size = 9
 font_color = Color(0, 0, 0, 1)
 
-[node name="RadarChart" type="Control"]
-layout_mode = 3
-anchors_preset = 0
+[node name="RadarChart" type="Node2D"]
 script = ExtResource("1_jc5hy")
-UNIT_DATA = ExtResource("2_u75wv")
+UNIT_DATA = SubResource("Resource_ll518")
 LINE_WIDTH = 5.0
 POLYLINE_COLOR = Color(1, 0, 0, 1)
 POLYGON_COLOR = Color(0, 1, 0, 0.588235)
@@ -161,7 +181,6 @@ label_settings = SubResource("LabelSettings_sbxav")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 texture_filter = 1
-layout_mode = 0
 offset_left = 215.0
 offset_top = -236.0
 offset_right = 239.0

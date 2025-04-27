@@ -9,4 +9,3 @@ class_name card_data
 @export var TYPE: int
 @export var BLOCK: int
 @export var ATTACK:int 
-

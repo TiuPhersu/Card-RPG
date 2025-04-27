@@ -4,8 +4,26 @@ extends Node2D
 @onready var DECK = get_node("DeckNode");
 @onready var DISCARD = get_node("DiscardNode");
 
+var SELECTED_CARD;
+
+#func _input(event: InputEvent) -> void:
+	#if event is InputEventMouseButton:
+		#print(event)
+		#if event.pressed and event.button_index == 1:
+			#SELECTED_CARD = get_card_in_hand(true, false)
+			#print(SELECTED_CARD)
+		#if event.pressed == false and event.button_index == 1:
+			#play_card(SELECTED_CARD)
+			#SELECTED_CARD = get_card_in_hand(false, true)
+			#print(SELECTED_CARD)
+	
+
 func get_card_in_hand(pressed, released):
-	return HAND.focus_card_in_hand(pressed, released)
+	var selectedFromHand = HAND.focus_card_in_hand(pressed, released)
+	SELECTED_CARD = selectedFromHand 
+	if SELECTED_CARD != null:
+		print(SELECTED_CARD)
+	return selectedFromHand
 
 func draw_card_from_deck():
 	if !DECK.check_deck_has_cards():
@@ -61,8 +79,9 @@ func discard_hand():
 		HAND.remove_card_from_hand(card)
 
 # TODO: SHOW DECKLIST INSTEAD OF DRAWING CARD
-func _on_deck_button_pressed():
+func _on_deck_button_pressed() -> void:
 	draw_card_from_deck()
+
 # TODO: SHOW DISCARDPILE INSTEAD OF SHUFFLING DISCARD PILE INTO DECK
-func _on_discard_button_pressed():
+func _on_discard_button_pressed() -> void:
 	shuffle_discard_to_deck()

@@ -30,4 +30,3 @@ func _process(delta) -> void:
 	
 func _physics_process(delta) -> void:
 	STATE._physics_update(delta)
-

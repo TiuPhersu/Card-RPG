@@ -1,7 +1,7 @@
 class_name EndPhaseState
 extends State
 
-@export var COMBAT_INTERFACE: Control
+@export var COMBAT_INTERFACE: Node2D
 
 @onready var CARD_INTERFACE = COMBAT_INTERFACE.get_node("CardInterface")
 @onready var FSM: FiniteStateMachine

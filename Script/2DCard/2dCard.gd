@@ -39,10 +39,15 @@ extends Node2D
 @onready var SETUP = true
 @onready var CARD_SELECTED = false
 
-@onready var IN_HAND_AREA = true
-@onready var IN_PLAY_AREA = false
+# TODO Repurpose to target when cards target and drag if not
+@onready var IN_HAND_AREA = false # Set true if implementing the drag/targeting (currently turning off and only target)
+@onready var IN_PLAY_AREA = false # Set false if implementing the drag/targeting (currently turning off and only target)
+
+@onready var TARGETING = false
+@export var COLLISION:Area2D
 
 func _physics_process(delta):
+	checkCollision()
 	checkHover()
 	match STATE:
 		card_enum.CARD_STATE_ENUM.InHand:
@@ -50,18 +55,39 @@ func _physics_process(delta):
 		card_enum.CARD_STATE_ENUM.InPlay:
 			pass
 		card_enum.CARD_STATE_ENUM.InMouse:
-			if IN_HAND_AREA && !IN_PLAY_AREA:
-				card_dragging()
-			elif !IN_HAND_AREA && IN_PLAY_AREA:
+			if TARGETING:
 				card_targeting()
 			else:
-				reset_line(TARGET_LINE)
+				card_dragging()
+			#if !IN_PLAY_AREA:
+				#card_dragging()
+			#elif IN_PLAY_AREA:
+				#card_targeting()
+			#else:
+				#reset_line(TARGET_LINE)
 		card_enum.CARD_STATE_ENUM.FocusInHand:
 			focus_card()
 		card_enum.CARD_STATE_ENUM.MoveDrawnCardToHand:
 			move_to_destination(delta, true)
 		card_enum.CARD_STATE_ENUM.ReorganizeHand:
 			move_to_destination(1, false)
+
+func checkCollision():
+	if COLLISION == null:
+		return
+	var overlapping_areas = COLLISION.get_overlapping_areas()
+	if overlapping_areas.size() > 0:
+		#print(overlapping_areas[0].name)
+		if(overlapping_areas[0].name == "PlayArea2D"):
+			TARGETING = true
+			#TARGET_LINE.visible = true
+			#print("overlapping")
+			IN_PLAY_AREA = true
+	else:
+		#TARGET_LINE.visible = false
+		TARGETING = false
+		IN_PLAY_AREA = false
+		#print("not overlapping")
 
 func checkHover():
 	if self.get_node("Selection").is_hovered() :
@@ -97,14 +123,17 @@ func card_targeting():
 #	TODO: Check Card Type then determine if it should be a pointer or a floater
 	position = OLD_POS
 	var pointer = TARGET_LINE.get_node("Pointer")
+	
 	set_line_points_to_bezier(TARGET_LINE, 
 		Vector2(0, -110), 
 		Vector2(0, -80), 
 		Vector2.ZERO, 
 		self.get_local_mouse_position())
-	pointer.position = TARGET_LINE.points[TARGET_LINE.get_point_count() - 4]
-	pointer.look_at(get_global_mouse_position())
-	pointer.rotation_degrees += 90
+	
+	pointer.position = TARGET_LINE.points[TARGET_LINE.get_point_count()-1]
+	#pointer.position = TARGET_LINE.points[TARGET_LINE.get_point_count() - 4]
+	#pointer.look_at(get_global_mouse_position())
+	#pointer.rotation_degrees += 90
 
 func focus_card():
 	if !SETUP:

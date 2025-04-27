@@ -1,5 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://ciwtniq6pkoia"]
+[gd_scene load_steps=28 format=3 uid="uid://ciwtniq6pkoia"]
 
+[ext_resource type="Script" path="res://Scene/UserInterface/CardCombatInterface.gd" id="1_mtsn5"]
 [ext_resource type="PackedScene" uid="uid://wpfj0p0tut4c" path="res://Scene/UserInterface/CardInterface.tscn" id="1_r24bd"]
 [ext_resource type="Texture2D" uid="uid://c42f6c3dwq4fv" path="res://Sprites/Background/Taskbar/Taskbar32by32.png" id="3_ga3lb"]
 [ext_resource type="Texture2D" uid="uid://d08h1qbpocr76" path="res://Sprites/Background/Taskbar/Start/Start-Button.png" id="3_vj3hu"]
@@ -17,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dw22ns2orixr4" path="res://Sprites/Background/Taskbar/Start/Shutdown-Button.png" id="20_7hl5l"]
 [ext_resource type="Texture2D" uid="uid://do3gbkucdfmoi" path="res://Sprites/Background/Taskbar/File/Task Icon/Mini-Folder-Icon.png" id="21_lmvjk"]
 [ext_resource type="Texture2D" uid="uid://c1nuviyr15cpj" path="res://Sprites/Background/Taskbar/Start/Shutdown-Button-HL.png" id="21_qwylt"]
+[ext_resource type="PackedScene" uid="uid://vaf4xbtpcft6" path="res://Scene/UserInterface/2dUnitInfoInterface.tscn" id="22_6183s"]
 [ext_resource type="Texture2D" uid="uid://ckv0bxjlffkay" path="res://Sprites/Background/Taskbar/Start/Help-Button.png" id="22_k2q7r"]
 [ext_resource type="Texture2D" uid="uid://dc44fbklm3mq" path="res://Sprites/Background/Taskbar/Start/Help-Button-HL.png" id="23_3o0af"]
 [ext_resource type="Texture2D" uid="uid://dhkgjkuwvk85w" path="res://Sprites/Background/Taskbar/Start/Setting-Button.png" id="24_j84ld"]
@@ -42,18 +44,16 @@ line_spacing = 0.0
 font = ExtResource("19_hnmk3")
 font_color = Color(0, 0, 0, 1)
 
-[node name="CardCombatInterface" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CardCombatInterface" type="Node2D" node_paths=PackedStringArray("UNIT_INFO_INTERFACE", "CARD_INTERFACE")]
+script = ExtResource("1_mtsn5")
+UNIT_INFO_INTERFACE = NodePath("2dUnitInfoInterface")
+CARD_INTERFACE = NodePath("CardInterface")
 
 [node name="CardInterface" parent="." instance=ExtResource("1_r24bd")]
 z_index = -1
 
 [node name="MenuBar" type="Node2D" parent="."]
+visible = false
 
 [node name="Taskbar" type="TileMap" parent="MenuBar"]
 z_index = -1
@@ -204,6 +204,11 @@ texture_disabled = ExtResource("25_3j3rk")
 
 [node name="2dPartyInterface" parent="." instance=ExtResource("19_ebluk")]
 position = Vector2(10, 10)
+
+[node name="2dUnitInfoInterface" parent="." instance=ExtResource("22_6183s")]
+visible = false
+z_index = 4096
+position = Vector2(409, 136)
 
 [connection signal="toggled" from="MenuBar/StartButton" to="MenuBar/StartButton" method="_on_start_toggled"]
 [connection signal="toggled" from="MenuBar/FileButton" to="MenuBar/FileButton" method="_on_file_toggled"]

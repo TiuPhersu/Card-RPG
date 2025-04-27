@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://smj5r4t8uqex"]
+[gd_scene load_steps=15 format=3 uid="uid://smj5r4t8uqex"]
 
 [ext_resource type="Script" path="res://Script/2DCard/2dCard.gd" id="1_f66af"]
 [ext_resource type="Texture2D" uid="uid://cm07hmavj1q8k" path="res://Sprites/Card/Card-File-Skin.png" id="2_kby0a"]
@@ -8,8 +8,8 @@
 [ext_resource type="Script" path="res://Script/2DCard/Floppy-Disk.gd" id="6_oikto"]
 [ext_resource type="Script" path="res://Script/2DCard/Battery.gd" id="8_u6xs3"]
 [ext_resource type="Texture2D" uid="uid://cp7l1vuovxf57" path="res://Sprites/CardImage/hamster.jpg" id="9_xsbvt"]
+[ext_resource type="Texture2D" uid="uid://nsaxw7ltaftq" path="res://Sprites/Icon/Pointer/Pointer-Aim.png" id="10_p744r"]
 [ext_resource type="Texture2D" uid="uid://croqmdyp0atxx" path="res://Sprites/Icon/Pointer/Dotted-Line.png" id="10_rer64"]
-[ext_resource type="Texture2D" uid="uid://pc7j7i5y0tun" path="res://Sprites/Icon/Pointer/Pointer.png" id="11_1djhs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i1l3u"]
 line_spacing = 0.0
@@ -29,13 +29,17 @@ shadow_size = 0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.962069, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -27.8128, 0.0, 0, 0]
 point_count = 3
 
-[node name="2dCard" type="Node2D" node_paths=PackedStringArray("TITLE_LABEL", "DESCRIPTION_LABEL", "CARD_IMAGE", "FLOPPY_DISK_ICON", "BATTERY_ICON")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_inhwo"]
+size = Vector2(53, 75.075)
+
+[node name="2dCard" type="Node2D" node_paths=PackedStringArray("TITLE_LABEL", "DESCRIPTION_LABEL", "CARD_IMAGE", "FLOPPY_DISK_ICON", "BATTERY_ICON", "COLLISION")]
 script = ExtResource("1_f66af")
 TITLE_LABEL = NodePath("Title")
 DESCRIPTION_LABEL = NodePath("Description")
 CARD_IMAGE = NodePath("CardImageRect")
 FLOPPY_DISK_ICON = NodePath("Floppy-Disk-Icon")
 BATTERY_ICON = NodePath("Battery-Icon")
+COLLISION = NodePath("SelectTargetLine/Pointer/PointerArea2D")
 
 [node name="CardImageRect" type="TextureRect" parent="."]
 z_index = 1
@@ -108,7 +112,15 @@ joint_mode = 2
 end_cap_mode = 2
 
 [node name="Pointer" type="Sprite2D" parent="SelectTargetLine"]
-scale = Vector2(2, 2)
-texture = ExtResource("11_1djhs")
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("10_p744r")
+
+[node name="PointerArea2D" type="Area2D" parent="SelectTargetLine/Pointer"]
+position = Vector2(0.0754717, 0.0519481)
+scale = Vector2(0.150943, 0.103896)
+
+[node name="PointerCollisionShape2D" type="CollisionShape2D" parent="SelectTargetLine/Pointer/PointerArea2D"]
+position = Vector2(-0.499996, 0.4625)
+shape = SubResource("RectangleShape2D_inhwo")
 
 [node name="CardDrawTimer" type="Timer" parent="."]

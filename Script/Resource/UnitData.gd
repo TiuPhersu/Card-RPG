@@ -6,6 +6,8 @@ class_name unit_data
 @export var CHARACTER_ICON: String
 
 @export var UNIT_LEVEL: int
+@export var UNIT_HEALTH: int
+@export var UNIT_EXPERIENCE: int
 
 # STAT APTITUDE 
 # It's represented as a percentage, 
@@ -16,8 +18,7 @@ class_name unit_data
 
 # Use RADAR CHART for Stat Display
 # https://github.com/tbpaksoy/Godot-Chart-Implementation/blob/main/RadarChart.cs
-# F=Below 100, D=100-200, C=200-300, B=300-400, A=400-500, S=500-600, Incalculatable=Above 600
-# X25 is Minus (-), X75 is Plus (+)
+# F=Below 20, D=20-40, C=40-60, B=60-80, A=Above 80
 @export var BASE_CONSTITUTION: int #Health
 @export var BASE_STRENGTH: int #Physical Damage, Self Buffs, Charge, Discard More Power
 @export var BASE_DEXTERITY: int #Card Cost, Draw Power, Multihit, Hand Manipulation

@@ -1,14 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://vaf4xbtpcft6"]
+[gd_scene load_steps=32 format=3 uid="uid://vaf4xbtpcft6"]
 
 [ext_resource type="PackedScene" uid="uid://uxox8l7vqa73" path="res://Scene/UserInterface/RadarChart.tscn" id="1_3y52p"]
 [ext_resource type="Script" path="res://Script/UserInterface/CharacterInterface/2dUnitInfoInterface.gd" id="1_otubi"]
 [ext_resource type="Texture2D" uid="uid://4qgvra14vt1l" path="res://Sprites/Background/Windows Explorer.png" id="2_4kcov"]
+[ext_resource type="Resource" uid="uid://x5j81786ius" path="res://Sprites/CardImage/Turtle.tres" id="2_hkmk4"]
 [ext_resource type="FontFile" uid="uid://cbfnf36nahj73" path="res://Font/Free/PixeloidSansBold-PKnYd.ttf" id="3_qqr4i"]
 [ext_resource type="Texture2D" uid="uid://blrhp8atcmbhy" path="res://Sprites/Background/Taskbar/File/File-Button.png" id="4_kuruy"]
 [ext_resource type="Texture2D" uid="uid://dq5baw51h2wqc" path="res://Sprites/Icon/Bar/Health-Bar-Progress.png" id="6_v663g"]
 [ext_resource type="Texture2D" uid="uid://cq7n4onx56xle" path="res://Sprites/Icon/Bar/Health-Bar-Over.png" id="7_gd4h8"]
+[ext_resource type="Script" path="res://Scene/UserInterface/CharacterWindow.gd" id="7_s7jhm"]
 [ext_resource type="Texture2D" uid="uid://bfu5fv4dm2p65" path="res://Sprites/Icon/Status/CON-Stat-Icon.png" id="8_5c84o"]
 [ext_resource type="Texture2D" uid="uid://dxvob16qwrxn2" path="res://Sprites/Icon/Status/STR-Stat-Icon.png" id="9_ueiuk"]
+[ext_resource type="Script" path="res://Scene/UserInterface/ParameterWindow.gd" id="10_0rmbg"]
 [ext_resource type="Texture2D" uid="uid://b4t5qqjx0vyoa" path="res://Sprites/Icon/Status/DEX-Stat-Icon.png" id="10_4sfsd"]
 [ext_resource type="Texture2D" uid="uid://d3u2u10u1id5f" path="res://Sprites/Icon/Status/INT-Stat-Icon.png" id="11_3knt7"]
 [ext_resource type="Texture2D" uid="uid://b7bi8ua0g1kls" path="res://Sprites/Icon/Status/WIL-Stat-Icon.png" id="12_5lthj"]
@@ -78,18 +81,12 @@ font = ExtResource("3_qqr4i")
 font_size = 18
 font_color = Color(0, 0, 0, 1)
 
-[node name="2dUnitInfoInterface" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="2dUnitInfoInterface" type="Node2D"]
 script = ExtResource("1_otubi")
+UNIT_DATA = ExtResource("2_hkmk4")
 
 [node name="MainWindow" type="NinePatchRect" parent="."]
 texture_filter = 1
-layout_mode = 0
 offset_right = 251.0
 offset_bottom = 197.0
 scale = Vector2(3, 3)
@@ -110,7 +107,6 @@ label_settings = SubResource("LabelSettings_rm11p")
 
 [node name="PotentialWindow" type="NinePatchRect" parent="."]
 texture_filter = 1
-layout_mode = 0
 offset_left = 15.0
 offset_top = 230.0
 offset_right = 141.0
@@ -133,15 +129,11 @@ vertical_alignment = 1
 
 [node name="RadarChart" parent="PotentialWindow" instance=ExtResource("1_3y52p")]
 texture_filter = 1
-offset_left = 51.3333
-offset_top = 61.0
-offset_right = 51.3333
-offset_bottom = 61.0
+position = Vector2(52.3333, 65.3333)
 scale = Vector2(0.2, 0.2)
 
 [node name="CharacterWindow" type="NinePatchRect" parent="."]
 texture_filter = 1
-layout_mode = 0
 offset_left = 14.0
 offset_top = 50.0
 offset_right = 140.0
@@ -152,6 +144,7 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
+script = ExtResource("7_s7jhm")
 
 [node name="Name" type="Node2D" parent="CharacterWindow"]
 scale = Vector2(0.5, 0.5)
@@ -195,7 +188,7 @@ label_settings = SubResource("LabelSettings_kqcq8")
 horizontal_alignment = 2
 
 [node name="Health" type="Node2D" parent="CharacterWindow"]
-position = Vector2(2, 21.6667)
+position = Vector2(2, 19)
 scale = Vector2(0.5, 0.5)
 
 [node name="Label" type="Label" parent="CharacterWindow/Health"]
@@ -205,12 +198,12 @@ text = "Health"
 label_settings = SubResource("LabelSettings_pj2v1")
 
 [node name="HealthBar" type="TextureProgressBar" parent="CharacterWindow/Health"]
-offset_left = 7.0
-offset_top = 15.0
-offset_right = 84.0
-offset_bottom = 20.0
+texture_filter = 1
+offset_left = 4.0
+offset_top = 12.0
+offset_right = 82.0
+offset_bottom = 19.0
 scale = Vector2(3, 3)
-value = 70.0
 nine_patch_stretch = true
 stretch_margin_left = 1
 stretch_margin_top = 1
@@ -224,10 +217,10 @@ tint_over = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
 
 [node name="HealthLabel" type="Label" parent="CharacterWindow/Health"]
-offset_left = 6.0
-offset_top = 14.0
-offset_right = 240.0
-offset_bottom = 30.0
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 239.0
+offset_bottom = 35.0
 text = "70/100"
 label_settings = SubResource("LabelSettings_ilmj8")
 horizontal_alignment = 1
@@ -244,12 +237,12 @@ text = "Next Level"
 label_settings = SubResource("LabelSettings_67mfi")
 
 [node name="ExperienceProgressBar" type="TextureProgressBar" parent="CharacterWindow/Experience"]
-offset_left = 5.0
+texture_filter = 1
+offset_left = 4.0
 offset_top = 14.0
-offset_right = 83.0
-offset_bottom = 19.0
+offset_right = 82.0
+offset_bottom = 21.0
 scale = Vector2(3, 3)
-value = 10.0
 nine_patch_stretch = true
 stretch_margin_left = 1
 stretch_margin_top = 1
@@ -260,13 +253,13 @@ texture_over = ExtResource("7_gd4h8")
 texture_progress = ExtResource("6_v663g")
 tint_under = Color(0, 0, 0, 1)
 tint_over = Color(0, 0, 0, 1)
-tint_progress = Color(0, 1, 0, 1)
+tint_progress = Color(0.210142, 0.195328, 1, 1)
 
 [node name="ExperienceLabel" type="Label" parent="CharacterWindow/Experience"]
 offset_left = 6.0
-offset_top = 14.0
+offset_top = 11.0
 offset_right = 239.0
-offset_bottom = 28.0
+offset_bottom = 38.0
 text = "100/1000"
 label_settings = SubResource("LabelSettings_mohs8")
 horizontal_alignment = 1
@@ -274,7 +267,6 @@ vertical_alignment = 1
 
 [node name="ParameterWindow" type="NinePatchRect" parent="."]
 texture_filter = 1
-layout_mode = 0
 offset_left = 400.0
 offset_top = 285.0
 offset_right = 505.0
@@ -285,6 +277,7 @@ patch_margin_left = 3
 patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
+script = ExtResource("10_0rmbg")
 
 [node name="TitleLabel" type="Label" parent="ParameterWindow"]
 layout_mode = 0
@@ -310,7 +303,7 @@ label_settings = SubResource("LabelSettings_14q8j")
 scale = Vector2(3, 3)
 texture = ExtResource("8_5c84o")
 
-[node name="Label2" type="Label" parent="ParameterWindow/Constitution"]
+[node name="UnitStat" type="Label" parent="ParameterWindow/Constitution"]
 offset_left = -14.6667
 offset_top = -11.3333
 offset_right = 191.333
@@ -334,7 +327,7 @@ label_settings = SubResource("LabelSettings_14q8j")
 scale = Vector2(3, 3)
 texture = ExtResource("9_ueiuk")
 
-[node name="Label2" type="Label" parent="ParameterWindow/Strength"]
+[node name="UnitStat" type="Label" parent="ParameterWindow/Strength"]
 offset_left = -14.6667
 offset_top = -11.3333
 offset_right = 191.333
@@ -358,7 +351,7 @@ label_settings = SubResource("LabelSettings_14q8j")
 scale = Vector2(3, 3)
 texture = ExtResource("10_4sfsd")
 
-[node name="Label2" type="Label" parent="ParameterWindow/Dexterity"]
+[node name="UnitStat" type="Label" parent="ParameterWindow/Dexterity"]
 offset_left = -14.6667
 offset_top = -11.3333
 offset_right = 191.333
@@ -382,7 +375,7 @@ label_settings = SubResource("LabelSettings_14q8j")
 scale = Vector2(3, 3)
 texture = ExtResource("11_3knt7")
 
-[node name="Label2" type="Label" parent="ParameterWindow/Intelligence"]
+[node name="UnitStat" type="Label" parent="ParameterWindow/Intelligence"]
 offset_left = -14.6667
 offset_top = -11.3333
 offset_right = 191.333
@@ -406,7 +399,7 @@ label_settings = SubResource("LabelSettings_14q8j")
 scale = Vector2(3, 3)
 texture = ExtResource("12_5lthj")
 
-[node name="Label2" type="Label" parent="ParameterWindow/Willpower"]
+[node name="UnitStat" type="Label" parent="ParameterWindow/Willpower"]
 offset_left = -14.6667
 offset_top = -11.3333
 offset_right = 191.333
@@ -430,7 +423,7 @@ label_settings = SubResource("LabelSettings_14q8j")
 scale = Vector2(3, 3)
 texture = ExtResource("13_jdw7a")
 
-[node name="Label2" type="Label" parent="ParameterWindow/Luck"]
+[node name="UnitStat" type="Label" parent="ParameterWindow/Luck"]
 offset_left = -14.6667
 offset_top = -11.3333
 offset_right = 191.333
@@ -441,7 +434,6 @@ horizontal_alignment = 2
 
 [node name="PortraitWindow" type="NinePatchRect" parent="."]
 texture_filter = 1
-layout_mode = 0
 offset_left = 400.0
 offset_top = 50.0
 offset_right = 505.0
